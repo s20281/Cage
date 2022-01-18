@@ -25,10 +25,16 @@ public class GameEventSystem : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public event Action<Stats> OnMouseHoverOnEnemy;
+    public event Action<Stats> OnMouseOverEnemy;
+    public event Action<Stats> OnMouseExitEnemy;
 
-    public void SetMouseHoverOnEnemy(Stats stats)
+    public void SetMouseOverEnemy(Stats stats)
     {
-        OnMouseHoverOnEnemy.Invoke(stats);
+        OnMouseOverEnemy.Invoke(stats);
+    }
+
+    public void SetMouseExitEnemy(Stats stats)
+    {
+        OnMouseExitEnemy.Invoke(stats);
     }
 }

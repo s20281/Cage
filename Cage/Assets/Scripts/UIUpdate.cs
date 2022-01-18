@@ -13,7 +13,7 @@ public class UIUpdate : MonoBehaviour
 
     void Start()
     {
-        GameEventSystem.Instance.OnMouseHoverOnEnemy += UpdateStatistics;
+        GameEventSystem.Instance.OnMouseOverEnemy += UpdateStatistics;
     }
 
     void UpdateStatistics(Stats stats)
