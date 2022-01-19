@@ -7,7 +7,7 @@ public class UseSkill : MonoBehaviour
     public int activeSkill;
 
     public Stats playerStats;
-    Stats enemyStats;
+    public Stats enemyStats;
     public bool hasTarget;
 
     void Start()
@@ -22,21 +22,32 @@ public class UseSkill : MonoBehaviour
     {
         if (hasTarget && Input.GetMouseButtonDown(0))
         {
-            switch(activeSkill)
+            switch (activeSkill)
             {
                 case 1:
                     simpleAtack(playerStats, enemyStats);
                     break;
+                case 2:
+                    protection(playerStats, enemyStats);
+                    break;
+                case 3:
+                    heal(playerStats, enemyStats);
+                    break;
                 default:
                     break;
             }
+            activeSkill = 0;
+            GameEventSystem.Instance.SetSkillUse();
         }
     }
 
-            public void setTarget(Stats stats)
+    public void setTarget(Stats stats)
     {
-        hasTarget = true;
-        enemyStats = stats;
+        if(!stats.isDead)
+        {
+            hasTarget = true;
+            enemyStats = stats;
+        }
     }
 
     public void unsetTarget(Stats stats)
@@ -69,11 +80,25 @@ public class UseSkill : MonoBehaviour
         if(roll + modificator < 0)
         {
             // Miss
+            Debug.Log("Miss");
             return;
         }
 
         int damage = 3 + playerStats.strength;
         enemyStats.onHealthChange(-damage);
+    }
+
+    private void heal(Stats playerStats, Stats enemyStats)
+    {
+        int roll = Random.Range(3, 5);
+        enemyStats.onHealthChange(roll);
+        GameEventSystem.Instance.SetPositiveSkillUse(enemyStats);
+    }
+
+    private void protection(Stats playerStats, Stats enemyStats)
+    {
+        enemyStats.dodge += 3;
+        GameEventSystem.Instance.SetPositiveSkillUse(enemyStats);
     }
 
 }

@@ -27,6 +27,8 @@ public class GameEventSystem : MonoBehaviour
 
     public event Action<Stats> OnMouseOverEnemy;
     public event Action<Stats> OnMouseExitEnemy;
+    public event Action<Stats> OnPositiveSkillUse;
+    public event Action OnSkillUse;
 
     public void SetMouseOverEnemy(Stats stats)
     {
@@ -36,5 +38,14 @@ public class GameEventSystem : MonoBehaviour
     public void SetMouseExitEnemy(Stats stats)
     {
         OnMouseExitEnemy.Invoke(stats);
+    }
+    public void SetPositiveSkillUse(Stats stats)
+    {
+        OnPositiveSkillUse.Invoke(stats);
+    }
+
+    public void SetSkillUse()
+    {
+        OnSkillUse.Invoke();
     }
 }
