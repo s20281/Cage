@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class UIUpdate : MonoBehaviour
 {
+    public GameObject enemyStatsPanel;
     public Text healthText;
     public Text speedText;
     public Text strengthText;
     public Text dodgeText;
     public Text aimText;
 
+    public GameObject playerStatsPanel;
     public Text playerHealthText;
     public Text playerSpeedText;
     public Text playerStrengthText;
@@ -27,6 +29,8 @@ public class UIUpdate : MonoBehaviour
         GameEventSystem.Instance.OnMouseOverEnemy += UpdateStatistics;
         GameEventSystem.Instance.OnPositiveSkillUse += UpdatePlayerStatistics;
         GameEventSystem.Instance.OnSkillUse += deselectSkills;
+        GameEventSystem.Instance.OnEnemyStatsActive += activateEnemyStats;
+        GameEventSystem.Instance.OnPlayerStatsActive += activatePlayerStats;
     }
 
     void UpdateStatistics(Stats stats)
@@ -59,6 +63,16 @@ public class UIUpdate : MonoBehaviour
         select2.gameObject.SetActive(false);
         select3.gameObject.SetActive(false);
         select4.gameObject.SetActive(false);
+    }
+
+    void activatePlayerStats(bool isActive)
+    {
+        playerStatsPanel.SetActive(isActive);
+    }
+
+    void activateEnemyStats(bool isActive)
+    {
+        enemyStatsPanel.SetActive(isActive);
     }
 
 }

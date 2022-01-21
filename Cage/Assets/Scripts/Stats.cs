@@ -15,6 +15,7 @@ public class Stats : MonoBehaviour
 
     public Sprite dead;
     public bool isDead;
+    public bool queued = false;
 
 
     void Start()
@@ -31,10 +32,28 @@ public class Stats : MonoBehaviour
     {
         //Debug.Log(gameObject.name);
         GameEventSystem.Instance.SetMouseOverEnemy(this);
+
+        if (gameObject.CompareTag("Enemy"))
+        {
+            GameEventSystem.Instance.SetEnemyStatsActive(true);
+        }
+        else
+        {
+            GameEventSystem.Instance.SetPlayerStatsActive(true);
+        }
     }
     void OnMouseExit()
     {
         GameEventSystem.Instance.SetMouseExitEnemy(this);
+
+        if(gameObject.CompareTag("Enemy"))
+        {
+            GameEventSystem.Instance.SetEnemyStatsActive(false);
+        }
+        else
+        {
+            GameEventSystem.Instance.SetPlayerStatsActive(false);
+        }
     }
 
     public void onHealthChange(int change)
