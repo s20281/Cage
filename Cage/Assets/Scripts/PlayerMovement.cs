@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public int speed;
     private Rigidbody2D rb;
-    public GameObject bulletPrefab;
     private Vector3 moveVelocity;
     Inventory inventory;
     bool canPress = false;
