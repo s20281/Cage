@@ -29,6 +29,10 @@ public class GameEventSystem : MonoBehaviour
     public event Action<Stats> OnMouseExitEnemy;
     public event Action<Stats> OnPositiveSkillUse;
     public event Action OnSkillUse;
+    public event Action<bool> OnPlayerStatsActive;
+    public event Action<bool> OnEnemyStatsActive;
+    public event Action OnPlayerDies;
+    public event Action OnEnemyDies;
 
     public void SetMouseOverEnemy(Stats stats)
     {
@@ -47,5 +51,25 @@ public class GameEventSystem : MonoBehaviour
     public void SetSkillUse()
     {
         OnSkillUse.Invoke();
+    }
+
+    public void SetPlayerStatsActive(bool isActive)
+    {
+        OnPlayerStatsActive.Invoke(isActive);
+    }
+
+    public void SetEnemyStatsActive(bool isActive)
+    {
+        OnEnemyStatsActive.Invoke(isActive);
+    }
+
+    public void SetPlayerDies()
+    {
+        OnPlayerDies.Invoke();
+    }
+
+    public void SetEnemyDies()
+    {
+        OnEnemyDies.Invoke();
     }
 }

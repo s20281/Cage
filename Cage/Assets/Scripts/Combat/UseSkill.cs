@@ -86,6 +86,7 @@ public class UseSkill : MonoBehaviour
 
         int damage = 3 + playerStats.strength;
         enemyStats.onHealthChange(-damage);
+        Debug.Log("Player attacks for " + damage);
     }
 
     private void heal(Stats playerStats, Stats enemyStats)
@@ -93,12 +94,15 @@ public class UseSkill : MonoBehaviour
         int roll = Random.Range(3, 5);
         enemyStats.onHealthChange(roll);
         GameEventSystem.Instance.SetPositiveSkillUse(enemyStats);
+        Debug.Log("Player heals for " + roll);
     }
 
     private void protection(Stats playerStats, Stats enemyStats)
     {
         enemyStats.dodge += 3;
         GameEventSystem.Instance.SetPositiveSkillUse(enemyStats);
+
+        Debug.Log("Player heals increases he's dodge for " + 3);
     }
 
 }
