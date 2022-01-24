@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<GameData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <playerPosition>
+    <x>-17.0687885</x>
+    <y>-0.915295064</y>
+    <z>0</z>
+  </playerPosition>
+  <enemy1Alive>false</enemy1Alive>
+  <enemy2Alive>false</enemy2Alive>
+</GameData>

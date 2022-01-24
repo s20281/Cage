@@ -163,4 +163,10 @@ public class Turn : MonoBehaviour
     {
         aliveEnemies--;
     }
+
+    public void AutoWin()
+    {
+        Debug.Log("Auto WIN");
+        SceneManager.LoadScene("Level 1");
+    }
 }

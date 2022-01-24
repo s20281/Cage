@@ -9,7 +9,9 @@ public class LevelChange : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // SAVE
+            collision.gameObject.SetActive(false);
+
+            GameEventSystemMap.Instance.SaveData();
 
             SceneManager.LoadScene("Combat");
         }
