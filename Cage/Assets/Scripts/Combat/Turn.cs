@@ -31,11 +31,6 @@ public class Turn : MonoBehaviour
         alivePlayers = players.Length;
         aliveEnemies = enemies.Length;
 
-        //if (alivePlayers > 0)
-        //    Debug.Log("Wygrana");
-        //else
-        //    Debug.Log("Przegrana");
-
         turnNumber = 1;
         StartCoroutine(nextTurn());
     }
@@ -82,11 +77,13 @@ public class Turn : MonoBehaviour
             if (aliveEnemies == 0)
             {
                 Debug.Log("All enemies are dead");
+                SceneManager.LoadScene("Level 1");
                 yield break;
             }
             if (alivePlayers == 0)
             {
                 Debug.Log("Player is dead");
+                SceneManager.LoadScene("Game Over");
                 yield break;
             }
             if (queue.Count == 0)
