@@ -4,11 +4,33 @@ using UnityEngine;
 
 public class OpenableItem : MonoBehaviour
 {
-    public void OpenIt()
+    public GameObject itemToUnlockDoor;
+
+
+    public void OpenIt(Inventory inventory)
+    {
+
+        if (itemToUnlockDoor != null)
+        {
+            if (inventory.FindItem(itemToUnlockDoor.name)!=null)
+            {
+                inventory.RemoveItem(itemToUnlockDoor.name);
+                doorOpening();
+
+            }
+
+        }
+        else
+        {
+            doorOpening();
+        }
+
+
+    }
+
+    public void doorOpening()
     {
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         gameObject.GetComponent<Collider2D>().enabled = false;
-
-
     }
 }

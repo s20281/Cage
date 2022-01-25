@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
             if (gameObject.GetComponent<OpenableItem>())
             {
 
-                gameObject.GetComponent<OpenableItem>().OpenIt();
+                gameObject.GetComponent<OpenableItem>().OpenIt(inventory);
             }
 
             if (gameObject.GetComponent<ReadableItem>())

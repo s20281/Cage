@@ -15,6 +15,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
         spriteImage = GetComponent<Image>();
         UpdateItem(null);
         selectedItem = GameObject.Find("SelectedItem").GetComponent<UIItem>();
+        
     }
 
     public void UpdateItem(Item item)
@@ -36,6 +37,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        
         if (this.item != null)
         {
             if (selectedItem.item != null)
