@@ -36,7 +36,7 @@ public class Turn : MonoBehaviour
     }
     void EnqueAll()
     {
-        for (int i = 0; i < enemies.Length + players.Length; i++)
+        for (int i = 0; i < alivePlayers + aliveEnemies ; i++)
         {
             int maxSpeed = int.MinValue;
             GameObject fastest = new GameObject();
@@ -44,6 +44,8 @@ public class Turn : MonoBehaviour
 
             foreach (GameObject e in enemies)
             {
+                if (e.GetComponent<Stats>().isDead)
+                    continue;
                 int speed = e.GetComponent<Stats>().speed;
                 if (!e.GetComponent<Stats>().queued && speed > maxSpeed)
                 {
@@ -53,6 +55,8 @@ public class Turn : MonoBehaviour
             }
             foreach (GameObject p in players)
             {
+                if (p.GetComponent<Stats>().isDead)
+                    continue;
                 int speed = p.GetComponent<Stats>().speed;
                 if (!p.GetComponent<Stats>().queued && speed > maxSpeed)
                 {
