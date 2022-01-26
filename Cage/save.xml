@@ -1,10 +1,14 @@
 <?xml version="1.0"?>
 <GameData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <playerPosition>
-    <x>-5.59916258</x>
-    <y>4.318191</y>
+    <x>-17.0231342</x>
+    <y>-0.8884905</y>
     <z>0</z>
   </playerPosition>
   <enemy1Alive>false</enemy1Alive>
-  <enemy2Alive>true</enemy2Alive>
+  <enemy2Alive>false</enemy2Alive>
+  <swordPicked>true</swordPicked>
+  <doorUpOpened>false</doorUpOpened>
+  <doorLeftOpened>false</doorLeftOpened>
+  <doorRightOpened>true</doorRightOpened>
 </GameData>
