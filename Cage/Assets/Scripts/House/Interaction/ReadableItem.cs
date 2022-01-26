@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ReadableItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    [SerializeField] private GameObject readUI;
+    [SerializeField] private TMP_Text textLabel;
 
-    // Update is called once per frame
-    void Update()
+    public void ReadStory(){
+        readUI.SetActive(true);
+        //textLabel.text = "AAAAAAAAAAAAAAAAAA";
+
+    
+
+}
+
+    private void Update()
     {
-        
+        if (readUI.active && Input.GetKeyDown(KeyCode.Space))
+        {
+            readUI.SetActive(false);
+            gameObject.SetActive(false);
+        }
     }
 }

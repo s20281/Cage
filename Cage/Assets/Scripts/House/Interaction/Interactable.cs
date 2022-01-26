@@ -23,8 +23,8 @@ public class Interactable : MonoBehaviour
 
             if (gameObject.GetComponent<ReadableItem>())
             {
-
-            }
+            gameObject.GetComponent<ReadableItem>().ReadStory();
+        }
 
             if (gameObject.GetComponent<TalkableCharacter>())
             {

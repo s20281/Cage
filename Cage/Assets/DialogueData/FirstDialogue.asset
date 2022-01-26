@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: FirstDialogue
   m_EditorClassIdentifier: 
   dialogue:
-  - AAAAA
-  - UUU
+  - "Czego potrzebowa\u0142a osoba, z kt\xF3r\u0105 niedawno rozmawia\u0142e\u015B
+    w miejscu z wieloma starymi rzeczami?"
+  - "Tylko dobrze si\u0119 zastan\xF3w."
   responses:
-  - responseText: Tak
+  - responseText: Klucza
     dialogueObject: {fileID: 11400000, guid: bb35e4db27149f0449eb1a8fdccebf5f, type: 2}
-  - responseText: Nie
+  - responseText: Skrzyni
+    dialogueObject: {fileID: 11400000, guid: 4fc9541e510fd1441ad31caa093dc915, type: 2}
+  - responseText: Wiadra
+    dialogueObject: {fileID: 11400000, guid: 4fc9541e510fd1441ad31caa093dc915, type: 2}
+  - responseText: "Uczciwo\u015Bci"
     dialogueObject: {fileID: 11400000, guid: 4fc9541e510fd1441ad31caa093dc915, type: 2}
