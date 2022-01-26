@@ -11,7 +11,7 @@ public class PickableItem : MonoBehaviour
     {
         Debug.Log("Pick");
         inventory.AddItem(gameObject.name);
-        gameObject.transform.position = new Vector3(0,0,0);
+        gameObject.transform.position = new Vector3(0,0,-200);
         
         
     }

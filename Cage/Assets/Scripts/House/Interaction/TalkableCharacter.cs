@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class TalkableCharacter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void starTalking()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //ShowDialogue(testDialogue);
     }
 }

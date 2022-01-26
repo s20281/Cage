@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f42095435ade24aa848dab52b5a5bc, type: 3}
+  m_Name: Nie
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "Hmm.. niestety pomyli\u0142e\u015B si\u0119. Twoja pami\u0119\u0107 jeszcze
+    nie zacz\u0119\u0142a wraca\u0107."
+  responses: []
