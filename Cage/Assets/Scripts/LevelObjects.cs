@@ -53,12 +53,12 @@ public class LevelObjects : MonoBehaviour
         potion.SetActive(data.potionPicked);
         book.SetActive(data.bookPicked);
 
-        if (data.swordPicked)
+        if (!data.swordPicked)
         {
             player.GetComponent<Inventory>().AddItem("sword");
         }
 
-        if (data.potionPicked)
+        if (!data.potionPicked)
         {
             Debug.Log("AAA");
             player.GetComponent<Inventory>().AddItem("potion");
