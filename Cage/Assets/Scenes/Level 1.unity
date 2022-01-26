@@ -4186,7 +4186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136672353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.1, y: 3.57, z: 0}
+  m_LocalPosition: {x: -20.58, y: 3.28, z: 0}
   m_LocalScale: {x: 0.5604703, y: 0.42101517, z: 0.61624}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4793,7 +4793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334233416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.44, y: -5.82, z: 0}
+  m_LocalPosition: {x: 4.89, y: -5.58, z: 0}
   m_LocalScale: {x: 0.9095, y: 0.6832, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5248,6 +5248,7 @@ MonoBehaviour:
   sword: {fileID: 74273492}
   book: {fileID: 2120315967}
   potion: {fileID: 1334233416}
+  key: {fileID: 1136672353}
 --- !u!114 &1865332779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5267,6 +5268,7 @@ MonoBehaviour:
     swordPicked: 0
     bookPicked: 0
     potionPicked: 0
+    keyPicked: 0
     doorUpOpened: 0
     doorLeftOpened: 0
     doorRightOpened: 0

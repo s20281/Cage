@@ -14,6 +14,7 @@ public class LevelObjects : MonoBehaviour
     public GameObject sword;
     public GameObject book;
     public GameObject potion;
+    public GameObject key;
 
     void Start()
     {
@@ -31,8 +32,12 @@ public class LevelObjects : MonoBehaviour
         data.doorUpOpened = doorUp.GetComponent<BoxCollider2D>().isActiveAndEnabled;
 
         data.swordPicked = sword.activeSelf;
-        data.potionPicked = sword.activeSelf;
+        data.keyPicked = key.activeSelf;
+        data.potionPicked = potion.activeSelf;
         data.bookPicked = book.activeSelf;
+
+        
+      
     }
     public void LoadObjects(GameData data)
     {
@@ -48,6 +53,21 @@ public class LevelObjects : MonoBehaviour
         potion.SetActive(data.potionPicked);
         book.SetActive(data.bookPicked);
 
+        if (data.swordPicked)
+        {
+            player.GetComponent<Inventory>().AddItem("sword");
+        }
+
+        if (data.potionPicked)
+        {
+            Debug.Log("AAA");
+            player.GetComponent<Inventory>().AddItem("potion");
+        }
+
+        if (data.keyPicked)
+        {
+            player.GetComponent<Inventory>().AddItem("key");
+        }
         // trzeba zrobiæ ¿eby siê dodawa³y do inventory
     }
 }
