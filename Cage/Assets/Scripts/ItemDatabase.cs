@@ -36,6 +36,11 @@ public class ItemDatabase : MonoBehaviour
                 { "stat1", 15 },
                 { "stat2", 3 }
             }),
+            new Item(2, "key", "open the door with it!", new Dictionary<string, int>
+            {
+                { "stat1", 15 },
+                { "stat2", 3 }
+            }),
 
 
         };

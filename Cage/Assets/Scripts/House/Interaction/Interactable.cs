@@ -28,8 +28,8 @@ public class Interactable : MonoBehaviour
 
             if (gameObject.GetComponent<TalkableCharacter>())
             {
-
-            }
+            gameObject.GetComponent<TalkableCharacter>().starTalking();
+        }
         
     }
 }

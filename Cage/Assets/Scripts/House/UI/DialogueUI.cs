@@ -7,10 +7,12 @@ public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
-    [SerializeField] private DialogueObject testDialogue;
+    [SerializeField] private GameObject player;
 
     private ResponseHandler responseHandler;
     private TypeWriterEffect typeWriterEffect;
+    private GameObject objectToDrop;
+    private string goodAnswer;
 
     // Start is called before the first frame update
     void Start()
@@ -18,13 +20,12 @@ public class DialogueUI : MonoBehaviour
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
         CloseDialogueBox();
-        ShowDialogue(testDialogue);
         //GetComponent<TypeWriterEffect>().Run("Pierwsza wiadomosc oby dzialalo,", textLabel);
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
-    {
-        dialogueBox.SetActive(true);
+    {       
+        dialogueBox.SetActive(true);       
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
@@ -38,6 +39,14 @@ public class DialogueUI : MonoBehaviour
             if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.Responses != null && dialogueObject.Responses.Length > 0) break;
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         
+        }
+        Debug.Log(dialogueObject.name);
+
+        if(dialogueObject.name == goodAnswer)
+        {
+            //objectToDrop.SetActive(true);
+            player.GetComponent<Inventory>().AddItem(objectToDrop.name);
+
         }
 
         if (dialogueObject.HasResponses)
@@ -54,5 +63,12 @@ public class DialogueUI : MonoBehaviour
     {
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+    }
+
+    public void GetObject(GameObject objectToDrop, string goodAnswer)
+    {
+
+        this.objectToDrop = objectToDrop;
+        this.goodAnswer = goodAnswer;
     }
 }
