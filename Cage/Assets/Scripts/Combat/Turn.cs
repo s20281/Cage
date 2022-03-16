@@ -111,8 +111,15 @@ public class Turn : MonoBehaviour
 
                 if (!o.GetComponent<Stats>().isDead)
                 {
-                    yield return new WaitForSeconds(2.0f);
+                    yield return new WaitForSeconds(1.0f);
+                    Color c = o.GetComponent<SpriteRenderer>().color;
+                    float red = c.r;
+                    float green = c.g;
+                    float blue = c.b;
+                    o.GetComponent<SpriteRenderer>().color = new Color(red + 20, green + 20, blue + 20);
+                    yield return new WaitForSeconds(1.5f);
                     enemyAttack(o);
+                    o.GetComponent<SpriteRenderer>().color = new Color(red, green, blue); ;
                 }
             }
             else
@@ -139,15 +146,20 @@ public class Turn : MonoBehaviour
 
         float modificator = enemyStats.aim - playerStats.dodge;
         float roll = Random.Range(-5, 5);
+        GameObject player = playerStats.gameObject;
 
         if (roll + modificator < 0)
         {
             Debug.Log(enemy.name + " missed");
+            
+            enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("MISS", Color.yellow);
+            player.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("DODGE", Color.green);
             return;
         }
 
         int damage = enemyStats.strength;
         playerStats.onHealthChange(-damage);
+        player.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(damage.ToString(), Color.red);
         Debug.Log(enemy.name + " attacks for " + damage);
     }
 

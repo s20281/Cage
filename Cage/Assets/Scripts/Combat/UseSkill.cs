@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UseSkill : MonoBehaviour
 {
@@ -76,15 +77,21 @@ public class UseSkill : MonoBehaviour
     {
         float modificator = playerStats.aim - enemyStats.dodge;
         float roll = Random.Range(-5, 5);
+        GameObject enemy = enemyStats.gameObject;
+        GameObject player = playerStats.gameObject;
 
-        if(roll + modificator < 0)
+        if (roll + modificator < 0)
         {
             // Miss
             Debug.Log("Miss");
+            
+            enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("DODGE", Color.green);
+            player.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("MISS", Color.yellow);
             return;
         }
 
         int damage = 3 + playerStats.strength;
+        enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(damage.ToString(), Color.red);
         enemyStats.onHealthChange(-damage);
         Debug.Log("Player attacks for " + damage);
     }
