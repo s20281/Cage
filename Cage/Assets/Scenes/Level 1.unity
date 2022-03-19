@@ -2717,6 +2717,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
 --- !u!1 &828811586
@@ -6381,6 +6393,14 @@ PrefabInstance:
     - target: {fileID: 3043875795886584632, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad.Array.data[1]
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad.Array.data[3]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6760c03262fc05a46a343777673b6d21, type: 3}

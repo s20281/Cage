@@ -11,6 +11,8 @@ public class LevelChange : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
 
+            StaticClass.setEnemies(collision.GetComponent<EnemyInfo>().enemiesToLoad);
+
             GameEventSystemMap.Instance.SaveData();
 
             SceneManager.LoadScene("Combat");
