@@ -16,6 +16,7 @@ public class Stats : MonoBehaviour
     public Sprite dead;
     public bool isDead;
     public bool queued = false;
+    public GameObject queueIcon;
 
 
     void Start()
@@ -84,5 +85,6 @@ public class Stats : MonoBehaviour
         {
             GameEventSystem.Instance.SetPlayerDies();
         }
+        Destroy(queueIcon);
     }
 }

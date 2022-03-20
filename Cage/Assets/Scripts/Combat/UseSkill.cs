@@ -39,6 +39,7 @@ public class UseSkill : MonoBehaviour
             }
             activeSkill = 0;
             GameEventSystem.Instance.SetSkillUse();
+            Destroy(playerStats.queueIcon);
         }
     }
 

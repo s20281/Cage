@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <GameData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <playerPosition>
-    <x>-5.604375</x>
-    <y>4.23588657</y>
+    <x>-5.368623</x>
+    <y>4.27387571</y>
     <z>0</z>
   </playerPosition>
   <enemy1Alive>false</enemy1Alive>

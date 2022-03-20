@@ -13,7 +13,7 @@ public class LoadCharacters : MonoBehaviour
 
     public GameObject enemy0Prefab;
     public GameObject enemy1Prefab;
-    //public GameObject enemy2Prefab;
+    public GameObject enemy2Prefab;
 
 
     Dictionary<int, GameObject> enemyPrefabs = new Dictionary<int, GameObject>();
@@ -25,6 +25,7 @@ public class LoadCharacters : MonoBehaviour
 
         enemyPrefabs.Add(0, enemy0Prefab);
         enemyPrefabs.Add(1, enemy1Prefab);
+        enemyPrefabs.Add(2, enemy2Prefab);
 
         GameObject[] enemySpawnPoints = new GameObject[] { enemySpawnPoint1, enemySpawnPoint2, enemySpawnPoint3, enemySpawnPoint4 };
 

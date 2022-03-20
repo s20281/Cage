@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum TurnState { PLAYER, ENEMY }
 
@@ -19,6 +20,9 @@ public class Turn : MonoBehaviour
     private bool playerDead = false;
     public GameObject skillsPanel;
     public bool playerUsedTurn = false;
+
+    public GameObject queuePanel;
+    public GameObject queueIcon;
 
     void Start()
     {
@@ -67,6 +71,12 @@ public class Turn : MonoBehaviour
             if(!fastest.GetComponent<Stats>().isDead)
             {
                 queue.Enqueue(fastest);
+
+                fastest.GetComponent<Stats>().queueIcon = GameObject.Instantiate(queueIcon, queuePanel.transform.GetChild(1).transform, false);
+
+                fastest.GetComponent<Stats>().queueIcon.GetComponent<Image>().sprite = fastest.GetComponent<SpriteRenderer>().sprite;
+
+                ;
                 fastest.GetComponent<Stats>().queued = true;
                 Debug.Log((i + 1) + " " + fastest.name);
             }
@@ -95,6 +105,7 @@ public class Turn : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
                 Debug.ClearDeveloperConsole();
                 Debug.Log("TURN " + turnNumber);
+                queuePanel.transform.GetChild(0).GetComponent<Text>().text = turnNumber.ToString() + "\nTURN";
                 turnNumber++;
                 EnqueAll();
                 yield return new WaitForSeconds(1.5f);
@@ -154,6 +165,7 @@ public class Turn : MonoBehaviour
             
             enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("MISS", Color.yellow);
             player.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("DODGE", Color.green);
+            Destroy(enemy.GetComponent<Stats>().queueIcon);
             return;
         }
 
@@ -161,6 +173,8 @@ public class Turn : MonoBehaviour
         playerStats.onHealthChange(-damage);
         player.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(damage.ToString(), Color.red);
         Debug.Log(enemy.name + " attacks for " + damage);
+
+        Destroy(enemy.GetComponent<Stats>().queueIcon);
     }
 
     void usedTurn()
