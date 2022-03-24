@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <GameData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <playerPosition>
-    <x>-5.368623</x>
-    <y>4.27387571</y>
+    <x>-17.26502</x>
+    <y>-0.8994992</y>
     <z>0</z>
   </playerPosition>
   <enemy1Alive>false</enemy1Alive>
-  <enemy2Alive>true</enemy2Alive>
-  <swordPicked>true</swordPicked>
-  <bookPicked>true</bookPicked>
-  <potionPicked>true</potionPicked>
-  <keyPicked>false</keyPicked>
+  <enemy2Alive>false</enemy2Alive>
+  <swordPicked>false</swordPicked>
+  <bookPicked>false</bookPicked>
+  <potionPicked>false</potionPicked>
+  <keyPicked>true</keyPicked>
   <doorUpOpened>false</doorUpOpened>
-  <doorLeftOpened>true</doorLeftOpened>
+  <doorLeftOpened>false</doorLeftOpened>
   <doorRightOpened>true</doorRightOpened>
 </GameData>

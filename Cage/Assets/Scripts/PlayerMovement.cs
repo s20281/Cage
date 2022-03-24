@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,6 +23,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name == "Level 1")
+        {
+
+            
+        }
+        else
+        {
+            
+        }
+
         Collider2D collider2dold = collider2d; 
 
         moveVelocity = Vector3.zero;

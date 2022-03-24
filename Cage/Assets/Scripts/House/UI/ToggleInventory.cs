@@ -19,11 +19,10 @@
             canv.enabled = false;
         }
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("WalkPlayer");
         GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
 
         move = player.GetComponent<PlayerMovement>();
-       // look = cam.GetComponent<CameraMouseLook>();
     }
 
     void Update()
@@ -31,8 +30,7 @@
         if (Input.GetButtonDown("Inventory") && toggleInventory == true)
         {
             canv.enabled = !canv.enabled;
-            //move.playerBlocked = !move.playerBlocked;
-           // look.blockCamera = !look.blockCamera;
+           
         }
     }
 

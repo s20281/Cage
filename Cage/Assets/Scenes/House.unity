@@ -387,6 +387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0964158ba43a8c49992fbcdda3176d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogUI: {fileID: 0}
+  testDialogue: {fileID: 0}
+  objectToDrop: {fileID: 0}
+  goodAnswer: 
 --- !u!114 &404659186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,6 +771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a3bfea8540d804f95fbc3eea0cfccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readUI: {fileID: 0}
+  textLabel: {fileID: 0}
 --- !u!114 &659470070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1691,11 +1697,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1184216293067100117, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: WalkPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 1184216293067100117, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: WalkPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 1184216293067100126, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
       propertyPath: m_RootOrder

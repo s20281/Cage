@@ -8,6 +8,7 @@ public enum TurnState { PLAYER, ENEMY }
 
 public class Turn : MonoBehaviour
 {
+
     public TurnState turnState;
     public Stats playerStats;
     public int alivePlayers;
@@ -20,12 +21,14 @@ public class Turn : MonoBehaviour
     private bool playerDead = false;
     public GameObject skillsPanel;
     public bool playerUsedTurn = false;
+    public GameObject invForCombat;
 
     public GameObject queuePanel;
     public GameObject queueIcon;
 
     void Start()
     {
+        invForCombat.SetActive(false);
         GameEventSystem.Instance.OnSkillUse += usedTurn;
         GameEventSystem.Instance.OnEnemyDies += enemyDies;
         GameEventSystem.Instance.OnPlayerDies += playerDies;
@@ -119,6 +122,7 @@ public class Turn : MonoBehaviour
             if (o.CompareTag("Enemy"))
             {
                 turnState = TurnState.ENEMY;
+                
 
                 if (!o.GetComponent<Stats>().isDead)
                 {
@@ -140,12 +144,14 @@ public class Turn : MonoBehaviour
                 {
                     skillsPanel.SetActive(true);
                     playerUsedTurn = false;
+                    invForCombat.SetActive(true);
 
                     while (!playerUsedTurn)
                     {
                         yield return null;
                     }
                     skillsPanel.SetActive(false);
+                    invForCombat.SetActive(false);
                 }
             }
         }   

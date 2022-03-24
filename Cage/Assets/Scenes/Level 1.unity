@@ -4062,7 +4062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1136672354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4198,7 +4198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136672353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.58, y: 3.28, z: 0}
+  m_LocalPosition: {x: -4.22, y: 11.55, z: 0}
   m_LocalScale: {x: 0.5604703, y: 0.42101517, z: 0.61624}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4805,7 +4805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334233416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.08, y: -5.48, z: 0}
+  m_LocalPosition: {x: -9.29, y: 10.06, z: 0}
   m_LocalScale: {x: 0.9095, y: 0.6832, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4820,7 +4820,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1184216293067100117, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: WalkPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184216293067100117, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
+      propertyPath: m_TagString
+      value: WalkPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 1184216293067100126, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
       propertyPath: m_RootOrder
@@ -6180,6 +6184,14 @@ PrefabInstance:
       propertyPath: m_EdgeRadius
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2667305309246959515, guid: 8515d1543604edb4d916a2eef8a4af4f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667305309246959515, guid: 8515d1543604edb4d916a2eef8a4af4f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.56
+      objectReference: {fileID: 0}
     - target: {fileID: 2850024449068458562, guid: 8515d1543604edb4d916a2eef8a4af4f, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -6323,6 +6335,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDatabase: {fileID: 869020118}
   inventoryUI: {fileID: 967970943}
+--- !u!114 &2124787496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124787494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab5803a5e8c3544497f863c4074baa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  health: 1
+  speed: 1
+  strength: 1
+  dodge: 1
+  aim: 1
+  hpBar: {fileID: 0}
+  dead: {fileID: 0}
+  isDead: 0
+  queued: 0
+  queueIcon: {fileID: 0}
 --- !u!114 &2124787499
 MonoBehaviour:
   m_ObjectHideFlags: 0
