@@ -34,6 +34,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -9065101500672513482, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9065101500672513482, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 9.68
       objectReference: {fileID: 0}
@@ -102,12 +106,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: aim
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: dead
       value: 
       objectReference: {fileID: 21300000, guid: cba318e5a1f65a947923c1ea47ffb647, type: 3}
     - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: dodge
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: speed
@@ -119,7 +127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: strength
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: maxHealth
@@ -137,7 +145,8 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -9065101500672513482, guid: 98b97dee7bee035469293084c167b146, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98b97dee7bee035469293084c167b146, type: 3}
 --- !u!1 &777634431527917437 stripped
 GameObject:

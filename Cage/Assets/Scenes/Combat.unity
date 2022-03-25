@@ -4580,8 +4580,12 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 751856665821423766, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
+      propertyPath: aim
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 751856665821423766, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: dodge
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 751856665821423766, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: speed
@@ -4589,7 +4593,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 751856665821423766, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: health
-      value: 10
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 751856665821423766, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
+      propertyPath: strength
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 751856665821423766, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
+      propertyPath: maxHealth
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 751856665821423767, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: m_RootOrder
