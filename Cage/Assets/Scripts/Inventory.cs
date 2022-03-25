@@ -6,14 +6,22 @@ public class Inventory : MonoBehaviour
 {
     public List<Item> itemsInInventory = new List<Item>();
     public ItemDatabase itemDatabase;
+	
+	 public static Inventory control;
 
     public UIInventory inventoryUI;
+    
+	
+	void Awake(){
+		control = this;
+	}
 
     public void AddItem(int id)
     {
         Item itemToAdd = itemDatabase.GetItem(id);
         inventoryUI.AddNewItem(itemToAdd);
         itemsInInventory.Add(itemToAdd);
+        
 
     }
 
@@ -63,6 +71,11 @@ public class Inventory : MonoBehaviour
         }
 
 
+    }
+
+    public List<Item> GetAllItems()
+    {
+         return itemsInInventory;
     }
 
 
