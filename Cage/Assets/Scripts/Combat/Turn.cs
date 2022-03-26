@@ -8,7 +8,6 @@ public enum TurnState { PLAYER, ENEMY }
 
 public class Turn : MonoBehaviour
 {
-
     public TurnState turnState;
     public Stats playerStats;
     public int alivePlayers;

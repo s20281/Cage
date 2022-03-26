@@ -33,6 +33,7 @@ public class GameEventSystem : MonoBehaviour
     public event Action<bool> OnEnemyStatsActive;
     public event Action OnPlayerDies;
     public event Action OnEnemyDies;
+    public event Action<Skill> OnItemSelect;
 
     public void SetMouseOverEnemy(Stats stats)
     {
@@ -72,4 +73,10 @@ public class GameEventSystem : MonoBehaviour
     {
         OnEnemyDies.Invoke();
     }
+
+    public void SetItemSelect(Skill skill)
+    {
+        OnItemSelect.Invoke(skill);
+    }
+
 }

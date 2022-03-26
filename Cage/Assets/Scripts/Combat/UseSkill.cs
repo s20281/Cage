@@ -1,45 +1,66 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Skill {NONE, SWORD, POTION }
+
+
 public class UseSkill : MonoBehaviour
 {
     public int activeSkill;
-
-    public Stats playerStats;
-    public Stats enemyStats;
+    public Turn turn;
+    public Stats skillUser;
+    public Stats target;
     public bool hasTarget;
+
+    public Skill actSkill;
+    private Dictionary<Skill, Action> skillMapping;
 
     void Start()
     {
         activeSkill = 0;
+        actSkill = Skill.NONE;
         GameEventSystem.Instance.OnMouseOverEnemy += setTarget;
         GameEventSystem.Instance.OnMouseExitEnemy += unsetTarget;
+        GameEventSystem.Instance.OnItemSelect += selectItem;
         hasTarget = false;
-    }
+
+        skillMapping = new Dictionary<Skill, Action>
+        {
+            {Skill.SWORD, () => {sword();} },
+            {Skill.POTION, () => {potion();} }
+        };
+}
 
     void Update()
     {
-        if (hasTarget && Input.GetMouseButtonDown(0))
+        if (hasTarget && actSkill != Skill.NONE && Input.GetMouseButtonDown(0))
         {
-            switch (activeSkill)
-            {
-                case 1:
-                    simpleAtack(playerStats, enemyStats);
-                    break;
-                case 2:
-                    protection(playerStats, enemyStats);
-                    break;
-                case 3:
-                    heal(playerStats, enemyStats);
-                    break;
-                default:
-                    break;
-            }
-            activeSkill = 0;
+            skillUser = turn.playerStats;
+
+            //switch (activeSkill)
+            //{
+            //    case 1:
+            //        simpleAtack(skillUser, target);
+            //        break;
+            //    case 2:
+            //        protection(skillUser, target);
+            //        break;
+            //    case 3:
+            //        potion(skillUser, target);
+            //        break;
+            //    default:
+            //        break;
+            //}
+            //activeSkill = 0;
+
+            skillMapping[actSkill]();
+            actSkill = Skill.NONE;
+
             GameEventSystem.Instance.SetSkillUse();
-            Destroy(playerStats.queueIcon);
+            Destroy(skillUser.queueIcon);
         }
     }
 
@@ -48,7 +69,7 @@ public class UseSkill : MonoBehaviour
         if(!stats.isDead)
         {
             hasTarget = true;
-            enemyStats = stats;
+            target = stats;
         }
     }
 
@@ -74,12 +95,18 @@ public class UseSkill : MonoBehaviour
         activeSkill = 4;
     }
 
-    private void simpleAtack(Stats playerStats, Stats enemyStats)
+    public void selectItem(Skill skill)
     {
-        float modificator = playerStats.aim - enemyStats.dodge;
-        float roll = Random.Range(-5, 5);
-        GameObject enemy = enemyStats.gameObject;
-        GameObject player = playerStats.gameObject;
+        actSkill = skill;
+        Debug.Log(skill);
+    }
+
+    private void simpleAtack()
+    {
+        float modificator = skillUser.aim - target.dodge;
+        float roll = UnityEngine.Random.Range(-5, 5);
+        GameObject enemy = target.gameObject;
+        GameObject player = skillUser.gameObject;
 
         if (roll + modificator < 0)
         {
@@ -91,24 +118,30 @@ public class UseSkill : MonoBehaviour
             return;
         }
 
-        int damage = 3 + playerStats.strength;
+        int damage = 3 + skillUser.strength;
         enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(damage.ToString(), Color.red);
-        enemyStats.onHealthChange(-damage);
+        target.onHealthChange(-damage);
         Debug.Log("Player attacks for " + damage);
     }
 
-    private void heal(Stats playerStats, Stats enemyStats)
+    private void sword()
     {
-        int roll = Random.Range(3, 5);
-        enemyStats.onHealthChange(roll);
-        GameEventSystem.Instance.SetPositiveSkillUse(enemyStats);
+        int baseDmg = 3;
+        simpleAtack();
+    }
+
+    private void potion()
+    {
+        int roll = UnityEngine.Random.Range(5, 7);
+        target.onHealthChange(roll);
+        GameEventSystem.Instance.SetPositiveSkillUse(target);
         Debug.Log("Player heals for " + roll);
     }
 
-    private void protection(Stats playerStats, Stats enemyStats)
+    private void protection()
     {
-        enemyStats.dodge += 3;
-        GameEventSystem.Instance.SetPositiveSkillUse(enemyStats);
+        target.dodge += 3;
+        GameEventSystem.Instance.SetPositiveSkillUse(target);
 
         Debug.Log("Player heals increases he's dodge for " + 3);
     }

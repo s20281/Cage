@@ -40,6 +40,9 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
         
         if (this.item != null)
         {
+            Debug.Log(item.skill);
+            GameEventSystem.Instance.SetItemSelect(item.skill);
+
             if (selectedItem.item != null)
             {
                 Item clone = new Item(selectedItem.item);
@@ -54,6 +57,8 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
 
         }else if(selectedItem.item != null)
         {
+            GameEventSystem.Instance.SetItemSelect(Skill.NONE);
+
             UpdateItem(selectedItem.item);
             selectedItem.UpdateItem(null);
         }

@@ -29,18 +29,19 @@ public class ItemDatabase : MonoBehaviour
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }),
+            }, Skill.POTION),
 
             new Item(1, "sword", "Player", "Fight! Fight!", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }),
+            }, Skill.SWORD),
+
             new Item(2, "key", "Mutant","open the door with it!", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }),
+            }, Skill.NONE),
 
 
         };
