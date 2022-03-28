@@ -5,7 +5,14 @@ using UnityEngine;
 
 public class PickableItem : MonoBehaviour
 {
-    
+    public static PickableItem control;
+    Inventory inventory;
+
+    void Awake()
+    {
+        control = this;
+    }
+
 
     public void PickItem(Inventory inventory)
     {

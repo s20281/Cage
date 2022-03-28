@@ -8,9 +8,11 @@ public class TalkableCharacter : MonoBehaviour
     [SerializeField] private DialogueObject testDialogue;
     [SerializeField] private GameObject objectToDrop;
     [SerializeField] private string goodAnswer;
+    [SerializeField] private bool canBeRecruited;
     public void starTalking()
     {
-        dialogUI.GetObject(objectToDrop, goodAnswer);
+        dialogUI.GetObject(objectToDrop, goodAnswer, canBeRecruited, gameObject);
         dialogUI.ShowDialogue(testDialogue);
+
     }
 }

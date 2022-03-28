@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <GameData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <playerPosition>
-    <x>-6.2436657</x>
-    <y>4.300535</y>
+    <x>-5.52138472</x>
+    <y>4.23861265</y>
     <z>0</z>
   </playerPosition>
   <enemy1Alive>false</enemy1Alive>
@@ -10,7 +10,7 @@
   <swordPicked>false</swordPicked>
   <bookPicked>true</bookPicked>
   <potionPicked>false</potionPicked>
-  <keyPicked>false</keyPicked>
+  <keyPicked>true</keyPicked>
   <doorUpOpened>false</doorUpOpened>
   <doorLeftOpened>true</doorLeftOpened>
   <doorRightOpened>true</doorRightOpened>

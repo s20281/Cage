@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class UIItem : MonoBehaviour, IPointerClickHandler
 {
@@ -14,7 +15,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
     {
         spriteImage = GetComponent<Image>();
         UpdateItem(null);
-        selectedItem = GameObject.Find("SelectedItem").GetComponent<UIItem>();      
+        selectedItem = GameObject.Find("SelectedItem").GetComponent<UIItem>();
 
     }
 
@@ -37,11 +38,15 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
+
         if (this.item != null)
         {
-            Debug.Log(item.skill);
-            GameEventSystem.Instance.SetItemSelect(item.skill);
+            if (SceneManager.GetActiveScene().name == "Combat")
+            {
+                Debug.Log(item.skill);
+                GameEventSystem.Instance.SetItemSelect(item.skill);
+            }
+
 
             if (selectedItem.item != null)
             {
@@ -55,9 +60,13 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
                 UpdateItem(null);
             }
 
-        }else if(selectedItem.item != null)
+        }
+        else if (selectedItem.item != null)
         {
-            GameEventSystem.Instance.SetItemSelect(Skill.NONE);
+            if (SceneManager.GetActiveScene().name == "Combat")
+            {
+                GameEventSystem.Instance.SetItemSelect(Skill.NONE);
+            }
 
             UpdateItem(selectedItem.item);
             selectedItem.UpdateItem(null);

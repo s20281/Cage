@@ -8,11 +8,15 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private GameObject player;
+   
 
     private ResponseHandler responseHandler;
     private TypeWriterEffect typeWriterEffect;
     private GameObject objectToDrop;
-    private string goodAnswer;
+    private GameObject objectToAddToTeam;
+    private string goodAnswer; 
+    bool canBeRecruited;
+    private PickableItem pickable;
 
     // Start is called before the first frame update
     void Start()
@@ -45,16 +49,45 @@ public class DialogueUI : MonoBehaviour
         if(dialogueObject.name == goodAnswer)
         {
             //objectToDrop.SetActive(true);
-            player.GetComponent<Inventory>().AddItem(objectToDrop.name);
+            if (objectToDrop != null)
+            {
+                player.GetComponent<Inventory>().AddItem(objectToDrop.name);
+            }
+
+            if (canBeRecruited) { 
+
+                Debug.Log("zrekrutuj");
+            }
 
         }
 
-        if (dialogueObject.HasResponses)
+        if (dialogueObject.name == "NextTime")
         {
-            responseHandler.ShowResponses(dialogueObject.Responses);
-        }
-        else{
             CloseDialogueBox();
+        }
+        else
+        {
+
+            if (dialogueObject.HasResponses)
+            {
+                responseHandler.ShowResponses(dialogueObject.Responses);
+            }
+            else
+            {
+                CloseDialogueBox();
+
+                if (canBeRecruited)
+                {
+                    objectToAddToTeam.GetComponent<PickableItem>().PickItem(player.GetComponent<Inventory>());                   
+
+                }
+                else
+                {
+                    objectToAddToTeam.SetActive(false);
+                }
+
+
+            }
         }
        
     }
@@ -65,10 +98,12 @@ public class DialogueUI : MonoBehaviour
         textLabel.text = string.Empty;
     }
 
-    public void GetObject(GameObject objectToDrop, string goodAnswer)
+    public void GetObject(GameObject objectToDrop, string goodAnswer, bool canBeRecruited, GameObject objectToAddToTeam)
     {
 
         this.objectToDrop = objectToDrop;
         this.goodAnswer = goodAnswer;
+        this.canBeRecruited = canBeRecruited;
+        this.objectToAddToTeam = objectToAddToTeam;
     }
 }
