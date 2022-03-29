@@ -9,11 +9,12 @@ public enum TurnState { PLAYER, ENEMY }
 public class Turn : MonoBehaviour
 {
     public TurnState turnState;
-    public Stats playerStats;
-    public int alivePlayers;
-    public int aliveEnemies;
+    private Stats playerStats;
+    public int alivePlayersCount;
+    public int aliveEnemiesCount;
     int turnNumber = 1;
     GameObject[] players;
+    List<GameObject> alivePlayers = new List<GameObject>();
     GameObject[] enemies;
     Queue<GameObject> queue = new Queue<GameObject>();
     private bool allDead = false;
@@ -32,17 +33,23 @@ public class Turn : MonoBehaviour
         GameEventSystem.Instance.OnEnemyDies += enemyDies;
         GameEventSystem.Instance.OnPlayerDies += playerDies;
         players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach(GameObject p in players)
+        {
+            alivePlayers.Add(p);
+        }
+        
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        alivePlayers = players.Length;
-        aliveEnemies = enemies.Length;
+        alivePlayersCount = players.Length;
+        aliveEnemiesCount = enemies.Length;
 
         turnNumber = 1;
         StartCoroutine(nextTurn());
     }
     void EnqueAll()
     {
-        for (int i = 0; i < alivePlayers + aliveEnemies ; i++)
+        for (int i = 0; i < alivePlayersCount + aliveEnemiesCount ; i++)
         {
             int maxSpeed = int.MinValue;
             GameObject fastest = new GameObject();
@@ -90,13 +97,13 @@ public class Turn : MonoBehaviour
     {
         while(true)
         {
-            if (aliveEnemies == 0)
+            if (aliveEnemiesCount == 0)
             {
                 Debug.Log("All enemies are dead");
                 SceneManager.LoadScene("Level 1");
                 yield break;
             }
-            if (alivePlayers == 0)
+            if (alivePlayersCount == 0)
             {
                 Debug.Log("Player is dead");
                 SceneManager.LoadScene("Game Over");
@@ -159,10 +166,12 @@ public class Turn : MonoBehaviour
     public void enemyAttack(GameObject enemy)
     {
         Stats enemyStats = enemy.GetComponent<Stats>();
+        GameObject player = getRandomPlayer();
+        playerStats = player.GetComponent<Stats>();
 
         float modificator = enemyStats.aim - playerStats.dodge;
         float roll = Random.Range(-5, 5);
-        GameObject player = playerStats.gameObject;
+        
 
         if (roll + modificator < 0)
         {
@@ -177,7 +186,7 @@ public class Turn : MonoBehaviour
         int damage = enemyStats.strength;
         playerStats.onHealthChange(-damage);
         player.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(damage.ToString(), Color.red);
-        Debug.Log(enemy.name + " attacks for " + damage);
+        Debug.Log(enemy.name + " attacks " + player.name + " for " + damage);
 
         Destroy(enemy.GetComponent<Stats>().queueIcon);
     }
@@ -187,19 +196,31 @@ public class Turn : MonoBehaviour
         playerUsedTurn = true;
     }
 
-    void playerDies()
+    void playerDies(GameObject player)
     {
-        alivePlayers--;
+        alivePlayersCount--;
+        alivePlayers.Remove(player);
     }
 
     void enemyDies()
     {
-        aliveEnemies--;
+        aliveEnemiesCount--;
     }
 
     public void AutoWin()
     {
         Debug.Log("Auto WIN");
         SceneManager.LoadScene("Level 1");
+    }
+
+    public GameObject getRandomPlayer()
+    {
+        int index = Random.Range(0, alivePlayers.Count);
+        return alivePlayers[index];
+    }
+
+    public Stats getActivePlayer()
+    {
+        return playerStats;
     }
 }

@@ -123,6 +123,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &16408220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 16408222}
+  - component: {fileID: 16408221}
+  m_Layer: 0
+  m_Name: HeroSpawnPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &16408221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16408220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 1
+    m_Right: 1
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 1
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!224 &16408222
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16408220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8.454314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 764281999}
+  - {fileID: 449826853}
+  - {fileID: 2043027410}
+  - {fileID: 96520292}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -4.48, y: -0.26}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25987693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 751856665821423766, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
@@ -213,6 +279,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88319143}
   m_CullTransparentMesh: 1
+--- !u!1 &96520291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 96520292}
+  m_Layer: 0
+  m_Name: HeroSpawnPoint4
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &96520292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96520291}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 16408222}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &124524931
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +581,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d774c01682f2a344b0e3c06991f648e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &449826852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 449826853}
+  m_Layer: 0
+  m_Name: HeroSpawnPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449826853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449826852}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 16408222}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &470398740
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +887,7 @@ MonoBehaviour:
   skillUser: {fileID: 0}
   target: {fileID: 0}
   hasTarget: 0
+  actSkill: 0
 --- !u!114 &521555931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,9 +938,16 @@ MonoBehaviour:
   enemySpawnPoint2: {fileID: 1731620432}
   enemySpawnPoint3: {fileID: 688063291}
   enemySpawnPoint4: {fileID: 1009554230}
+  heroSpawnPoint1: {fileID: 764281998}
+  heroSpawnPoint2: {fileID: 449826852}
+  heroSpawnPoint3: {fileID: 2043027409}
+  heroSpawnPoint4: {fileID: 96520291}
   enemy0Prefab: {fileID: 3246074616068418081, guid: 98b97dee7bee035469293084c167b146, type: 3}
   enemy1Prefab: {fileID: 777634431527917437, guid: e924cd93645c2e548bc23ad7269114b3, type: 3}
   enemy2Prefab: {fileID: 86386744747759596, guid: 457478c8eceb79f42add06f82a5c7c60, type: 3}
+  playerPrefab: {fileID: 751856665821423761, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
+  hulkPrefab: {fileID: 5597220883243662608, guid: e666c0c01dc27744e9c8f7ac77b33d6f, type: 3}
+  ninjaPrefab: {fileID: 6310101453184555824, guid: 791a028be2e590a42856f254477d8905, type: 3}
 --- !u!1 &548160151
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +1089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -290, y: 135.46}
+  m_AnchoredPosition: {x: -3, y: -293}
   m_SizeDelta: {x: 425.27, y: 323.24}
   m_Pivot: {x: 0.49999994, y: 0.49999994}
 --- !u!114 &550404363
@@ -1949,6 +2083,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731242458}
   m_CullTransparentMesh: 1
+--- !u!1 &764281998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764281999}
+  m_Layer: 0
+  m_Name: HeroSpawnPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &764281999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764281998}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 16408222}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &770270703
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,6 +5141,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98b97dee7bee035469293084c167b146, type: 3}
+--- !u!1 &2043027409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043027410}
+  m_Layer: 0
+  m_Name: HeroSpawnPoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2043027410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043027409}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 16408222}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2043688110
 GameObject:
   m_ObjectHideFlags: 0
@@ -5255,6 +5449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 751856665821423761, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 751856665821423766, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: aim
       value: 8
@@ -5285,11 +5483,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 751856665821423767, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.76
+      value: -1.49
       objectReference: {fileID: 0}
     - target: {fileID: 751856665821423767, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.74
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 751856665821423767, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5333,19 +5531,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249653451108419605, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3249653451108419605, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6210942300669180187, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6210942300669180187, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1ec812f15ec68941ab5a2e079617aee, type: 3}
@@ -5390,11 +5588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418083, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.41
+      value: 5.86
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418083, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.42
+      value: 1.81
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418083, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_LocalPosition.z

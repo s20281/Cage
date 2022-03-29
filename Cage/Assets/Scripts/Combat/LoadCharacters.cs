@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Hero
+{
+    PLAYER, NINJA, HULK
+}
+
 public class LoadCharacters : MonoBehaviour
 {
     public GameObject enemySpawnPoint1;
@@ -9,11 +14,22 @@ public class LoadCharacters : MonoBehaviour
     public GameObject enemySpawnPoint3;
     public GameObject enemySpawnPoint4;
 
-    
+    public GameObject heroSpawnPoint1;
+    public GameObject heroSpawnPoint2;
+    public GameObject heroSpawnPoint3;
+    public GameObject heroSpawnPoint4;
+
 
     public GameObject enemy0Prefab;
     public GameObject enemy1Prefab;
     public GameObject enemy2Prefab;
+
+    public GameObject playerPrefab;
+    public GameObject hulkPrefab;
+    public GameObject ninjaPrefab;
+
+    //private Dictionary<Hero, GameObject> heroMapping = new Dictionary<Hero, GameObject>();
+    private Dictionary<string, GameObject> heroMapping = new Dictionary<string, GameObject>();
 
 
     Dictionary<int, GameObject> enemyPrefabs = new Dictionary<int, GameObject>();
@@ -22,6 +38,29 @@ public class LoadCharacters : MonoBehaviour
     {
         int[] enemiesToLoad = StaticClass.getEnemies();
         int enemiesCount = enemiesToLoad.Length;
+
+       Item [] harr = Inventory.control.GetAllCharacters().ToArray();
+
+
+        string[] heroesToLoad = new string[4];
+
+        for(int i= 0; i < 4; i++)
+        {
+            if (i >= harr.Length)
+                break;
+            heroesToLoad[i] = harr[i].name;
+        }
+
+        //heroMapping.Add(Hero.PLAYER, playerPrefab);
+        //heroMapping.Add(Hero.HULK, hulkPrefab);
+        //heroMapping.Add(Hero.NINJA, ninjaPrefab);
+
+        heroMapping.Add("player", playerPrefab);
+        heroMapping.Add("hulk", hulkPrefab);
+        heroMapping.Add("ninja", ninjaPrefab);
+
+
+
 
         enemyPrefabs.Add(0, enemy0Prefab);
         enemyPrefabs.Add(1, enemy1Prefab);
@@ -35,6 +74,19 @@ public class LoadCharacters : MonoBehaviour
             {
                 GameObject.Instantiate(enemyPrefabs[enemiesToLoad[i]], enemySpawnPoints[i].transform, false);
             }  
+        }
+
+        //GameObject.Instantiate(heroMapping[Hero.PLAYER], heroSpawnPoint1.transform, false);
+        GameObject.Instantiate(heroMapping["player"], heroSpawnPoint1.transform, false);
+
+        GameObject[] heroSpawnPoints = new GameObject[] { heroSpawnPoint2, heroSpawnPoint3, heroSpawnPoint4 };
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (heroesToLoad[i] != null && heroMapping.ContainsKey(heroesToLoad[i]))
+            {
+                GameObject.Instantiate(heroMapping[heroesToLoad[i]], heroSpawnPoints[i].transform, false);
+            }
         }
     }
 }

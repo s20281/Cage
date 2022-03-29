@@ -28,15 +28,15 @@ public class TeamContainer : MonoBehaviour
         inv = Inventory.control;
         itemsInInventory = inv.GetAllCharacters();
 
-        Debug.Log("Lista");
+        //    Debug.Log("Lista");
 
-        foreach (var invItem in itemsInInventory)
-        {
-            
-                Debug.Log(invItem.name);
-                
-            
-        }
+        //    foreach (var invItem in itemsInInventory)
+        //    {
+
+        //            Debug.Log(invItem.name);
+
+
+        //    }
     }
 
 

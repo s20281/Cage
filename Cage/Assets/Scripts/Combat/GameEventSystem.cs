@@ -31,7 +31,7 @@ public class GameEventSystem : MonoBehaviour
     public event Action OnSkillUse;
     public event Action<bool> OnPlayerStatsActive;
     public event Action<bool> OnEnemyStatsActive;
-    public event Action OnPlayerDies;
+    public event Action<GameObject> OnPlayerDies;
     public event Action OnEnemyDies;
     public event Action<Skill> OnItemSelect;
 
@@ -64,9 +64,9 @@ public class GameEventSystem : MonoBehaviour
         OnEnemyStatsActive.Invoke(isActive);
     }
 
-    public void SetPlayerDies()
+    public void SetPlayerDies(GameObject player)
     {
-        OnPlayerDies.Invoke();
+        OnPlayerDies.Invoke(player);
     }
 
     public void SetEnemyDies()

@@ -38,25 +38,9 @@ public class UseSkill : MonoBehaviour
     {
         if (hasTarget && actSkill != Skill.NONE && Input.GetMouseButtonDown(0))
         {
-            skillUser = turn.playerStats;
-
-            //switch (activeSkill)
-            //{
-            //    case 1:
-            //        simpleAtack(skillUser, target);
-            //        break;
-            //    case 2:
-            //        protection(skillUser, target);
-            //        break;
-            //    case 3:
-            //        potion(skillUser, target);
-            //        break;
-            //    default:
-            //        break;
-            //}
-            //activeSkill = 0;
-
+            skillUser = turn.getActivePlayer();
             skillMapping[actSkill]();
+
             actSkill = Skill.NONE;
 
             GameEventSystem.Instance.SetSkillUse();

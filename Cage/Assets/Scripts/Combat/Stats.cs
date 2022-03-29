@@ -83,7 +83,7 @@ public class Stats : MonoBehaviour
         }
         else
         {
-            GameEventSystem.Instance.SetPlayerDies();
+            GameEventSystem.Instance.SetPlayerDies(this.gameObject);
         }
         Destroy(queueIcon);
     }
