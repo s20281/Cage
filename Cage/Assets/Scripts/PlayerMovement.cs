@@ -70,7 +70,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (canPress)
-        {
+        {         
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (collider2d)
@@ -95,10 +96,38 @@ public class PlayerMovement : MonoBehaviour
         canPress = true;
         collider2d = collision;
 
+        FindGameObjectWithInteractionTag(collision);
+      
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         canPress = false;
+        FindGameObjectWithInteractionTag(collision);
+    }
+
+    private void FindGameObjectWithInteractionTag(Collider2D collision)
+    {
+        Transform interactionTag = collision.gameObject.transform;
+        Transform findInteractionTag = interactionTag.Find("interactionTag");
+        if (findInteractionTag != null)
+        {
+
+            if (findInteractionTag.gameObject.name == "interactionTag")
+            {
+
+                if (findInteractionTag.gameObject.activeInHierarchy == false)
+                {
+                    findInteractionTag.gameObject.SetActive(true);
+                }
+                else
+                {
+                    findInteractionTag.gameObject.SetActive(false);
+                }
+            }
+
+        }
+
     }
 }

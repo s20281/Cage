@@ -30,7 +30,8 @@ public class OpenableItem : MonoBehaviour
 
     public void doorOpening()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        //gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        gameObject.SetActive(false);
         gameObject.GetComponent<Collider2D>().enabled = false;
     }
 }
