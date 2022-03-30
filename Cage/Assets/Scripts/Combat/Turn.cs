@@ -21,14 +21,12 @@ public class Turn : MonoBehaviour
     private bool playerDead = false;
     public GameObject skillsPanel;
     public bool playerUsedTurn = false;
-    public GameObject invForCombat;
 
     public GameObject queuePanel;
     public GameObject queueIcon;
 
     void Start()
     {
-        invForCombat.SetActive(false);
         GameEventSystem.Instance.OnSkillUse += usedTurn;
         GameEventSystem.Instance.OnEnemyDies += enemyDies;
         GameEventSystem.Instance.OnPlayerDies += playerDies;
@@ -148,16 +146,18 @@ public class Turn : MonoBehaviour
                 turnState = TurnState.PLAYER;
                 if (!o.GetComponent<Stats>().isDead)
                 {
-                    skillsPanel.SetActive(true);
+                    //skillsPanel.SetActive(true);
                     playerUsedTurn = false;
-                    invForCombat.SetActive(true);
+                    o.transform.GetChild(2).transform.gameObject.SetActive(true);
 
                     while (!playerUsedTurn)
                     {
                         yield return null;
                     }
-                    skillsPanel.SetActive(false);
-                    invForCombat.SetActive(false);
+                    //skillsPanel.SetActive(false);
+                    o.transform.GetChild(2).transform.gameObject.SetActive(false);
+
+                    Destroy(o.GetComponent<Stats>().queueIcon);
                 }
             }
         }   

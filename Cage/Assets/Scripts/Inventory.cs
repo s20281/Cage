@@ -131,6 +131,14 @@ public class Inventory : MonoBehaviour
          return itemsInInventory;
     }
 
+    public bool hasCompanion()
+    {
+        if (charactersInInventory.Count > 0)
+            return true;
+        else
+            return false;
+    }
+
     public List<Item> GetAllCharacters()
     {
         return charactersInInventory;

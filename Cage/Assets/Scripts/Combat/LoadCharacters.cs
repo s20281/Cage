@@ -28,6 +28,8 @@ public class LoadCharacters : MonoBehaviour
     public GameObject hulkPrefab;
     public GameObject ninjaPrefab;
 
+    private bool hasCompanion;
+
     //private Dictionary<Hero, GameObject> heroMapping = new Dictionary<Hero, GameObject>();
     private Dictionary<string, GameObject> heroMapping = new Dictionary<string, GameObject>();
 
@@ -39,17 +41,26 @@ public class LoadCharacters : MonoBehaviour
         int[] enemiesToLoad = StaticClass.getEnemies();
         int enemiesCount = enemiesToLoad.Length;
 
-       Item [] harr = Inventory.control.GetAllCharacters().ToArray();
-
-
         string[] heroesToLoad = new string[4];
 
-        for(int i= 0; i < 4; i++)
+        hasCompanion = Inventory.control.hasCompanion();
+
+        if (hasCompanion)
         {
-            if (i >= harr.Length)
-                break;
-            heroesToLoad[i] = harr[i].name;
+            Item[] harr = Inventory.control.GetAllCharacters().ToArray();
+            for (int i = 0; i < 4; i++)
+            {
+                if (i >= harr.Length)
+                    break;
+                heroesToLoad[i] = harr[i].name;
+            }
         }
+       
+
+
+        
+
+        
 
         //heroMapping.Add(Hero.PLAYER, playerPrefab);
         //heroMapping.Add(Hero.HULK, hulkPrefab);
@@ -72,20 +83,28 @@ public class LoadCharacters : MonoBehaviour
         {
             if(enemiesToLoad[i] != 0 && enemyPrefabs.ContainsKey(enemiesToLoad[i]))
             {
-                GameObject.Instantiate(enemyPrefabs[enemiesToLoad[i]], enemySpawnPoints[i].transform, false);
+                GameObject o = GameObject.Instantiate(enemyPrefabs[enemiesToLoad[i]], enemySpawnPoints[i].transform, false);
+                o.name = enemyPrefabs[enemiesToLoad[i]].name;
             }  
         }
 
         //GameObject.Instantiate(heroMapping[Hero.PLAYER], heroSpawnPoint1.transform, false);
-        GameObject.Instantiate(heroMapping["player"], heroSpawnPoint1.transform, false);
+        GameObject p = GameObject.Instantiate(heroMapping["player"], heroSpawnPoint1.transform, false);
+        p.name = heroMapping["player"].name;
+        p.transform.GetChild(2).gameObject.SetActive(false);
 
-        GameObject[] heroSpawnPoints = new GameObject[] { heroSpawnPoint2, heroSpawnPoint3, heroSpawnPoint4 };
-
-        for (int i = 0; i < 3; i++)
+        if (hasCompanion)
         {
-            if (heroesToLoad[i] != null && heroMapping.ContainsKey(heroesToLoad[i]))
+            GameObject[] heroSpawnPoints = new GameObject[] { heroSpawnPoint2, heroSpawnPoint3, heroSpawnPoint4 };
+
+            for (int i = 0; i < 3; i++)
             {
-                GameObject.Instantiate(heroMapping[heroesToLoad[i]], heroSpawnPoints[i].transform, false);
+                if (heroesToLoad[i] != null && heroMapping.ContainsKey(heroesToLoad[i]))
+                {
+                    GameObject o = GameObject.Instantiate(heroMapping[heroesToLoad[i]], heroSpawnPoints[i].transform, false);
+                    o.name = heroMapping[heroesToLoad[i]].name;
+                    o.transform.GetChild(2).gameObject.SetActive(false);
+                }
             }
         }
     }

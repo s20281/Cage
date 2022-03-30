@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Skill {NONE, SWORD, POTION }
+public enum Skill {NONE, SKIP, SWORD, POTION }
 
 
 public class UseSkill : MonoBehaviour
@@ -30,7 +30,8 @@ public class UseSkill : MonoBehaviour
         skillMapping = new Dictionary<Skill, Action>
         {
             {Skill.SWORD, () => {sword();} },
-            {Skill.POTION, () => {potion();} }
+            {Skill.POTION, () => {potion(); } },
+            {Skill.SKIP, () => {skipTurn(); } }
         };
 }
 
@@ -128,6 +129,11 @@ public class UseSkill : MonoBehaviour
         GameEventSystem.Instance.SetPositiveSkillUse(target);
 
         Debug.Log("Player heals increases he's dodge for " + 3);
+    }
+
+    private void skipTurn()
+    {
+        Debug.Log("Skipped turn");
     }
 
 }
