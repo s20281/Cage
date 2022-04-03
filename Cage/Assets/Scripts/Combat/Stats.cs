@@ -17,35 +17,27 @@ public class Stats : MonoBehaviour
     public bool isDead;
     public bool queued = false;
     public GameObject queueIcon;
-
+    public List<Effect> effectsList = new List<Effect>();
 
     void Start()
     {
-        isDead = false;
-
-        
-    }
-
-    void Update()
-    {
-
+        isDead = false;   
     }
 
     void OnMouseOver()
     {
-        //Debug.Log(gameObject.name);
         GameEventSystem.Instance.SetMouseOverEnemy(this);
 
         if (gameObject.CompareTag("Enemy"))
         {
             GameEventSystem.Instance.SetEnemyStatsActive(true);
         }
-        else
+        else if (gameObject.CompareTag("Player"))
         {
             GameEventSystem.Instance.SetPlayerStatsActive(true);
         }
-
     }
+
     void OnMouseExit()
     {
         GameEventSystem.Instance.SetMouseExitEnemy(this);
@@ -54,7 +46,7 @@ public class Stats : MonoBehaviour
         {
             GameEventSystem.Instance.SetEnemyStatsActive(false);
         }
-        else
+        else if (gameObject.CompareTag("Player"))
         {
             GameEventSystem.Instance.SetPlayerStatsActive(false);
         }
@@ -64,7 +56,11 @@ public class Stats : MonoBehaviour
     {
         health += change;
         if (health <= 0)
+        {
+            health = 0;
             onDead();
+        }
+            
         if (health > maxHealth)
             health = maxHealth;
 
@@ -75,8 +71,7 @@ public class Stats : MonoBehaviour
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         isDead = true;
-        health = 0;
-
+        
         if(gameObject.CompareTag("Enemy"))
         {
             GameEventSystem.Instance.SetEnemyDies();
@@ -86,5 +81,10 @@ public class Stats : MonoBehaviour
             GameEventSystem.Instance.SetPlayerDies(this.gameObject);
         }
         Destroy(queueIcon);
+    }
+
+    public void addEffect(Effect effect)
+    {
+        effectsList.Add(effect);
     }
 }

@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Skill {NONE, SKIP, SWORD, POTION }
+public enum Skill {NONE, SKIP, SWORD, POTION, HAMMER, BASEBALL }
 
 
 public class UseSkill : MonoBehaviour
 {
-    public int activeSkill;
+    //public int activeSkill;
     public Turn turn;
     public Stats skillUser;
     public Stats target;
@@ -20,7 +20,7 @@ public class UseSkill : MonoBehaviour
 
     void Start()
     {
-        activeSkill = 0;
+        //activeSkill = 0;
         actSkill = Skill.NONE;
         GameEventSystem.Instance.OnMouseOverEnemy += setTarget;
         GameEventSystem.Instance.OnMouseExitEnemy += unsetTarget;
@@ -29,8 +29,10 @@ public class UseSkill : MonoBehaviour
 
         skillMapping = new Dictionary<Skill, Action>
         {
-            {Skill.SWORD, () => {sword();} },
+            {Skill.SWORD, () => {sword(); } },
             {Skill.POTION, () => {potion(); } },
+            {Skill.HAMMER, () => {hammer(); } },
+            {Skill.BASEBALL, () => {baseball(); } },
             {Skill.SKIP, () => {skipTurn(); } }
         };
 }
@@ -63,30 +65,35 @@ public class UseSkill : MonoBehaviour
         hasTarget = false;
     }
 
-    public void changeActiveSkillTo1()
-    {
-        activeSkill = 1;
-    }
-    public void changeActiveSkillTo2()
-    {
-        activeSkill = 2;
-    }
-    public void changeActiveSkillTo3()
-    {
-        activeSkill = 3;
-    }
-    public void changeActiveSkillTo4()
-    {
-        activeSkill = 4;
-    }
+    //public void changeActiveSkillTo1()
+    //{
+    //    activeSkill = 1;
+    //}
+    //public void changeActiveSkillTo2()
+    //{
+    //    activeSkill = 2;
+    //}
+    //public void changeActiveSkillTo3()
+    //{
+    //    activeSkill = 3;
+    //}
+    //public void changeActiveSkillTo4()
+    //{
+    //    activeSkill = 4;
+    //}
 
     public void selectItem(Skill skill)
     {
         actSkill = skill;
-        Debug.Log(skill);
+        //Debug.Log(skill);
     }
 
-    private void simpleAtack()
+    private void displayEffect(GameObject gm, string text, Color color)
+    {
+        gm.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(text, color);
+    }
+
+    private bool simpleAtack(int baseDmg)
     {
         float modificator = skillUser.aim - target.dodge;
         float roll = UnityEngine.Random.Range(-5, 5);
@@ -97,22 +104,47 @@ public class UseSkill : MonoBehaviour
         {
             // Miss
             Debug.Log("Miss");
-            
-            enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("DODGE", Color.green);
-            player.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("MISS", Color.yellow);
-            return;
+
+            displayEffect(enemy, "DODGE", Color.green);
+            displayEffect(player, "MISS", Color.yellow);
+            return false;
         }
 
-        int damage = 3 + skillUser.strength;
-        enemy.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(damage.ToString(), Color.red);
+        int damage = baseDmg + skillUser.strength;
+        displayEffect(enemy, damage.ToString(), Color.red);
         target.onHealthChange(-damage);
         Debug.Log("Player attacks for " + damage);
+        return true;
+    }
+
+    private void stun(int turns)
+    {
+        Effect stun = new Effect(EffectName.STUN, turns, 0, true);
+        target.addEffect(stun);
+        displayEffect(target.gameObject, "STUN", Color.yellow);
+    }
+
+    private void bleeding(int turns, int damage)
+    {
+        Effect bleeding = new Effect(EffectName.BLEEDING, turns, damage, false);
+        target.addEffect(bleeding);
     }
 
     private void sword()
     {
-        int baseDmg = 3;
-        simpleAtack();
+        simpleAtack(3);
+    }
+
+    private void hammer()
+    {
+        if(simpleAtack(1))
+            stun(2);
+    }
+
+    private void baseball()
+    {
+        if (simpleAtack(1))
+            bleeding(2, 2);
     }
 
     private void potion()
@@ -131,6 +163,7 @@ public class UseSkill : MonoBehaviour
         Debug.Log("Player heals increases he's dodge for " + 3);
     }
 
+    
     private void skipTurn()
     {
         Debug.Log("Skipped turn");

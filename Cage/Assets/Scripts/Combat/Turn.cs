@@ -119,47 +119,91 @@ public class Turn : MonoBehaviour
             }
 
             GameObject o = queue.Dequeue();
-            o.GetComponent<Stats>().queued = false;
+            Stats objectStats = o.GetComponent<Stats>();
+            objectStats.queued = false;
+
+            if (objectStats.isDead)
+                continue;
 
             Debug.Log(o.name + "'s Turn");
+
+            bool isStunned = false;
+
+            int effectsCount = objectStats.effectsList.Count;
+
+            Debug.Log("liczba efektów: " + effectsCount);
+
+            if (effectsCount > 0)
+            {
+                for(int i = 0; i < effectsCount; i++)
+                {
+                    Effect e = objectStats.effectsList[i];
+
+                    if (e.turnsCount <= 0)
+                    {
+                        objectStats.effectsList.Remove(e);
+                        effectsCount--;
+                        continue;
+                    }
+                    Debug.Log(e.name);
+
+                    if (e.isStunned)
+                        isStunned = true;
+                    if (e.damagePerTurn > 0)
+                    {
+                        objectStats.onHealthChange(-e.damagePerTurn);
+                    }
+                    e.turnsCount--;
+                }
+            }
+
+            if (objectStats.isDead)
+            {
+                o.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("DEAD", Color.red);
+                Destroy(objectStats.queueIcon);
+                continue;
+            }
+
+            if (isStunned)
+            {
+                o.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("STUNNED", Color.yellow);
+                Destroy(objectStats.queueIcon);
+                continue;
+            }
+                
+
 
             if (o.CompareTag("Enemy"))
             {
                 turnState = TurnState.ENEMY;
                 
-
-                if (!o.GetComponent<Stats>().isDead)
-                {
-                    yield return new WaitForSeconds(1.0f);
-                    Color c = o.GetComponent<SpriteRenderer>().color;
-                    float red = c.r;
-                    float green = c.g;
-                    float blue = c.b;
-                    o.GetComponent<SpriteRenderer>().color = new Color(red + 20, green + 20, blue + 20);
-                    yield return new WaitForSeconds(1.5f);
-                    enemyAttack(o);
-                    o.GetComponent<SpriteRenderer>().color = new Color(red, green, blue); ;
-                }
+                yield return new WaitForSeconds(1.0f);
+                Color c = o.GetComponent<SpriteRenderer>().color;
+                float red = c.r;
+                float green = c.g;
+                float blue = c.b;
+                o.GetComponent<SpriteRenderer>().color = new Color(red + 20, green + 20, blue + 20);
+                yield return new WaitForSeconds(1.5f);
+                enemyAttack(o);
+                o.GetComponent<SpriteRenderer>().color = new Color(red, green, blue); ;
+                
             }
             else
             {
                 turnState = TurnState.PLAYER;
-                if (!o.GetComponent<Stats>().isDead)
+                
+                //skillsPanel.SetActive(true);
+                playerUsedTurn = false;
+                o.transform.GetChild(2).transform.gameObject.SetActive(true);
+
+                while (!playerUsedTurn)
                 {
-                    //skillsPanel.SetActive(true);
-                    playerUsedTurn = false;
-                    o.transform.GetChild(2).transform.gameObject.SetActive(true);
-
-                    while (!playerUsedTurn)
-                    {
-                        yield return null;
-                    }
-                    //skillsPanel.SetActive(false);
-                    o.transform.GetChild(2).transform.gameObject.SetActive(false);
-
-                    Destroy(o.GetComponent<Stats>().queueIcon);
+                    yield return null;
                 }
+                //skillsPanel.SetActive(false);
+                o.transform.GetChild(2).transform.gameObject.SetActive(false);
             }
+            Destroy(objectStats.queueIcon);
         }   
     }
 
@@ -188,7 +232,7 @@ public class Turn : MonoBehaviour
         player.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(damage.ToString(), Color.red);
         Debug.Log(enemy.name + " attacks " + player.name + " for " + damage);
 
-        Destroy(enemy.GetComponent<Stats>().queueIcon);
+        
     }
 
     void usedTurn()
