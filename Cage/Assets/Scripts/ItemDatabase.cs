@@ -43,6 +43,18 @@ public class ItemDatabase : MonoBehaviour
                 { "stat2", 3 }
             }, Skill.SKIP),
 
+            new Item(3, "hammer", "Main","", new Dictionary<string, int>
+            {
+                { "stat1", 15 },
+                { "stat2", 3 }
+            }, Skill.HAMMER),
+
+            new Item(3, "baseball", "Main","", new Dictionary<string, int>
+            {
+                { "stat1", 15 },
+                { "stat2", 3 }
+            }, Skill.BASEBALL),
+
 
         };
     }

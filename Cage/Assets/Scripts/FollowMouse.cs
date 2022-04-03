@@ -7,7 +7,7 @@ public class FollowMouse : MonoBehaviour
     void Update()
     {
         transform.localPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
-        Debug.Log(transform.localPosition);
+        //Debug.Log(transform.localPosition);
        
     }
 }
