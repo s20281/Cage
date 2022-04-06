@@ -23,8 +23,8 @@ public class UIInventory : MonoBehaviour
 
     public void UpdateSlot(int slot, Item item)
     {
-        
-        uIItems[slot].UpdateItem(item);
+       
+        uIItems[slot].UpdateItem(item, null);
     }
     public void AddNewItem(Item item)
     {

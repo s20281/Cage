@@ -4,44 +4,55 @@ using UnityEngine;
 
 public class TeamDatabase : MonoBehaviour
 {
-    public List<Item> items = new List<Item>();
+    public List<Character> characters = new List<Character>();
 
     private void Awake()
     {
         BuildDatabase();
     }
 
-    public Item GetItem(int id)
+    public Character GetCharacter(int id)
     {
-        return items.Find(item => item.id == id);
+        return characters.Find(character => character.id == id);
     }
 
-    public Item GetItem(string name)
+    public Character GetCharacter(string name)
     {
-        return items.Find(item => item.name == name);
+        return characters.Find(character => character.name == name);
     }
 
     void BuildDatabase()
     {
-        items = new List<Item>()
+        characters = new List<Character>()
         {
-            new Item(0, "hulk", "Player", "Make you healthy.", new Dictionary<string, int>
+            new Character(0, "blank", ".", new Dictionary<string, int>
+            {
+                { "stat1", 0 },
+                { "stat2", 0 }
+            }),
+            new Character(1, "player", "Uhahah.", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }, Skill.POTION),
+            }),
 
-            new Item(1, "ninja", "Player", "Fight! Fight!", new Dictionary<string, int>
+            new Character(2, "hulk", "I'm going to overpower you.", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }, Skill.SWORD),
+            }),
 
-            new Item(2, "swordman", "Mutant","open the door with it!", new Dictionary<string, int>
+            new Character(3, "ninja", "Hyaaa, ha, hya", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }, Skill.NONE),
+            }),
+
+            new Character(4, "swordman","Fight! Fight!", new Dictionary<string, int>
+            {
+                { "stat1", 10 },
+                { "stat2", 1 }
+            }),
 
 
         };
