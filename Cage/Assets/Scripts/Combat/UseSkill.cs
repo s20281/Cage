@@ -122,12 +122,14 @@ public class UseSkill : MonoBehaviour
         Effect stun = new Effect(EffectName.STUN, turns, 0, true);
         target.addEffect(stun);
         displayEffect(target.gameObject, "STUN", Color.yellow);
+        target.transform.GetChild(0).transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(true);
     }
 
     private void bleeding(int turns, int damage)
     {
         Effect bleeding = new Effect(EffectName.BLEEDING, turns, damage, false);
         target.addEffect(bleeding);
+        target.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(true);
     }
 
     private void sword()
@@ -137,13 +139,13 @@ public class UseSkill : MonoBehaviour
 
     private void hammer()
     {
-        if(simpleAtack(1))
-            stun(2);
+        if(simpleAtack(1) && !target.isDead)
+            stun(1);
     }
 
     private void baseball()
     {
-        if (simpleAtack(1))
+        if (simpleAtack(1) && !target.isDead)
             bleeding(2, 2);
     }
 

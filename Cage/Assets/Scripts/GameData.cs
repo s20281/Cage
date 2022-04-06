@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class GameData
+public class GameData : MonoBehaviour
 {
     public Vector3 playerPosition;
     public bool enemy1Alive;

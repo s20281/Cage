@@ -18,12 +18,21 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         inventory = GetComponent<Inventory>();
 
+        if(PlayerPrefs.HasKey("PlayerPostionX"))
+        {
+            Vector3 vec = new Vector3(PlayerPrefs.GetFloat("PlayerPostionX"), PlayerPrefs.GetFloat("PlayerPostionY"));
+            this.transform.position = vec;
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().name == "Level 1")
+        PlayerPrefs.SetFloat("PlayerPostionX", this.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerPostionY", this.transform.position.y);
+
+        if (SceneManager.GetActiveScene().name == "Level 1")
         {
 
             

@@ -128,6 +128,7 @@ public class Turn : MonoBehaviour
             Debug.Log(o.name + "'s Turn");
 
             bool isStunned = false;
+            bool isBleeding = false;
 
             int effectsCount = objectStats.effectsList.Count;
 
@@ -147,12 +148,17 @@ public class Turn : MonoBehaviour
                     }
                     Debug.Log(e.name);
 
-                    if (e.isStunned)
-                        isStunned = true;
                     if (e.damagePerTurn > 0)
                     {
                         objectStats.onHealthChange(-e.damagePerTurn);
                     }
+
+                    if (e.name == EffectName.STUN)
+                        isStunned = true;
+
+                    if (e.name == EffectName.BLEEDING && e.turnsCount > 0)
+                        isBleeding = true;
+
                     e.turnsCount--;
                 }
             }
@@ -169,6 +175,15 @@ public class Turn : MonoBehaviour
                 o.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("STUNNED", Color.yellow);
                 Destroy(objectStats.queueIcon);
                 continue;
+            }
+            else
+            {
+                o.transform.GetChild(0).transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
+            }
+
+            if(!isBleeding)
+            {
+                o.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
             }
                 
 
@@ -200,6 +215,7 @@ public class Turn : MonoBehaviour
                 {
                     yield return null;
                 }
+                yield return new WaitForSeconds(1.0f);
                 //skillsPanel.SetActive(false);
                 o.transform.GetChild(2).transform.gameObject.SetActive(false);
             }

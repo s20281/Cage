@@ -25,13 +25,25 @@ public class GameEventSystemMap : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+
+
+        if (StaticClass.loadScene)
+        {
+            Debug.Log("load scene");
+        }
+            //GameEventSystemMap.Instance.LoadData();
+            
+        else
+        {
+            Debug.Log("New Run");
+            PlayerPrefs.DeleteAll();
+        }
+        StaticClass.loadScene = true;
     }
 
     private void Start()
     {
-        if (StaticClass.loadScene)
-            GameEventSystemMap.Instance.LoadData();
-        StaticClass.loadScene = true;
+        
     }
 
     [SerializeField]

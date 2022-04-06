@@ -53,6 +53,7 @@ public class LoadCharacters : MonoBehaviour
                 if (i >= harr.Length)
                     break;
                 heroesToLoad[i] = harr[i].name;
+                Debug.Log(harr[i].name);
             }
         }
        
@@ -103,7 +104,7 @@ public class LoadCharacters : MonoBehaviour
                 {
                     GameObject o = GameObject.Instantiate(heroMapping[heroesToLoad[i]], heroSpawnPoints[i].transform, false);
                     o.name = heroMapping[heroesToLoad[i]].name;
-                    o.transform.GetChild(2).gameObject.SetActive(false);
+                    //o.transform.GetChild(2).gameObject.SetActive(false);  // co to mia³o robiæ?
                 }
             }
         }

@@ -19,7 +19,7 @@ public class PickableItem : MonoBehaviour
         Debug.Log("Pick");
         inventory.AddItem(gameObject.name);
         gameObject.SetActive(false);
-        
-        
+
+        this.GetComponent<ObjectsManager>().setOff();
     }
 }

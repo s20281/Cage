@@ -757,7 +757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b175a3c41cd4d90428cb44918c53e913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeSkill: 0
   turn: {fileID: 521555932}
   skillUser: {fileID: 0}
   target: {fileID: 0}
@@ -819,8 +818,8 @@ MonoBehaviour:
   enemy1Prefab: {fileID: 777634431527917437, guid: e924cd93645c2e548bc23ad7269114b3, type: 3}
   enemy2Prefab: {fileID: 86386744747759596, guid: 457478c8eceb79f42add06f82a5c7c60, type: 3}
   playerPrefab: {fileID: 7547132700977434369, guid: b4b0caaa92f85dd4a9d0f6b5d65ed953, type: 3}
-  hulkPrefab: {fileID: 4269056865313537971, guid: fb76375d90bd7e24cb44b3ea73d3750d, type: 3}
-  ninjaPrefab: {fileID: 7141131037414690522, guid: d0aee58ece5de5543bed0c661ca8f2c4, type: 3}
+  hulkPrefab: {fileID: 5597220883243662608, guid: e666c0c01dc27744e9c8f7ac77b33d6f, type: 3}
+  ninjaPrefab: {fileID: 6310101453184555824, guid: 791a028be2e590a42856f254477d8905, type: 3}
 --- !u!1 &548160151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,7 +2660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23082057, g: 0.2816706, b: 0.3679245, a: 1}
+  m_Color: {r: 0.254717, g: 0.23188858, b: 0.23188858, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2781,7 +2780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1248082646
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3134,7 +3133,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
+  m_Color: {r: 0.305, g: 0.14781627, b: 0.08448499, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3152,8 +3151,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369011744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1784204, y: -1.53, z: 0}
-  m_LocalScale: {x: 23.638, y: 0.4125, z: 1}
+  m_LocalPosition: {x: 0.0569, y: -1.53, z: 0}
+  m_LocalScale: {x: 20.51062, y: 0.4125, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -4413,7 +4412,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

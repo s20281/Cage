@@ -81,6 +81,8 @@ public class Stats : MonoBehaviour
             GameEventSystem.Instance.SetPlayerDies(this.gameObject);
         }
         Destroy(queueIcon);
+        this.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
+        this.transform.GetChild(0).transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
     }
 
     public void addEffect(Effect effect)

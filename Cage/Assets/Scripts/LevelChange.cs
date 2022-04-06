@@ -9,11 +9,15 @@ public class LevelChange : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
+
+            Destroy(collision.gameObject);
+
+            collision.GetComponent<ObjectsManager>().setOff();
 
             StaticClass.setEnemies(collision.GetComponent<EnemyInfo>().enemiesToLoad);
 
-            GameEventSystemMap.Instance.SaveData();
+            //GameEventSystemMap.Instance.SaveData();
 
             SceneManager.LoadScene("Combat");
         }
