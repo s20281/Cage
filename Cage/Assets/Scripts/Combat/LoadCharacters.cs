@@ -47,12 +47,23 @@ public class LoadCharacters : MonoBehaviour
 
         if (hasCompanion)
         {
-            Item[] harr = Inventory.control.GetAllCharacters().ToArray();
+            Character[] harr = Inventory.control.GetAllCharacters().ToArray();
+            var allCharacters= Inventory.control.GetAllCharacters();
+            Debug.Log("Loading");
+            foreach (var name in allCharacters)
+            {
+                Debug.Log(name.name);
+            }
+
             for (int i = 0; i < 4; i++)
             {
                 if (i >= harr.Length)
                     break;
-                heroesToLoad[i] = harr[i].name;
+                if (harr[i].name != "blank")
+                {
+                    heroesToLoad[i] = harr[i].name;
+                    Debug.Log(harr[i].name);
+                }
             }
         }
        
@@ -89,15 +100,15 @@ public class LoadCharacters : MonoBehaviour
         }
 
         //GameObject.Instantiate(heroMapping[Hero.PLAYER], heroSpawnPoint1.transform, false);
-        GameObject p = GameObject.Instantiate(heroMapping["player"], heroSpawnPoint1.transform, false);
-        p.name = heroMapping["player"].name;
-        p.transform.GetChild(2).gameObject.SetActive(false);
+       // GameObject p = GameObject.Instantiate(heroMapping["player"], heroSpawnPoint1.transform, false);
+        //p.name = heroMapping["player"].name;
+        //p.transform.GetChild(2).gameObject.SetActive(false);
 
         if (hasCompanion)
         {
-            GameObject[] heroSpawnPoints = new GameObject[] { heroSpawnPoint2, heroSpawnPoint3, heroSpawnPoint4 };
+            GameObject[] heroSpawnPoints = new GameObject[] { heroSpawnPoint1, heroSpawnPoint2, heroSpawnPoint3, heroSpawnPoint4 };
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < heroSpawnPoints.Length; i++)
             {
                 if (heroesToLoad[i] != null && heroMapping.ContainsKey(heroesToLoad[i]))
                 {

@@ -53,7 +53,7 @@ public class InventoryForCombat : MonoBehaviour
 
     public void UpdateSlot(int slot, Item item)
     {
-        uIItems[slot].UpdateItem(item);
+        uIItems[slot].UpdateItem(item, null);
         Debug.Log(item.skill);
         GameEventSystem.Instance.SetItemSelect(item.skill);
     }

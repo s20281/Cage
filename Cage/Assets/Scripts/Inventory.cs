@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public List<Item> itemsInInventory = new List<Item>();
-    public List<Item> charactersInInventory = new List<Item>();
+    public List<Character> charactersInInventory = new List<Character>();
     public ItemDatabase itemDatabase;
     public TeamDatabase teamDatabase;
 	
@@ -17,13 +17,27 @@ public class Inventory : MonoBehaviour
 
     void Awake(){
 		control = this;
+
+        for (var i=0; i < teamContainer.getUIItemSize(); i++)
+        {
+            charactersInInventory.Add(teamDatabase.GetCharacter(0));
+        }
+
+
+        Character playerCharacter = teamDatabase.GetCharacter("player");
+        AddItem(playerCharacter.name);
+
+        var slotIndex = TeamContainer.control.FindIndexOfCharacter(playerCharacter);
+        Debug.Log(slotIndex);
+        charactersInInventory[slotIndex] = playerCharacter;
 	}
 
 
     public void AddItem(int id)
     {
         Item itemToAdd = itemDatabase.GetItem(id);
-        Item characterToAdd = teamDatabase.GetItem(id);
+        Character characterToAdd = teamDatabase.GetCharacter(id);
+
         if(itemToAdd != null)
         {
             inventoryUI.AddNewItem(itemToAdd);
@@ -32,8 +46,20 @@ public class Inventory : MonoBehaviour
     
         if(characterToAdd != null)
         {
-            charactersInInventory.Add(characterToAdd);
-            teamContainer.AddNewItem(characterToAdd);
+            var index = 0;
+
+            foreach (var character in charactersInInventory)
+            {
+                if(character.name == "blank")
+                {
+                    AssignmentAction(character, characterToAdd);
+                    break;
+                }
+                index++;
+            }
+
+            teamContainer.AddNewCharacter(characterToAdd);
+
             
         }
         
@@ -43,18 +69,45 @@ public class Inventory : MonoBehaviour
     public void AddItem(string name)
     {
         Item itemToAdd = itemDatabase.GetItem(name);
-        Item characterToAdd = teamDatabase.GetItem(name);
+        Character characterToAdd = teamDatabase.GetCharacter(name);
 
         if (itemToAdd != null)
         {
             inventoryUI.AddNewItem(itemToAdd);
             itemsInInventory.Add(itemToAdd);
         }
+
         if (characterToAdd != null)
         {
-            teamContainer.AddNewItem(characterToAdd);
-            charactersInInventory.Add(characterToAdd);
+            int index = 0;
+
+            foreach(var a in GetAllCharacters())
+            {
+                Debug.Log("Tu pozmieniaæ");
+                if(a.name == "blank")
+                {
+                    AssignmentAction(charactersInInventory[index], characterToAdd);
+                    break;
+                }
+                index++;
+            }
+            var slotIndex = TeamContainer.control.FindIndexOfCharacter(teamDatabase.GetCharacter(0));
+            Debug.Log(slotIndex);
+            Debug.Log(charactersInInventory.Count);
+
+          
+          
+            teamContainer.AddNewCharacter(characterToAdd);
+
+            foreach (var a in GetAllCharacters())
+            {
+
+                Debug.Log(a.name);
+            }
+
+
         }
+  
 
     }
 
@@ -70,20 +123,20 @@ public class Inventory : MonoBehaviour
 
     }
 
-    public Item FindCharacter(int id)
+    public Character FindCharacter(int id)
     {
-        return charactersInInventory.Find(item => item.id == id);
+        return charactersInInventory.Find(character => character.id == id);
     }
 
-    public Item FindCharacter(string name)
+    public Character FindCharacter(string name)
     {
-        return charactersInInventory.Find(item => item.name == name);
+        return charactersInInventory.Find(character => character.name == name);
     }
 
     public void RemoveItem (int id)
     {
         Item item = FindItem(id);
-        Item character = FindCharacter(id);
+        Character character = FindCharacter(id);
 
         if(item != null)
         {
@@ -95,7 +148,7 @@ public class Inventory : MonoBehaviour
         if (character != null)
         {
             charactersInInventory.Remove(character);
-            teamContainer.RemoveItem(character);
+            teamContainer.RemoveCharacter(character);
 
         }
 
@@ -107,7 +160,7 @@ public class Inventory : MonoBehaviour
     public void RemoveItem(string name)
     {
         Item item = FindItem(name);
-        Item character = FindCharacter(name);
+        Character character = FindCharacter(name);
 
         if (item != null)
         {
@@ -118,8 +171,9 @@ public class Inventory : MonoBehaviour
 
         if (character != null)
         {
+
             charactersInInventory.Remove(character);
-            teamContainer.RemoveItem(character);
+            teamContainer.RemoveCharacter(character);
 
         }
 
@@ -139,11 +193,16 @@ public class Inventory : MonoBehaviour
             return false;
     }
 
-    public List<Item> GetAllCharacters()
+    public List<Character> GetAllCharacters()
     {
         return charactersInInventory;
     }
 
+    public static void AssignmentAction(Character characterToChange, Character character)
+    {
+        characterToChange = character;
+        Debug.Log("zamiana");
+    }
 
 
 

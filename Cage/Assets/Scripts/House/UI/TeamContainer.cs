@@ -4,55 +4,53 @@ using UnityEngine;
 
 public class TeamContainer : MonoBehaviour
 {
-    Inventory inv;
-    List<UIItem> uIItems = new List<UIItem>();
+    public List<UIItem> uIItems = new List<UIItem>();
     public GameObject slotPrefab;
     public Transform slotPanel;
     public int numberOfslots;
-    private List<Item> itemsInInventory;
+    private List<Character> charactersInInventory;
     public static TeamContainer control;
     GameObject inventoryCanvas;
 
     private void Awake()
     {
         control = this;
+
+        
         for (int i = 0; i < numberOfslots; i++)
         {
             GameObject instance = Instantiate(slotPrefab);
             instance.transform.SetParent(slotPanel);
             uIItems.Add(instance.GetComponentInChildren<UIItem>());
         }
+
+
     }
-    private void Update()
+   
+
+    public void UpdateSlot(int slot, Character character)
     {
-        inv = Inventory.control;
-        itemsInInventory = inv.GetAllCharacters();
-
-        //    Debug.Log("Lista");
-
-        //    foreach (var invItem in itemsInInventory)
-        //    {
-
-        //            Debug.Log(invItem.name);
-
-
-        //    }
-    }
-
-
-    public void UpdateSlot(int slot, Item item)
-    {
-        uIItems[slot].UpdateItem(item);
+        uIItems[slot].UpdateItem(null,character);
       
     }
-    public void AddNewItem(Item item)
+    public void AddNewCharacter(Character character)
     {
 
-        UpdateSlot(uIItems.FindIndex(i => i.item == null), item);
+        UpdateSlot(uIItems.FindIndex(i => i.character == null), character);
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveCharacter(Character character)
     {
-        UpdateSlot(uIItems.FindIndex(i => i.item == item), null);
+        UpdateSlot(uIItems.FindIndex(i => i.character == character), null);
+    }
+
+    public int FindIndexOfCharacter(Character character)
+    {
+       return uIItems.FindIndex(i => i.character == character);     
+    }
+
+    public int getUIItemSize()
+    {
+        return uIItems.Count;
     }
 }
