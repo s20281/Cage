@@ -65,27 +65,9 @@ public class UseSkill : MonoBehaviour
         hasTarget = false;
     }
 
-    //public void changeActiveSkillTo1()
-    //{
-    //    activeSkill = 1;
-    //}
-    //public void changeActiveSkillTo2()
-    //{
-    //    activeSkill = 2;
-    //}
-    //public void changeActiveSkillTo3()
-    //{
-    //    activeSkill = 3;
-    //}
-    //public void changeActiveSkillTo4()
-    //{
-    //    activeSkill = 4;
-    //}
-
     public void selectItem(Skill skill)
     {
         actSkill = skill;
-        //Debug.Log(skill);
     }
 
     private void displayEffect(GameObject gm, string text, Color color)
@@ -102,7 +84,6 @@ public class UseSkill : MonoBehaviour
 
         if (roll + modificator < 0)
         {
-            // Miss
             Debug.Log("Miss");
 
             displayEffect(enemy, "DODGE", Color.green);

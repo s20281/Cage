@@ -14,6 +14,8 @@ public class Inventory : MonoBehaviour
     public UIInventory inventoryUI;
     public TeamContainer teamContainer;
 
+    public ScriptableInventory inventory;
+
 
     void Awake(){
 		control = this;

@@ -132,7 +132,7 @@ public class Turn : MonoBehaviour
 
             int effectsCount = objectStats.effectsList.Count;
 
-            Debug.Log("liczba efektów: " + effectsCount);
+            //Debug.Log("liczba efektów: " + effectsCount);
 
             if (effectsCount > 0)
             {
@@ -146,7 +146,7 @@ public class Turn : MonoBehaviour
                         effectsCount--;
                         continue;
                     }
-                    Debug.Log(e.name);
+                    //Debug.Log(e.name);
 
                     if (e.damagePerTurn > 0)
                     {
@@ -174,6 +174,7 @@ public class Turn : MonoBehaviour
             {
                 o.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("STUNNED", Color.yellow);
                 Destroy(objectStats.queueIcon);
+                Debug.Log(o.name + " is stunned");
                 continue;
             }
             else

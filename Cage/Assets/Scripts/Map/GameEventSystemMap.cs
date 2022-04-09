@@ -46,34 +46,34 @@ public class GameEventSystemMap : MonoBehaviour
         
     }
 
-    [SerializeField]
-    private GameData data;
+    //[SerializeField]
+    //private GameData data;
 
-    public event Action<GameData> OnSaveData;
-    public event Action<GameData> OnLoadData;
+    //public event Action<GameData> OnSaveData;
+    //public event Action<GameData> OnLoadData;
 
-    public void LoadData()
-    {
-        XmlSerializer serializer = new XmlSerializer(typeof(GameData));
-        FileStream stream = new FileStream(Application.dataPath + "/../save.xml", FileMode.Open);
-        GameData tmp = serializer.Deserialize(stream) as GameData;
+    //public void LoadData()
+    //{
+    //    XmlSerializer serializer = new XmlSerializer(typeof(GameData));
+    //    FileStream stream = new FileStream(Application.dataPath + "/../save.xml", FileMode.Open);
+    //    GameData tmp = serializer.Deserialize(stream) as GameData;
 
-        if (tmp != null)
-        {
-            data = tmp;
-        }
+    //    if (tmp != null)
+    //    {
+    //        data = tmp;
+    //    }
 
-        stream.Close();
-        OnLoadData?.Invoke(data);
-    }
-    public void SaveData()
-    {
-        OnSaveData?.Invoke(data);
+    //    stream.Close();
+    //    OnLoadData?.Invoke(data);
+    //}
+    //public void SaveData()
+    //{
+    //    OnSaveData?.Invoke(data);
 
-        XmlSerializer serializer = new XmlSerializer(typeof(GameData));
-        FileStream stream = new FileStream(Application.dataPath + "/../save.xml", FileMode.Create);
-        serializer.Serialize(stream, data);
-        stream.Close();
-    }
+    //    XmlSerializer serializer = new XmlSerializer(typeof(GameData));
+    //    FileStream stream = new FileStream(Application.dataPath + "/../save.xml", FileMode.Create);
+    //    serializer.Serialize(stream, data);
+    //    stream.Close();
+    //}
 
 }
