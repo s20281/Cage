@@ -11,6 +11,8 @@ public static class StaticClass
     public static int enemy3 = 0;
     public static int enemy4 = 0;
 
+    public static Dictionary<string, GameObject> items = new Dictionary<string, GameObject>();
+
     public static void setEnemies(int [] enemies)
     {
         enemy1 = enemies[0];
@@ -22,4 +24,8 @@ public static class StaticClass
     {
         return new int[] { enemy1, enemy2, enemy3, enemy4 };
     }
+
+
+
+
 }

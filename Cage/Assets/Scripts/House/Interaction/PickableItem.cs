@@ -17,8 +17,8 @@ public class PickableItem : MonoBehaviour
 
     private void Start()
     {
-        //this.gameObject.GetComponent<SpriteRenderer>().sprite = item.icon;
-        //this.gameObject.name = item.name;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = item.icon;
+        this.gameObject.name = item.name;
     }
 
 
@@ -26,9 +26,12 @@ public class PickableItem : MonoBehaviour
     {
         Debug.Log("Picked " + gameObject.name);
         inventory.AddItem(gameObject.name);
-        GameObject player = GameObject.FindGameObjectWithTag("WalkPlayer");
-        //Debug.Log(player.name);
-        player.gameObject.GetComponent<Inventory>().inventory.addItem(gameObject);
+
+        //inventory2{
+        GameObject gm = GameObject.FindGameObjectWithTag("GM");
+        gm.gameObject.GetComponent<Inventory2>().inv.addItem(item);
+        gm.gameObject.GetComponent<Inventory2>().items.Add(gameObject.name);
+        //}
         gameObject.SetActive(false);
 
         this.GetComponent<ObjectsManager>().setOff();
