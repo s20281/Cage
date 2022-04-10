@@ -8,8 +8,8 @@ public class Inventory : MonoBehaviour
     public List<Character> charactersInInventory = new List<Character>();
     public ItemDatabase itemDatabase;
     public TeamDatabase teamDatabase;
-	
-	public static Inventory control;
+
+    public static Inventory control;
 
     public UIInventory inventoryUI;
     public TeamContainer teamContainer;
@@ -17,10 +17,11 @@ public class Inventory : MonoBehaviour
     public ScriptableInventory inventory;
 
 
-    void Awake(){
-		control = this;
+    void Awake()
+    {
+        control = this;
 
-        for (var i=0; i < teamContainer.getUIItemSize(); i++)
+        for (var i = 0; i < teamContainer.getUIItemSize(); i++)
         {
             charactersInInventory.Add(teamDatabase.GetCharacter(0));
         }
@@ -46,19 +47,19 @@ public class Inventory : MonoBehaviour
         Item itemToAdd = itemDatabase.GetItem(id);
         Character characterToAdd = teamDatabase.GetCharacter(id);
 
-        if(itemToAdd != null)
+        if (itemToAdd != null)
         {
             inventoryUI.AddNewItem(itemToAdd);
             itemsInInventory.Add(itemToAdd);
         }
-    
-        if(characterToAdd != null)
+
+        if (characterToAdd != null)
         {
             var index = 0;
 
             foreach (var a in GetAllCharacters())
             {
-                if(a.name == "blank")
+                if (a.name == "blank")
                 {
                     AssignmentAction(charactersInInventory[index], characterToAdd);
                     break;
@@ -72,7 +73,7 @@ public class Inventory : MonoBehaviour
 
 
         }
-        
+
 
     }
 
@@ -91,27 +92,28 @@ public class Inventory : MonoBehaviour
         {
             int index = 0;
 
-            foreach(var a in GetAllCharacters())
-            {             
-                if(a.name == "blank")
+            foreach (var a in GetAllCharacters())
+            {
+                if (a.name == "blank")
                 {
                     AssignmentAction(charactersInInventory[index], characterToAdd);
                     break;
                 }
                 index++;
             }
-           
-          
+
+
             teamContainer.AddNewCharacter(characterToAdd);
             GetAllCharacters()[index] = characterToAdd;
 
 
+
         }
-  
+
 
     }
 
-  
+
 
     public Item FindItem(int id)
     {
@@ -135,12 +137,12 @@ public class Inventory : MonoBehaviour
         return charactersInInventory.Find(character => character.name == name);
     }
 
-    public void RemoveItem (int id)
+    public void RemoveItem(int id)
     {
         Item item = FindItem(id);
         Character character = FindCharacter(id);
 
-        if(item != null)
+        if (item != null)
         {
             itemsInInventory.Remove(item);
             inventoryUI.RemoveItem(item);
@@ -184,7 +186,7 @@ public class Inventory : MonoBehaviour
 
     public List<Item> GetAllItems()
     {
-         return itemsInInventory;
+        return itemsInInventory;
     }
 
     public bool hasCompanion()
