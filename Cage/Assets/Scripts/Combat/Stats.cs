@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
 {
+    public Hero hero;
     public int maxHealth;
     public int health;
     public int speed;
@@ -88,5 +89,16 @@ public class Stats : MonoBehaviour
     public void addEffect(Effect effect)
     {
         effectsList.Add(effect);
+    }
+
+    public void setStats(Hero hero)
+    {
+        maxHealth = hero.maxHealth;
+        health = hero.health;
+        speed = hero.speed;
+        strength = hero.strength;
+        dodge = hero.dodge;
+        aim = hero.accuracy;
+        gameObject.GetComponent<SpriteRenderer>().sprite = hero.icon;
     }
 }

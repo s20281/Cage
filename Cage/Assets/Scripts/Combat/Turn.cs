@@ -104,6 +104,7 @@ public class Turn : MonoBehaviour
             if (alivePlayersCount == 0)
             {
                 Debug.Log("Player is dead");
+                yield return new WaitForSeconds(10f);
                 SceneManager.LoadScene("Game Over");
                 yield break;
             }

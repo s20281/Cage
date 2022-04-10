@@ -8,6 +8,8 @@ TagManager:
   - Object
   - WalkPlayer
   - GM
+  - Item
+  - Hero
   layers:
   - Default
   - TransparentFX
