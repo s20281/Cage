@@ -78,7 +78,7 @@ public class DialogueUI : MonoBehaviour
 
                 if (canBeRecruited)
                 {
-                    objectToAddToTeam.GetComponent<PickableItem>().PickItem(player.GetComponent<Inventory>());                   
+                    objectToAddToTeam.GetComponent<PickableItem>().PickItem(player.GetComponent<Inventory>());
 
                 }
                 else

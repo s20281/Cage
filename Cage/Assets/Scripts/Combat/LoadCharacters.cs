@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Hero
+public enum HeroName
 {
     PLAYER, NINJA, HULK
 }
-
 public class LoadCharacters : MonoBehaviour
 {
     public GameObject enemySpawnPoint1;
@@ -24,20 +23,23 @@ public class LoadCharacters : MonoBehaviour
     public GameObject enemy1Prefab;
     public GameObject enemy2Prefab;
 
-    public GameObject playerPrefab;
-    public GameObject hulkPrefab;
-    public GameObject ninjaPrefab;
+    //public GameObject playerPrefab;
+    //public GameObject hulkPrefab;
+    //public GameObject ninjaPrefab;
+
+    public GameObject heroPrefab;
 
     private bool hasCompanion;
 
     //private Dictionary<Hero, GameObject> heroMapping = new Dictionary<Hero, GameObject>();
-    private Dictionary<string, GameObject> heroMapping = new Dictionary<string, GameObject>();
+    private Dictionary<string, HeroName> heroMapping = new Dictionary<string, HeroName>();
 
 
     Dictionary<int, GameObject> enemyPrefabs = new Dictionary<int, GameObject>();
 
     private void Awake()
     {
+        GameObject gm = GameObject.FindGameObjectWithTag("GM");
         int[] enemiesToLoad = StaticClass.getEnemies();
         int enemiesCount = enemiesToLoad.Length;
 
@@ -47,6 +49,7 @@ public class LoadCharacters : MonoBehaviour
 
         if (hasCompanion)
         {
+            Debug.Log("has companion");
             Character[] harr = Inventory.control.GetAllCharacters().ToArray();
             var allCharacters= Inventory.control.GetAllCharacters();
             Debug.Log("Loading");
@@ -66,23 +69,13 @@ public class LoadCharacters : MonoBehaviour
                 }
             }
         }
-       
+        else
+            Debug.Log("no companion");
 
 
-        
-
-        
-
-        //heroMapping.Add(Hero.PLAYER, playerPrefab);
-        //heroMapping.Add(Hero.HULK, hulkPrefab);
-        //heroMapping.Add(Hero.NINJA, ninjaPrefab);
-
-        heroMapping.Add("player", playerPrefab);
-        heroMapping.Add("hulk", hulkPrefab);
-        heroMapping.Add("ninja", ninjaPrefab);
-
-
-
+        heroMapping.Add("player", HeroName.PLAYER);
+        heroMapping.Add("hulk", HeroName.HULK);
+        heroMapping.Add("ninja", HeroName.NINJA);
 
         enemyPrefabs.Add(0, enemy0Prefab);
         enemyPrefabs.Add(1, enemy1Prefab);
@@ -99,21 +92,20 @@ public class LoadCharacters : MonoBehaviour
             }  
         }
 
-        //GameObject.Instantiate(heroMapping[Hero.PLAYER], heroSpawnPoint1.transform, false);
-       // GameObject p = GameObject.Instantiate(heroMapping["player"], heroSpawnPoint1.transform, false);
-        //p.name = heroMapping["player"].name;
-        //p.transform.GetChild(2).gameObject.SetActive(false);
-
         if (hasCompanion)
         {
             GameObject[] heroSpawnPoints = new GameObject[] { heroSpawnPoint1, heroSpawnPoint2, heroSpawnPoint3, heroSpawnPoint4 };
 
+            List<Hero> heroes = gm.GetComponent<Team>().heroes;
+
             for (int i = 0; i < heroSpawnPoints.Length; i++)
             {
-                if (heroesToLoad[i] != null && heroMapping.ContainsKey(heroesToLoad[i]))
+                if (heroes[i] != null)
                 {
-                    GameObject o = GameObject.Instantiate(heroMapping[heroesToLoad[i]], heroSpawnPoints[i].transform, false);
-                    o.name = heroMapping[heroesToLoad[i]].name;
+                    GameObject o = GameObject.Instantiate(heroPrefab, heroSpawnPoints[i].transform, false);
+                    Hero h = heroes[i];
+                    o.gameObject.GetComponent<Stats>().setStats(h);
+                    o.name = h.name;
                     o.transform.GetChild(2).gameObject.SetActive(false);
                 }
             }

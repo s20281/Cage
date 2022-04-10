@@ -9,6 +9,7 @@ public class PickableItem : MonoBehaviour
     Inventory inventory;
 
     public ScriptableItem item;
+    public Hero hero;
 
     void Awake()
     {
@@ -17,8 +18,16 @@ public class PickableItem : MonoBehaviour
 
     private void Start()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = item.icon;
-        this.gameObject.name = item.name;
+        if(gameObject.CompareTag("Item"))// TODO zmieniæ heroes ¿eby nie byli pickableItem
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = item.icon;
+            this.gameObject.name = item.name;
+        }
+        else if(gameObject.CompareTag("Hero"))
+        {
+
+        }
+        
     }
 
 
@@ -29,8 +38,16 @@ public class PickableItem : MonoBehaviour
 
         //inventory2{
         GameObject gm = GameObject.FindGameObjectWithTag("GM");
-        gm.gameObject.GetComponent<Inventory2>().inv.addItem(item);
-        gm.gameObject.GetComponent<Inventory2>().items.Add(gameObject.name);
+        if (gameObject.CompareTag("Item")) // TODO zmieniæ heroes ¿eby nie byli pickableItem
+        {
+            
+            gm.gameObject.GetComponent<Inventory2>().inv.addItem(item);
+            gm.gameObject.GetComponent<Inventory2>().items.Add(gameObject.name);  
+        }
+        else if (gameObject.CompareTag("Hero"))
+        {
+            gm.gameObject.GetComponent<Team>().addHero(hero);
+        }
         //}
         gameObject.SetActive(false);
 

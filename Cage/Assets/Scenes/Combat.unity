@@ -774,7 +774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ec6d88734a5784a98333c524b39dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
 --- !u!114 &521555932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,9 +816,7 @@ MonoBehaviour:
   enemy0Prefab: {fileID: 3246074616068418081, guid: 98b97dee7bee035469293084c167b146, type: 3}
   enemy1Prefab: {fileID: 777634431527917437, guid: e924cd93645c2e548bc23ad7269114b3, type: 3}
   enemy2Prefab: {fileID: 86386744747759596, guid: 457478c8eceb79f42add06f82a5c7c60, type: 3}
-  playerPrefab: {fileID: 7547132700977434369, guid: b4b0caaa92f85dd4a9d0f6b5d65ed953, type: 3}
-  hulkPrefab: {fileID: 5597220883243662608, guid: e666c0c01dc27744e9c8f7ac77b33d6f, type: 3}
-  ninjaPrefab: {fileID: 6310101453184555824, guid: 791a028be2e590a42856f254477d8905, type: 3}
+  heroPrefab: {fileID: 7867797881197011546, guid: 072dc6b5703912d438df842d74013eaa, type: 3}
 --- !u!1 &548160151
 GameObject:
   m_ObjectHideFlags: 0
