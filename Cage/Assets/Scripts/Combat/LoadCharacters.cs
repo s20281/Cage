@@ -50,7 +50,7 @@ public class LoadCharacters : MonoBehaviour
             Character[] harr = Inventory.control.GetAllCharacters().ToArray();
             var allCharacters= Inventory.control.GetAllCharacters();
             Debug.Log("Loading");
-            foreach (var name in allCharacters)
+            foreach (var name in harr)
             {
                 Debug.Log(name.name);
             }
@@ -105,15 +105,16 @@ public class LoadCharacters : MonoBehaviour
         //p.transform.GetChild(2).gameObject.SetActive(false);
 
         if (hasCompanion)
-        {
+        {           
             GameObject[] heroSpawnPoints = new GameObject[] { heroSpawnPoint1, heroSpawnPoint2, heroSpawnPoint3, heroSpawnPoint4 };
 
             for (int i = 0; i < heroSpawnPoints.Length; i++)
             {
                 if (heroesToLoad[i] != null && heroMapping.ContainsKey(heroesToLoad[i]))
-                {
+                {                    
                     GameObject o = GameObject.Instantiate(heroMapping[heroesToLoad[i]], heroSpawnPoints[i].transform, false);
                     o.name = heroMapping[heroesToLoad[i]].name;
+                    Debug.Log("jeszce dzia³a");
                     o.transform.GetChild(2).gameObject.SetActive(false);
                 }
             }

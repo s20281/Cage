@@ -32,7 +32,13 @@ public class Inventory : MonoBehaviour
         var slotIndex = TeamContainer.control.FindIndexOfCharacter(playerCharacter);
         Debug.Log(slotIndex);
         charactersInInventory[slotIndex] = playerCharacter;
-	}
+
+        foreach (var a in GetAllCharacters())
+        {
+
+            Debug.Log(a.name);
+        }
+    }
 
 
     public void AddItem(int id)
@@ -50,19 +56,21 @@ public class Inventory : MonoBehaviour
         {
             var index = 0;
 
-            foreach (var character in charactersInInventory)
+            foreach (var a in GetAllCharacters())
             {
-                if(character.name == "blank")
+                if(a.name == "blank")
                 {
-                    AssignmentAction(character, characterToAdd);
+                    AssignmentAction(charactersInInventory[index], characterToAdd);
                     break;
                 }
                 index++;
             }
 
             teamContainer.AddNewCharacter(characterToAdd);
+            GetAllCharacters()[index] = characterToAdd;
 
-            
+
+
         }
         
 
@@ -84,8 +92,7 @@ public class Inventory : MonoBehaviour
             int index = 0;
 
             foreach(var a in GetAllCharacters())
-            {
-                Debug.Log("Tu pozmieniaæ");
+            {             
                 if(a.name == "blank")
                 {
                     AssignmentAction(charactersInInventory[index], characterToAdd);
@@ -93,25 +100,18 @@ public class Inventory : MonoBehaviour
                 }
                 index++;
             }
-            var slotIndex = TeamContainer.control.FindIndexOfCharacter(teamDatabase.GetCharacter(0));
-            Debug.Log(slotIndex);
-            Debug.Log(charactersInInventory.Count);
-
-          
+           
           
             teamContainer.AddNewCharacter(characterToAdd);
-
-            foreach (var a in GetAllCharacters())
-            {
-
-                Debug.Log(a.name);
-            }
+            GetAllCharacters()[index] = characterToAdd;
 
 
         }
   
 
     }
+
+  
 
     public Item FindItem(int id)
     {
@@ -203,7 +203,6 @@ public class Inventory : MonoBehaviour
     public static void AssignmentAction(Character characterToChange, Character character)
     {
         characterToChange = character;
-        Debug.Log("zamiana");
     }
 
 
