@@ -15,11 +15,14 @@ public class Inventory : MonoBehaviour
     public TeamContainer teamContainer;
 
     public ScriptableInventory inventory;
+    private GameObject GM;
 
 
     void Awake()
     {
         control = this;
+
+        GM = GameObject.FindGameObjectWithTag("GM");
 
         for (var i = 0; i < teamContainer.getUIItemSize(); i++)
         {

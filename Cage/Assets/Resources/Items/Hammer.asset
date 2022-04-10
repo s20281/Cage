@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   name: hammer
-  character: hulk
+  character: Hulk
   description: 
   icon: {fileID: 21300000, guid: 46f10cd7165d18b4e8125459a213ce7a, type: 3}
   skill: 4

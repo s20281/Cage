@@ -56,6 +56,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Team team = GameObject.FindGameObjectWithTag("GM").GetComponent<Team>();
 
         if (this.item != null)
         {
@@ -84,13 +85,15 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
         else if (this.character != null)
         {
 
-
             if (selectedItem.character != null)
             {
 
                 var slotIndex = TeamContainer.control.FindIndexOfCharacter(this.character);
+
                 Debug.Log(slotIndex);
                 Inventory.control.GetAllCharacters()[slotIndex] = selectedItem.character;
+
+                
 
                 Character clone = new Character(selectedItem.character);
                 selectedItem.UpdateItem(null, this.character);
@@ -104,6 +107,10 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
                     var slotIndex = TeamContainer.control.FindIndexOfCharacter(this.character);
                     Debug.Log(slotIndex);
                     Inventory.control.GetAllCharacters()[slotIndex] = Inventory.control.FindCharacter(0);
+
+                    team.temp = team.heroes[slotIndex];
+                    team.heroes[slotIndex] = null;
+
 
                     selectedItem.UpdateItem(null, this.character);
                     UpdateItem(null, null);
@@ -119,8 +126,9 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
             {
                 if (SceneManager.GetActiveScene().name == "Combat")
                 {
-                    GameEventSystem.Instance.SetItemSelect(new Item(0,"","","",new Dictionary<string, int>(), Skill.NONE));
+                    GameEventSystem.Instance.SetItemSelect(new Item(0, "", "", "", new Dictionary<string, int>(), Skill.NONE));
                 }
+            }
 
             UpdateItem(selectedItem.item, null);
             selectedItem.UpdateItem(null, null);
@@ -137,6 +145,9 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
             Inventory.control.GetAllCharacters()[slotIndex] = selectedItem.character;
 
             selectedItem.UpdateItem(null, null);
+
+            team.heroes[slotIndex] = team.temp;
+            team.temp = null;
 
 
         }

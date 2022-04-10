@@ -33,4 +33,13 @@ public class Item
         this.stats = item.stats;
         this.skill = item.skill;
     }
+
+    public Item(ScriptableItem item)
+    {
+        this.name = item.name;
+        this.character = item.character;
+        this.description = item.description;
+        icon = Resources.Load<Sprite>("Sprites/" + name);
+        this.skill = item.skill;
+    }
 }

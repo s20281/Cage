@@ -11,8 +11,10 @@ public class InventoryForCombat : MonoBehaviour
     public Transform slotPanel;
     public int numberOfslots = 5;
     private List<Item> itemsInInventory;
+    private List<ScriptableItem> items;
     public static InventoryForCombat control;
     GameObject inventoryCanvas;
+    private GameObject gm;
 
     private void Awake()
     {
@@ -27,21 +29,31 @@ public class InventoryForCombat : MonoBehaviour
 
     void Start()
     {
-        inv = Inventory.control;
-        Item item = inv.FindItem(1);
-        itemsInInventory = inv.GetAllItems();     
-      
+        //inv = Inventory.control;
+        //Item item = inv.FindItem(1);
+        //itemsInInventory = inv.GetAllItems();
 
-        foreach (var invItem in itemsInInventory)
+        //foreach (var invItem in itemsInInventory)
+        //{
+        //    if (invItem.character == this.gameObject.name)
+        //    {
+        //        Debug.Log(invItem.name);
+        //        AddNewItem(invItem);
+        //    }
+        //}
+
+        //inventory 2.0
+        gm = GameObject.FindGameObjectWithTag("GM");
+        items = gm.GetComponent<Inventory2>().items;
+
+        foreach (var i in items)
         {
-            if (invItem.character == this.gameObject.name)
+            if (i.character == this.gameObject.name)
             {
-                Debug.Log(invItem.name);
-                AddNewItem(invItem);
+                AddNewItem(new Item(i));
             }
         }
     }
-
 
     private void Update()
     {
@@ -56,7 +68,6 @@ public class InventoryForCombat : MonoBehaviour
     }
     public void AddNewItem(Item item)
     {
-
         UpdateSlot(uIItems.FindIndex(i => i.item == null), item);
     }
 

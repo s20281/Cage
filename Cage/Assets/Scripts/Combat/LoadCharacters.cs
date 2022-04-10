@@ -96,7 +96,7 @@ public class LoadCharacters : MonoBehaviour
         {           
             GameObject[] heroSpawnPoints = new GameObject[] { heroSpawnPoint1, heroSpawnPoint2, heroSpawnPoint3, heroSpawnPoint4 };
 
-            List<Hero> heroes = gm.GetComponent<Team>().heroes;
+            Hero [] heroes = gm.GetComponent<Team>().heroes;
 
             for (int i = 0; i < heroSpawnPoints.Length; i++)
             {

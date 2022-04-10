@@ -208,6 +208,7 @@ public class Turn : MonoBehaviour
             else
             {
                 turnState = TurnState.PLAYER;
+                playerStats = o.GetComponent<Stats>();
                 
                 //skillsPanel.SetActive(true);
                 playerUsedTurn = false;

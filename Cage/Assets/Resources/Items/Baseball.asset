@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Baseball
   m_EditorClassIdentifier: 
   name: baseball
-  character: ninja
+  character: Ninja
   description: 
   icon: {fileID: 21300000, guid: 4b696f1d2cc8399419fc19c2532d9d67, type: 3}
   skill: 5

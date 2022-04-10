@@ -42,7 +42,7 @@ public class PickableItem : MonoBehaviour
         {
             
             gm.gameObject.GetComponent<Inventory2>().inv.addItem(item);
-            gm.gameObject.GetComponent<Inventory2>().items.Add(gameObject.name);  
+            gm.gameObject.GetComponent<Inventory2>().items.Add(item);  
         }
         else if (gameObject.CompareTag("Hero"))
         {

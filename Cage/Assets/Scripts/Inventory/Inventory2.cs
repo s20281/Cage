@@ -6,7 +6,7 @@ public class Inventory2 : MonoBehaviour
 {
     public ScriptableInventory inv;
     public ScriptableItem [] startingItems;
-    public List<string> items;
+    public List<ScriptableItem> items;
     // Start is called before the first frame update
     void Start()
     {
