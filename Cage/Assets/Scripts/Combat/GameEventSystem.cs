@@ -52,6 +52,7 @@ public class GameEventSystem : MonoBehaviour
     public void SetSkillUse()
     {
         OnSkillUse.Invoke();
+        UIItem.control.getItemBackToSlot();
     }
 
     public void SetPlayerStatsActive(bool isActive)

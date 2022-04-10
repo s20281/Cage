@@ -846,7 +846,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &170847592
 RectTransform:
@@ -4411,11 +4411,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3999242606818546706, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.23
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 3999242606818546706, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.42
+      value: 2.33
       objectReference: {fileID: 0}
     - target: {fileID: 3999242606818546706, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6024,6 +6024,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1258817292}
     m_Modifications:
     - target: {fileID: 3999242606818546704, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999242606818546704, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999242606818546704, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999242606818546704, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
       propertyPath: m_SpriteTilingProperty.border.w
       value: 4.7999997
       objectReference: {fileID: 0}
@@ -6057,11 +6069,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3999242606818546706, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.04
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 3999242606818546706, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.06
+      value: -8.9
       objectReference: {fileID: 0}
     - target: {fileID: 3999242606818546706, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6516,7 +6528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1886130686
 RectTransform:
   m_ObjectHideFlags: 0

@@ -12,8 +12,11 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
     private Image spriteImage;
     private UIItem selectedItem;
 
+    public static UIItem control;
+
     private void Awake()
     {
+        control = this;
         spriteImage = GetComponent<Image>();
         UpdateItem(null, null);
         selectedItem = GameObject.Find("SelectedItem").GetComponent<UIItem>();
@@ -24,22 +27,31 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
     {
         this.item = item;
         this.character = character;
-      
+
         if (this.item != null)
         {
             spriteImage.color = Color.white;
             spriteImage.sprite = this.item.icon;
 
         }
-        else if(this.character != null)
+        else if (this.character != null)
         {
             spriteImage.color = Color.white;
             spriteImage.sprite = this.character.icon;
-        } 
+        }
         else
         {
             spriteImage.color = Color.clear;
         }
+    }
+
+    public void getItemBackToSlot()
+    {
+       
+            selectedItem.UpdateItem(this.item, null);
+            UpdateItem(null, null);
+        
+       
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -62,28 +74,30 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
             }
             else
             {
+
                 selectedItem.UpdateItem(this.item, null);
                 UpdateItem(null, null);
             }
 
+
         }
         else if (this.character != null)
         {
-           
 
-                if (selectedItem.character != null)
-                {
 
-                    var slotIndex = TeamContainer.control.FindIndexOfCharacter(this.character);
-                    Debug.Log(slotIndex);
-                    Inventory.control.GetAllCharacters()[slotIndex] = selectedItem.character;
+            if (selectedItem.character != null)
+            {
 
-                    Character clone = new Character(selectedItem.character);
-                    selectedItem.UpdateItem(null, this.character);
-                    UpdateItem(null, clone);
-                }
-                else
-                {
+                var slotIndex = TeamContainer.control.FindIndexOfCharacter(this.character);
+                Debug.Log(slotIndex);
+                Inventory.control.GetAllCharacters()[slotIndex] = selectedItem.character;
+
+                Character clone = new Character(selectedItem.character);
+                selectedItem.UpdateItem(null, this.character);
+                UpdateItem(null, clone);
+            }
+            else
+            {
 
                 if (this.character.name != "blank")
                 {
@@ -97,34 +111,34 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
 
 
 
-                }
             }
-            else if (selectedItem.item != null)
+        }
+        else if (selectedItem.item != null)
+        {
+            if (SceneManager.GetActiveScene().name == "Combat")
             {
-                if (SceneManager.GetActiveScene().name == "Combat")
-                {
-                    GameEventSystem.Instance.SetItemSelect(Skill.NONE);
-                }
-
-                UpdateItem(selectedItem.item, null);
-                selectedItem.UpdateItem(null, null);
-
-            }
-            else if (selectedItem.character != null)
-            {
-
-                UpdateItem(null, selectedItem.character);
-
-
-                var slotIndex = TeamContainer.control.FindIndexOfCharacter(selectedItem.character);
-                Debug.Log("exchange: " + slotIndex);
-                Inventory.control.GetAllCharacters()[slotIndex] = selectedItem.character;
-
-                selectedItem.UpdateItem(null, null);
-
-
+                GameEventSystem.Instance.SetItemSelect(Skill.NONE);
             }
 
-        
+            UpdateItem(selectedItem.item, null);
+            selectedItem.UpdateItem(null, null);
+
+        }
+        else if (selectedItem.character != null)
+        {
+
+            UpdateItem(null, selectedItem.character);
+
+
+            var slotIndex = TeamContainer.control.FindIndexOfCharacter(selectedItem.character);
+            Debug.Log("exchange: " + slotIndex);
+            Inventory.control.GetAllCharacters()[slotIndex] = selectedItem.character;
+
+            selectedItem.UpdateItem(null, null);
+
+
+        }
+
+
     }
 }
