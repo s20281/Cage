@@ -40,9 +40,6 @@ public class InventoryForCombat : MonoBehaviour
                 AddNewItem(invItem);
             }
         }
-
-        
-
     }
 
 
@@ -55,7 +52,7 @@ public class InventoryForCombat : MonoBehaviour
     {
         uIItems[slot].UpdateItem(item, null);
         Debug.Log(item.skill);
-        GameEventSystem.Instance.SetItemSelect(item.skill);
+        GameEventSystem.Instance.SetItemSelect(item);
     }
     public void AddNewItem(Item item)
     {

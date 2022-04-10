@@ -16,6 +16,7 @@ public class UseSkill : MonoBehaviour
     public bool hasTarget;
 
     public Skill actSkill;
+    public Item actItem;
     private Dictionary<Skill, Action> skillMapping;
 
     void Start()
@@ -44,6 +45,8 @@ public class UseSkill : MonoBehaviour
             skillUser = turn.getActivePlayer();
             skillMapping[actSkill]();
 
+            //TODO  zu¿ywanie single-use itemów
+
             actSkill = Skill.NONE;
 
             GameEventSystem.Instance.SetSkillUse();
@@ -65,9 +68,10 @@ public class UseSkill : MonoBehaviour
         hasTarget = false;
     }
 
-    public void selectItem(Skill skill)
+    public void selectItem(Item item)
     {
-        actSkill = skill;
+        actSkill = item.skill;
+        actItem = item;
     }
 
     private void displayEffect(GameObject gm, string text, Color color)

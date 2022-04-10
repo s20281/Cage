@@ -50,7 +50,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
             if (SceneManager.GetActiveScene().name == "Combat")
             {
                 Debug.Log(item.skill);
-                GameEventSystem.Instance.SetItemSelect(item.skill);
+                GameEventSystem.Instance.SetItemSelect(item);
             }
 
 
@@ -103,7 +103,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
             {
                 if (SceneManager.GetActiveScene().name == "Combat")
                 {
-                    GameEventSystem.Instance.SetItemSelect(Skill.NONE);
+                    GameEventSystem.Instance.SetItemSelect(new Item(0,"","","",new Dictionary<string, int>(), Skill.NONE));
                 }
 
                 UpdateItem(selectedItem.item, null);
