@@ -93,7 +93,9 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
                 Debug.Log(slotIndex);
                 Inventory.control.GetAllCharacters()[slotIndex] = selectedItem.character;
 
-                
+                Hero temp = team.temp;
+                team.temp = team.heroes[slotIndex];
+                team.heroes[slotIndex] = temp;
 
                 Character clone = new Character(selectedItem.character);
                 selectedItem.UpdateItem(null, this.character);

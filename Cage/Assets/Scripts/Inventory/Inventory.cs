@@ -26,16 +26,30 @@ public class Inventory : MonoBehaviour
 
         for (var i = 0; i < teamContainer.getUIItemSize(); i++)
         {
-            charactersInInventory.Add(teamDatabase.GetCharacter(0));
+            //charactersInInventory.Add(teamDatabase.GetCharacter(0));
+            if(GM.GetComponent<Team>().heroes[i] != null)
+            {
+                //charactersInInventory.Add(new Character(GM.GetComponent<Team>().heroes[i]));
+                teamContainer.UpdateSlot(i, new Character(GM.GetComponent<Team>().heroes[i]));
+            }
+                
+            else
+                charactersInInventory.Add(teamDatabase.GetCharacter(0));
+
+        }
+
+        foreach(ScriptableItem item in GM.GetComponent<Inventory2>().items)
+        {
+            AddItem(item.name);
         }
 
 
-        Character playerCharacter = teamDatabase.GetCharacter("player");
-        AddItem(playerCharacter.name);
+        //Character playerCharacter = teamDatabase.GetCharacter("player");
+        //AddItem(playerCharacter.name);
 
-        var slotIndex = TeamContainer.control.FindIndexOfCharacter(playerCharacter);
-        Debug.Log(slotIndex);
-        charactersInInventory[slotIndex] = playerCharacter;
+        //var slotIndex = TeamContainer.control.FindIndexOfCharacter(playerCharacter);
+        //Debug.Log(slotIndex);
+        //charactersInInventory[slotIndex] = playerCharacter;
 
         foreach (var a in GetAllCharacters())
         {
@@ -109,10 +123,7 @@ public class Inventory : MonoBehaviour
             teamContainer.AddNewCharacter(characterToAdd);
             GetAllCharacters()[index] = characterToAdd;
 
-
-
         }
-
 
     }
 

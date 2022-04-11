@@ -9,7 +9,7 @@ public class Team : MonoBehaviour
     public Hero main;
     public Hero temp;
 
-    private void Start()
+    private void Awake()
     {
         heroes = new Hero[8];
         addHero(main);
@@ -25,5 +25,17 @@ public class Team : MonoBehaviour
                 break;
             }
         } 
+    }
+
+    public void removeHero(Hero hero)
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            if (heroes[i].name == hero.name)
+            {
+                heroes[i] = null;
+                break;
+            }
+        }
     }
 }

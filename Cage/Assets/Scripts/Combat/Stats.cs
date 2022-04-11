@@ -20,9 +20,12 @@ public class Stats : MonoBehaviour
     public GameObject queueIcon;
     public List<Effect> effectsList = new List<Effect>();
 
+    private GameObject GM;
+
     void Start()
     {
-        isDead = false;   
+        isDead = false;
+        GM = GameObject.FindGameObjectWithTag("GM");
     }
 
     void OnMouseOver()
@@ -77,9 +80,10 @@ public class Stats : MonoBehaviour
         {
             GameEventSystem.Instance.SetEnemyDies();
         }
-        else
+        else if (gameObject.CompareTag("Player"))
         {
             GameEventSystem.Instance.SetPlayerDies(this.gameObject);
+            GM.GetComponent<Team>().removeHero(hero);
         }
         Destroy(queueIcon);
         this.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
@@ -93,6 +97,7 @@ public class Stats : MonoBehaviour
 
     public void setStats(Hero hero)
     {
+        this.hero = hero;
         maxHealth = hero.maxHealth;
         health = hero.health;
         speed = hero.speed;

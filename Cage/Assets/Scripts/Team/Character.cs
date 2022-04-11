@@ -27,4 +27,12 @@ public class Character
         icon = Resources.Load<Sprite>("Sprites/" + name);
         this.stats = character.stats;
     }
+
+    public Character(Hero hero)
+    {
+        this.id = hero.id;
+        this.name = hero.name;
+        this.description = hero.description;
+        this.icon = hero.icon;
+    }
 }
