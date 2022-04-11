@@ -18,6 +18,7 @@ public class UseSkill : MonoBehaviour
     public Skill actSkill;
     public Item actItem;
     private Dictionary<Skill, Action> skillMapping;
+    private GameObject GM;
 
     void Start()
     {
@@ -36,6 +37,8 @@ public class UseSkill : MonoBehaviour
             {Skill.BASEBALL, () => {baseball(); } },
             {Skill.SKIP, () => {skipTurn(); } }
         };
+
+        GM = GameManager.getGameObject();
 }
 
     void Update()
@@ -45,7 +48,9 @@ public class UseSkill : MonoBehaviour
             skillUser = turn.getActivePlayer();
             skillMapping[actSkill]();
 
-            //TODO  zu¿ywanie single-use itemów
+            if (actItem.name == "potion")
+                GM.GetComponent<Inventory2>().removeItem(actItem);
+                
 
             actSkill = Skill.NONE;
 

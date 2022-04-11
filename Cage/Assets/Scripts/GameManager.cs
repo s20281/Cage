@@ -16,4 +16,9 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
+    public static GameObject getGameObject()
+    {
+        return instance.gameObject;
+    }
 }
