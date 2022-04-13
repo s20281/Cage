@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab5803a5e8c3544497f863c4074baa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hero: {fileID: 0}
   maxHealth: 10
   health: 10
   speed: 5
@@ -108,6 +109,7 @@ MonoBehaviour:
   dead: {fileID: 21300000, guid: b5b725b4d4f6c8941ba47b7f06b03de8, type: 3}
   isDead: 0
   queued: 0
+  queueIcon: {fileID: 0}
 --- !u!61 &-9065101500672513482
 BoxCollider2D:
   m_ObjectHideFlags: 0

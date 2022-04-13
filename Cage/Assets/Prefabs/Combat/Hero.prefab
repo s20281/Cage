@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab5803a5e8c3544497f863c4074baa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: 0
+  hero: {fileID: 0}
   maxHealth: 10
   health: 10
   speed: 3
@@ -653,7 +653,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7867797881197011546}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

@@ -89,6 +89,10 @@ public class LoadCharacters : MonoBehaviour
             {
                 GameObject o = GameObject.Instantiate(enemyPrefabs[enemiesToLoad[i]], enemySpawnPoints[i].transform, false);
                 o.name = enemyPrefabs[enemiesToLoad[i]].name;
+
+                Vector3 spawnPosition = enemySpawnPoints[i].transform.position;
+                Vector3 updatedSpawnPosition = new Vector3(spawnPosition.x, spawnPosition.y + o.GetComponent<SpriteRenderer>().bounds.size.y / 2);
+                o.transform.position = updatedSpawnPosition;
             }  
         }
 
@@ -102,11 +106,15 @@ public class LoadCharacters : MonoBehaviour
             {
                 if (heroes[i] != null)
                 {
-                    GameObject o = GameObject.Instantiate(heroPrefab, heroSpawnPoints[i].transform, false);
+                    GameObject o = GameObject.Instantiate(heroPrefab, heroSpawnPoints[i].transform);
                     Hero h = heroes[i];
                     o.gameObject.GetComponent<Stats>().setStats(h);
                     o.name = h.name;
                     o.transform.GetChild(2).gameObject.SetActive(false);
+
+                    Vector3 spawnPosition = heroSpawnPoints[i].transform.position;
+                    Vector3 updatedSpawnPosition = new Vector3(spawnPosition.x, spawnPosition.y + o.GetComponent<SpriteRenderer>().bounds.size.y / 2);
+                    o.transform.position = updatedSpawnPosition;
                 }
             }
         }
