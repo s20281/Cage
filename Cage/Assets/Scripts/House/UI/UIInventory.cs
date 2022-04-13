@@ -9,26 +9,29 @@ public class UIInventory : MonoBehaviour
     public Transform slotPanel;
     public int numberOfslots = 15;
 
+
+    public static UIInventory control;
+
     private void Awake()
     {
-        for(int i = 0; i< numberOfslots; i++)
+        control = this;
+
+        for (int i = 0; i < numberOfslots; i++)
         {
             GameObject instance = Instantiate(slotPrefab);
             instance.transform.SetParent(slotPanel);
             uIItems.Add(instance.GetComponentInChildren<UIItem>());
-            
+
         }
- 
+
     }
 
     public void UpdateSlot(int slot, Item item)
     {
-       
         uIItems[slot].UpdateItem(item, null);
     }
     public void AddNewItem(Item item)
     {
-        
         UpdateSlot(uIItems.FindIndex(i => i.item == null), item);
     }
 
@@ -36,4 +39,10 @@ public class UIInventory : MonoBehaviour
     {
         UpdateSlot(uIItems.FindIndex(i => i.item == item), null);
     }
+    
+    public void FindItemSlot(Item item)
+    {
+        UpdateSlot( uIItems.FindIndex(i => i.item.name == item.name), item);
+    }
+
 }
