@@ -29,6 +29,7 @@ public class InventoryForCombat : MonoBehaviour
 
     void Start()
     {
+        //inventory 1.0
         //inv = Inventory.control;
         //Item item = inv.FindItem(1);
         //itemsInInventory = inv.GetAllItems();
@@ -43,6 +44,12 @@ public class InventoryForCombat : MonoBehaviour
         //}
 
         //inventory 2.0
+        LoadItems();
+        //GameEventSystem.Instance.OnSkillUse += reloadItems;
+    }
+
+    private void LoadItems()
+    {
         gm = GameObject.FindGameObjectWithTag("GM");
         items = gm.GetComponent<Inventory2>().items;
 
@@ -55,9 +62,10 @@ public class InventoryForCombat : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void reloadItems()
     {
-
+        uIItems = new List<UIItem>();
+        LoadItems();
     }
 
     public void UpdateSlot(int slot, Item item)
