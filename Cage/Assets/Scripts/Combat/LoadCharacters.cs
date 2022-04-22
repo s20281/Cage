@@ -49,15 +49,9 @@ public class LoadCharacters : MonoBehaviour
 
         if (hasCompanion)
         {
-            Debug.Log("has companion");
             Character[] harr = Inventory.control.GetAllCharacters().ToArray();
-            var allCharacters= Inventory.control.GetAllCharacters();
-            Debug.Log("Loading");
-            foreach (var name in harr)
-            {
-                Debug.Log(name.name);
-            }
-
+            var allCharacters= Inventory.control.GetAllCharacters();           
+            
             for (int i = 0; i < 4; i++)
             {
                 if (i >= harr.Length)

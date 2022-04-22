@@ -51,11 +51,11 @@ public class Inventory : MonoBehaviour
         //Debug.Log(slotIndex);
         //charactersInInventory[slotIndex] = playerCharacter;
 
-        foreach (var a in GetAllCharacters())
+        /*foreach (var a in GetAllCharacters())
         {
 
             Debug.Log(a.name);
-        }
+        }*/
     }
 
 

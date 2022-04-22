@@ -84,4 +84,5 @@ public class InventoryForCombat : MonoBehaviour
         UpdateSlot(uIItems.FindIndex(i => i.item == item), null);
     }
 
+  
 }

@@ -11,7 +11,6 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
     public Character character;
     private Image spriteImage;
     private UIItem selectedItem;
-    private int lastSlotId = 0;
 
     public static UIItem control;
 
@@ -26,17 +25,13 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
 
     public void UpdateItem(Item item, Character character)
     {
-        Debug.Log("updejt");
-       
         this.item = item;
         this.character = character;
 
         if (this.item != null)
-        {           
+        {
             spriteImage.color = Color.white;
             spriteImage.sprite = this.item.icon;
-            Debug.Log(spriteImage.color = Color.white);
-            Debug.Log(spriteImage.sprite.name);
 
         }
         else if (this.character != null)
@@ -46,17 +41,14 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            Debug.Log("clear");
             spriteImage.color = Color.clear;
         }
     }
 
     public void getItemBackToSlot()
     {
-        //UIInventory.control.FindItemSlot(selectedItem.item);
-        //selectedItem.UpdateItem(null, null);
-       
-
+        InventoryForCombat.control.AddNewItem(selectedItem.item);
+        selectedItem.UpdateItem(null, null);
 
 
     }
@@ -76,6 +68,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
 
             if (selectedItem.item != null)
             {
+                Debug.Log("Tutaj");
                 Item clone = new Item(selectedItem.item);
                 selectedItem.UpdateItem(this.item, null);
                 UpdateItem(clone, null);
@@ -137,6 +130,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
                     GameEventSystem.Instance.SetItemSelect(new Item(0, "", "", "", new Dictionary<string, int>(), Skill.NONE));
                 }
             }
+
 
             UpdateItem(selectedItem.item, null);
             selectedItem.UpdateItem(null, null);

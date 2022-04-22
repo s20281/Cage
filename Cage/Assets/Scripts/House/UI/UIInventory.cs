@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class UIInventory : MonoBehaviour
     }
 
     public void UpdateSlot(int slot, Item item)
-    {
+    {      
         uIItems[slot].UpdateItem(item, null);
     }
     public void AddNewItem(Item item)
@@ -40,9 +41,5 @@ public class UIInventory : MonoBehaviour
         UpdateSlot(uIItems.FindIndex(i => i.item == item), null);
     }
     
-    public void FindItemSlot(Item item)
-    {
-        UpdateSlot( uIItems.FindIndex(i => i.item.name == item.name), item);
-    }
-
+   
 }
