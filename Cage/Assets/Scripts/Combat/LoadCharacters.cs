@@ -35,12 +35,12 @@ public class LoadCharacters : MonoBehaviour
     private Dictionary<string, HeroName> heroMapping = new Dictionary<string, HeroName>();
 
 
-    Dictionary<int, GameObject> enemyPrefabs = new Dictionary<int, GameObject>();
+    Dictionary<EnemyName, GameObject> enemyPrefabs = new Dictionary<EnemyName, GameObject>();
 
     private void Awake()
     {
         GameObject gm = GameObject.FindGameObjectWithTag("GM");
-        int[] enemiesToLoad = StaticClass.getEnemies();
+        EnemyName[] enemiesToLoad = StaticClass.getEnemies();
         int enemiesCount = enemiesToLoad.Length;
 
         string[] heroesToLoad = new string[4];
@@ -71,15 +71,15 @@ public class LoadCharacters : MonoBehaviour
         heroMapping.Add("hulk", HeroName.HULK);
         heroMapping.Add("ninja", HeroName.NINJA);
 
-        enemyPrefabs.Add(0, enemy0Prefab);
-        enemyPrefabs.Add(1, enemy1Prefab);
-        enemyPrefabs.Add(2, enemy2Prefab);
+        enemyPrefabs.Add(EnemyName.None, enemy0Prefab);
+        enemyPrefabs.Add(EnemyName.Shadow, enemy1Prefab);
+        enemyPrefabs.Add(EnemyName.Rock, enemy2Prefab);
 
         GameObject[] enemySpawnPoints = new GameObject[] { enemySpawnPoint1, enemySpawnPoint2, enemySpawnPoint3, enemySpawnPoint4 };
 
         for(int i=0; i<4; i++)
         {
-            if(enemiesToLoad[i] != 0 && enemyPrefabs.ContainsKey(enemiesToLoad[i]))
+            if(enemiesToLoad[i] != EnemyName.None && enemyPrefabs.ContainsKey(enemiesToLoad[i]))
             {
                 GameObject o = GameObject.Instantiate(enemyPrefabs[enemiesToLoad[i]], enemySpawnPoints[i].transform, false);
                 o.name = enemyPrefabs[enemiesToLoad[i]].name;
