@@ -213,6 +213,7 @@ public class Turn : MonoBehaviour
                 //skillsPanel.SetActive(true);
                 playerUsedTurn = false;
                 o.transform.GetChild(2).transform.gameObject.SetActive(true);
+               
 
                 while (!playerUsedTurn)
                 {
@@ -221,6 +222,7 @@ public class Turn : MonoBehaviour
                 yield return new WaitForSeconds(1.0f);
                 //skillsPanel.SetActive(false);
                 o.transform.GetChild(2).transform.gameObject.SetActive(false);
+                o.GetComponent<InventoryForCombat>().ReloadItems();
             }
             Destroy(objectStats.queueIcon);
         }   

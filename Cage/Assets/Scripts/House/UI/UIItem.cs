@@ -10,7 +10,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
     public Item item;
     public Character character;
     private Image spriteImage;
-    private UIItem selectedItem;
+    public UIItem selectedItem;
 
     public static UIItem control;
 
@@ -45,12 +45,18 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void getItemBackToSlot()
+    public void setSelecteItemAsNull()
     {
-        InventoryForCombat.control.AddNewItem(selectedItem.item);
-        selectedItem.UpdateItem(null, null);
+        var gameObj = GameObject.FindObjectsOfType<UIItem>();
 
-
+        foreach (var selected in gameObj)
+        {
+            if (selected.tag == "SelectedItem")
+            {
+                selected.UpdateItem(null, null);
+            }
+        }
+       
     }
 
     public void OnPointerClick(PointerEventData eventData)

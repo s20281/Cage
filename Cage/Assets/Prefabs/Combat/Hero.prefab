@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 7448718332391431428}
   m_Layer: 0
   m_Name: SelectedItem
-  m_TagString: Untagged
+  m_TagString: SelectedItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d774c01682f2a344b0e3c06991f648e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedItem: {fileID: 0}
 --- !u!225 &7448718332391431431
 CanvasGroup:
   m_ObjectHideFlags: 0

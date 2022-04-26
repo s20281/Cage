@@ -5,9 +5,11 @@ using UnityEngine;
 public class ItemDatabase : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
+    public static ItemDatabase control;
 
     private void Awake()
     {
+        control = this;
         BuildDatabase();
     }
 

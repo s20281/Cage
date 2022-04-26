@@ -62,16 +62,26 @@ public class InventoryForCombat : MonoBehaviour
         }
     }
 
-    public void reloadItems()
+    public void ReloadItems()
     {
-        uIItems = new List<UIItem>();
+        UIItem.control.selectedItem.UpdateItem(null, null);
+
+        var count = 0;
+        foreach (var i in items)
+        {
+            if (i.character == this.gameObject.name)
+            {
+                uIItems[count].UpdateItem(null, null);
+                count++;
+            }
+        }
+
         LoadItems();
     }
 
     public void UpdateSlot(int slot, Item item)
     {
         uIItems[slot].UpdateItem(item, null);
-        Debug.Log(item.skill);
         GameEventSystem.Instance.SetItemSelect(item);
     }
     public void AddNewItem(Item item)
