@@ -23,6 +23,11 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
 
     }
 
+    public void RemoveItemFromInventory(Item item)
+    {
+        selectedItem.UpdateItem(null, null);
+    }
+
     public void UpdateItem(Item item, Character character)
     {
         this.item = item;
@@ -45,7 +50,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void setSelecteItemAsNull()
+    public void RemoveSelectedItem()
     {
         var gameObj = GameObject.FindObjectsOfType<UIItem>();
 

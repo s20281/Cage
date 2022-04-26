@@ -31,8 +31,8 @@ public class GameEventSystemMap : MonoBehaviour
         {
             Debug.Log("load scene");
         }
-            //GameEventSystemMap.Instance.LoadData();
-            
+        //GameEventSystemMap.Instance.LoadData();
+
         else
         {
             Debug.Log("New Run");
@@ -43,6 +43,23 @@ public class GameEventSystemMap : MonoBehaviour
 
     private void Start()
     {
+
+    }
+
+    public void DelteItemFromInventory()
+    {
+        if (UIItem.control.selectedItem)
+        {
+            Item item = UIItem.control.selectedItem.item;
+
+            if(item != null)
+            {
+                UIItem.control.RemoveSelectedItem();
+                Inventory.control.RemoveItem(item.name);
+            }
+
+        }
+
         
     }
 

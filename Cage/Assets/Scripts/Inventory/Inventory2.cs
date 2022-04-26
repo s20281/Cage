@@ -20,5 +20,6 @@ public class Inventory2 : MonoBehaviour
             }
         }
         items.Remove(itemToRemove);
+        inv.removeItem(itemToRemove);
     }
 }

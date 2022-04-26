@@ -37,4 +37,19 @@ public class ScriptableInventory : ScriptableObject
         }
         count = inventory.Count;
     }
+
+    public void removeItemByName(string name)
+    {
+        ScriptableItem item;
+
+        inventory.TryGetValue(name, out item);
+
+        if (item.singleUse && inventory.ContainsKey(item.name) && inventory[item.name].count > 1)
+            inventory[item.name].count--;
+        else
+        {
+            inventory.Remove(item.name);
+        }
+        count = inventory.Count;
+    }
 }

@@ -16,6 +16,7 @@ public class Inventory : MonoBehaviour
 
     public ScriptableInventory inventory;
     private GameObject GM;
+    public GameObject itemsList;
 
 
     void Awake()
@@ -27,18 +28,18 @@ public class Inventory : MonoBehaviour
         for (var i = 0; i < teamContainer.getUIItemSize(); i++)
         {
             //charactersInInventory.Add(teamDatabase.GetCharacter(0));
-            if(GM.GetComponent<Team>().heroes[i] != null)
+            if (GM.GetComponent<Team>().heroes[i] != null)
             {
                 //charactersInInventory.Add(new Character(GM.GetComponent<Team>().heroes[i]));
                 teamContainer.UpdateSlot(i, new Character(GM.GetComponent<Team>().heroes[i]));
             }
-                
+
             else
                 charactersInInventory.Add(teamDatabase.GetCharacter(0));
 
         }
 
-        foreach(ScriptableItem item in GM.GetComponent<Inventory2>().items)
+        foreach (ScriptableItem item in GM.GetComponent<Inventory2>().items)
         {
             AddItem(item.name);
         }
@@ -183,7 +184,30 @@ public class Inventory : MonoBehaviour
         if (item != null)
         {
             itemsInInventory.Remove(item);
-            inventoryUI.RemoveItem(item);
+            //inventoryUI.RemoveItem(item);
+            GM.GetComponent<Inventory2>().removeItem(item);
+            GameObject player = GameObject.FindGameObjectWithTag("WalkPlayer");
+            Vector3 playerCordinates = player.transform.position;
+            Vector3 itemPosition = new Vector3(playerCordinates.x + 3, playerCordinates.y, playerCordinates.z);
+
+
+
+            if (itemsList.transform.Find(item.name))
+            {
+                GameObject neededItem = itemsList.transform.Find(item.name).gameObject;
+                neededItem.transform.position = itemPosition;
+                neededItem.SetActive(true);
+                neededItem.transform.Find("interactionTag").gameObject.SetActive(false);
+
+
+               // ScriptableInventory.removeItemByName(item.name);
+
+            }
+
+
+
+
+
 
         }
 
