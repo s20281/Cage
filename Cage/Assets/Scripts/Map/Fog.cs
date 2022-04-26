@@ -20,6 +20,7 @@ public class Fog : MonoBehaviour
     {
         if(collision.CompareTag("WalkPlayer"))
         {
+            this.GetComponent<ObjectsManager>().setOff();
             Destroy(this.gameObject);
         }
     }

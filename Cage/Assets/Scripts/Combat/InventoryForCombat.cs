@@ -57,9 +57,11 @@ public class InventoryForCombat : MonoBehaviour
         {
             if (i.character == this.gameObject.name)
             {
+                Debug.Log("ITEM: " + i.name);
                 AddNewItem(new Item(i));
             }
         }
+        UseSkill.control.actSkill = Skill.NONE;
     }
 
     public void ReloadItems()

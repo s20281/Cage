@@ -9,16 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa1fdd11dd140f4281625c5bddba72d, type: 3}
-  m_Name: Ninja
+  m_Script: {fileID: 11500000, guid: 4b6a97fe26aac95489a145b89282e092, type: 3}
+  m_Name: Flashbang
   m_EditorClassIdentifier: 
-  id: 3
-  name: Ninja
-  description: assasin
-  icon: {fileID: 21300000, guid: 9a91a8db6f05a234091495762a57b7a9, type: 3}
-  maxHealth: 20
-  health: 20
-  speed: 7
-  dodge: 0
-  accuracy: 8
-  strength: 1
+  name: flashbang
+  character: Ninja
+  description: Stuns
+  icon: {fileID: 21300000, guid: 42696ed49ed7cbc4ba9d0f5f2932a9c6, type: 3}
+  skill: 7
+  singleUse: 0
+  count: 0

@@ -9,6 +9,7 @@ public class PickableItem : MonoBehaviour
     Inventory inventory;
 
     public ScriptableItem item;
+    public List<ScriptableItem> startingItems = new List<ScriptableItem>();
     public Hero hero;
 
     void Awake()
@@ -18,7 +19,7 @@ public class PickableItem : MonoBehaviour
 
     private void Start()
     {
-        if(gameObject.CompareTag("Item"))// TODO zmieniæ heroes ¿eby nie byli pickableItem
+        if(gameObject.CompareTag("Item"))
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = item.icon;
             this.gameObject.name = item.name;
@@ -38,15 +39,21 @@ public class PickableItem : MonoBehaviour
 
         //inventory2{
         GameObject gm = GameObject.FindGameObjectWithTag("GM");
-        if (gameObject.CompareTag("Item")) // TODO zmieniæ heroes ¿eby nie byli pickableItem
+        if (gameObject.CompareTag("Item"))
         {
             
-            gm.gameObject.GetComponent<Inventory2>().inv.addItem(item);
-            gm.gameObject.GetComponent<Inventory2>().items.Add(item);  
+            gm.gameObject.GetComponent<Inventory2>().inv.addItem(item); //testowe
+            gm.gameObject.GetComponent<Inventory2>().items.Add(item);
         }
         else if (gameObject.CompareTag("Hero"))
         {
             gm.gameObject.GetComponent<Team>().addHero(hero);
+
+            foreach(ScriptableItem item in startingItems)
+            {
+                gm.gameObject.GetComponent<Inventory2>().items.Add(item);
+                //inventory.AddItem(ItemDatabase.control.GetItem(item.name));
+            }
         }
         //}
         gameObject.SetActive(false);

@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Skill {NONE, SKIP, SWORD, POTION, HAMMER, BASEBALL }
+public enum Skill {NONE, SKIP, SWORD, POTION, HAMMER, BASEBALL, SHURIKEN, FLASHBANG, KATANA}
+
+
 
 
 public class UseSkill : MonoBehaviour
 {
+    public static UseSkill control;
     //public int activeSkill;
     public Turn turn;
     public Stats skillUser;
@@ -20,9 +23,13 @@ public class UseSkill : MonoBehaviour
     private Dictionary<Skill, Action> skillMapping;
     private GameObject GM;
 
+    private void Awake()
+    {
+        control = this;
+    }
+
     void Start()
     {
-        //activeSkill = 0;
         actSkill = Skill.NONE;
         GameEventSystem.Instance.OnMouseOverEnemy += setTarget;
         GameEventSystem.Instance.OnMouseExitEnemy += unsetTarget;
@@ -35,11 +42,14 @@ public class UseSkill : MonoBehaviour
             {Skill.POTION, () => {potion(); } },
             {Skill.HAMMER, () => {hammer(); } },
             {Skill.BASEBALL, () => {baseball(); } },
-            {Skill.SKIP, () => {skipTurn(); } }
+            {Skill.SKIP, () => {skipTurn(); } },
+            {Skill.SHURIKEN, () => {shuriken(); } },
+            {Skill.KATANA, () => {katana(); } },
+            {Skill.FLASHBANG, () => {flashbang(); } }
         };
 
         GM = GameManager.getGameObject();
-}
+    }
 
     void Update()
     {
@@ -84,7 +94,7 @@ public class UseSkill : MonoBehaviour
         gm.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(text, color);
     }
 
-    private bool simpleAtack(int baseDmg)
+    private bool simpleAtack(int baseDmg, bool dealsDamage = true)
     {
         float modificator = skillUser.aim - target.dodge;
         float roll = UnityEngine.Random.Range(-5, 5);
@@ -100,9 +110,18 @@ public class UseSkill : MonoBehaviour
             return false;
         }
 
-        int damage = baseDmg + skillUser.strength;
-        displayEffect(enemy, damage.ToString(), Color.red);
-        target.onHealthChange(-damage);
+        int damage = 0;
+        if(dealsDamage)
+        {
+            damage = baseDmg + skillUser.strength;
+            displayEffect(enemy, damage.ToString(), Color.red);
+            target.onHealthChange(-damage);
+        }
+        else
+        {
+            displayEffect(enemy, damage.ToString(), Color.yellow);
+        }
+        
         Debug.Log("Player attacks for " + damage);
         return true;
     }
@@ -159,6 +178,22 @@ public class UseSkill : MonoBehaviour
     private void skipTurn()
     {
         Debug.Log("Skipped turn");
+    }
+
+    private void shuriken()
+    {
+        simpleAtack(4);
+
+    }
+    private void katana()
+    {
+        if (simpleAtack(2) && !target.isDead)
+            bleeding(2, 2);
+    }
+    private void flashbang()
+    {
+        if (simpleAtack(0, false) && !target.isDead)
+            stun(2);
     }
 
 }
