@@ -34,7 +34,8 @@ public class Inventory : MonoBehaviour
                 teamContainer.UpdateSlot(i, new Character(GM.GetComponent<Team>().heroes[i]));
                 charactersInInventory.Add(teamDatabase.GetCharacter(1));
             }
-            else {               
+            else
+            {
                 charactersInInventory.Add(teamDatabase.GetCharacter(0));
             }
 
@@ -129,8 +130,6 @@ public class Inventory : MonoBehaviour
 
     }
 
-
-
     public Item FindItem(int id)
     {
         return itemsInInventory.Find(item => item.id == id);
@@ -171,10 +170,6 @@ public class Inventory : MonoBehaviour
             teamContainer.RemoveCharacter(character);
 
         }
-
-
-
-
     }
 
     public void RemoveItem(string name)
@@ -185,13 +180,34 @@ public class Inventory : MonoBehaviour
         if (item != null)
         {
             itemsInInventory.Remove(item);
-            //inventoryUI.RemoveItem(item);
+            inventoryUI.RemoveItem(item);
             GM.GetComponent<Inventory2>().removeItem(item);
+
+        }
+
+        if (character != null)
+        {
+
+            charactersInInventory.Remove(character);
+            teamContainer.RemoveCharacter(character);
+
+        }
+
+    }
+
+    public void RemoveAndSpawnItem(string name)
+    {
+        Item item = FindItem(name);
+        Character character = FindCharacter(name);
+
+        if (item != null)
+        {
+            itemsInInventory.Remove(item);
+            GM.GetComponent<Inventory2>().removeItem(item);
+
             GameObject player = GameObject.FindGameObjectWithTag("WalkPlayer");
             Vector3 playerCordinates = player.transform.position;
             Vector3 itemPosition = new Vector3(playerCordinates.x + 3, playerCordinates.y, playerCordinates.z);
-
-
 
             if (itemsList.transform.Find(item.name))
             {
@@ -200,15 +216,7 @@ public class Inventory : MonoBehaviour
                 neededItem.SetActive(true);
                 neededItem.transform.Find("interactionTag").gameObject.SetActive(false);
 
-
-               // ScriptableInventory.removeItemByName(item.name);
-
             }
-
-
-
-
-
 
         }
 
@@ -237,7 +245,7 @@ public class Inventory : MonoBehaviour
     }
 
     public List<Character> GetAllCharacters()
-    {        
+    {
         return charactersInInventory;
     }
 
