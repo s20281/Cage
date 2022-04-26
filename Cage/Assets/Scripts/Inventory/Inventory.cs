@@ -32,10 +32,11 @@ public class Inventory : MonoBehaviour
             {
                 //charactersInInventory.Add(new Character(GM.GetComponent<Team>().heroes[i]));
                 teamContainer.UpdateSlot(i, new Character(GM.GetComponent<Team>().heroes[i]));
+                charactersInInventory.Add(teamDatabase.GetCharacter(1));
             }
-
-            else
+            else {               
                 charactersInInventory.Add(teamDatabase.GetCharacter(0));
+            }
 
         }
 
@@ -236,7 +237,7 @@ public class Inventory : MonoBehaviour
     }
 
     public List<Character> GetAllCharacters()
-    {
+    {        
         return charactersInInventory;
     }
 
