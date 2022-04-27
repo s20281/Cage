@@ -16,15 +16,12 @@ public class DialogueUI : MonoBehaviour
     private GameObject objectToAddToTeam;
     private string goodAnswer; 
     bool canBeRecruited;
-    private PickableItem pickable;
 
-    // Start is called before the first frame update
     void Start()
     {
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
         CloseDialogueBox();
-        //GetComponent<TypeWriterEffect>().Run("Pierwsza wiadomosc oby dzialalo,", textLabel);
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
@@ -44,19 +41,12 @@ public class DialogueUI : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         
         }
-        Debug.Log(dialogueObject.name);
 
         if(dialogueObject.name == goodAnswer)
         {
-            //objectToDrop.SetActive(true);
             if (objectToDrop != null)
             {
                 player.GetComponent<Inventory>().AddItem(objectToDrop.name);
-            }
-
-            if (canBeRecruited) { 
-
-                Debug.Log("zrekrutuj");
             }
 
         }
