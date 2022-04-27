@@ -47,6 +47,7 @@ public class DialogueUI : MonoBehaviour
             if (objectToDrop != null)
             {
                 player.GetComponent<Inventory>().AddItem(objectToDrop.name);
+
             }
 
         }
@@ -74,6 +75,7 @@ public class DialogueUI : MonoBehaviour
                 else
                 {
                     objectToAddToTeam.SetActive(false);
+                    objectToAddToTeam.GetComponent<ObjectsManager>().setOff();
                 }
 
 

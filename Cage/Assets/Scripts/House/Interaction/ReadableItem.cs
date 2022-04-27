@@ -24,7 +24,7 @@ public class ReadableItem : MonoBehaviour
             readUI.SetActive(false);
             gameObject.SetActive(false);
 
-            this.GetComponent<ObjectsManager>().setOff();
+            gameObject.GetComponent<ObjectsManager>().setOff();
         }
     }
 }

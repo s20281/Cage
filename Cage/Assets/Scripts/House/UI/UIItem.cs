@@ -79,7 +79,6 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
 
             if (selectedItem.item != null)
             {
-                Debug.Log("Tutaj");
                 Item clone = new Item(selectedItem.item);
                 selectedItem.UpdateItem(this.item, null);
                 UpdateItem(clone, null);
@@ -87,7 +86,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
             else
             {
                 selectedItem.UpdateItem(this.item, null);
-                UpdateItem(null, null);
+                UpdateItem(null, null);           
             }
 
 
@@ -107,9 +106,12 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
                 team.temp = team.heroes[slotIndex];
                 team.heroes[slotIndex] = temp;
 
+                Debug.Log(selectedItem.character.name);
+
                 Character clone = new Character(selectedItem.character);
                 selectedItem.UpdateItem(null, this.character);
                 UpdateItem(null, clone);
+
             }
             else
             {
