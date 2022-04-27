@@ -66,7 +66,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Team team = GameObject.FindGameObjectWithTag("GM").GetComponent<Team>();
+        Team team = GameObject.FindGameObjectWithTag("GM").GetComponent<Team>();       
 
         if (this.item != null)
         {
