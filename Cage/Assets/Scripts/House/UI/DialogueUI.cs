@@ -77,6 +77,7 @@ public class DialogueUI : MonoBehaviour
                 else
                 {
                     objectToAddToTeam.SetActive(false);
+                    objectToAddToTeam.GetComponent<ObjectsManager>().setOff();
                 }
 
 
