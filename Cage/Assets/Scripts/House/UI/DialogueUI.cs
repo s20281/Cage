@@ -16,12 +16,14 @@ public class DialogueUI : MonoBehaviour
     private GameObject objectToAddToTeam;
     private string goodAnswer; 
     bool canBeRecruited;
+    GameObject gm;
 
     void Start()
     {
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
         CloseDialogueBox();
+        gm = GameObject.FindGameObjectWithTag("GM");
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
@@ -47,6 +49,7 @@ public class DialogueUI : MonoBehaviour
             if (objectToDrop != null)
             {
                 player.GetComponent<Inventory>().AddItem(objectToDrop.name);
+                gm.gameObject.GetComponent<Inventory2>().items.Add(objectToDrop.GetComponent<PickableItem>().item);
             }
 
         }

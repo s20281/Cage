@@ -6,10 +6,10 @@ public static class StaticClass
 {
     public static bool loadScene = false;
 
-    public static EnemyName enemy1 = 0;
-    public static EnemyName enemy2 = 0;
-    public static EnemyName enemy3 = 0;
-    public static EnemyName enemy4 = 0;
+    public static EnemyName enemy1 = EnemyName.None;
+    public static EnemyName enemy2 = EnemyName.None;
+    public static EnemyName enemy3 = EnemyName.None;
+    public static EnemyName enemy4 = EnemyName.None;
 
     public static Dictionary<string, GameObject> items = new Dictionary<string, GameObject>();
 
