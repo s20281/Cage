@@ -6,7 +6,6 @@ public class Interactable : MonoBehaviour
 {
 
 
-
     public void startInteraction(Inventory inventory)
     {
 

@@ -41,11 +41,6 @@ public class GameEventSystemMap : MonoBehaviour
         StaticClass.loadScene = true;
     }
 
-    private void Start()
-    {
-
-    }
-
     public void DelteItemFromInventory()
     {
         if (UIItem.control.selectedItem)
@@ -55,7 +50,7 @@ public class GameEventSystemMap : MonoBehaviour
             if(item != null)
             {
                 UIItem.control.RemoveSelectedItem();
-                Inventory.control.RemoveItem(item.name);
+                Inventory.control.RemoveAndSpawnItem(item.name);
             }
 
         }
