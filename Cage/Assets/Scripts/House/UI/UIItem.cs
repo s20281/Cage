@@ -138,7 +138,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
             {
                 if (SceneManager.GetActiveScene().name == "Combat")
                 {
-                    GameEventSystem.Instance.SetItemSelect(new Item(0, "", "", "", new Dictionary<string, int>(), Skill.NONE));
+                    GameEventSystem.Instance.SetItemSelect(new Item(0, "", "", "", new Dictionary<string, int>(), Skill.NONE, TargetType.ENEMY));
                 }
             }
 

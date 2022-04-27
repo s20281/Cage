@@ -52,7 +52,7 @@ public class PickableItem : MonoBehaviour
             foreach(ScriptableItem item in startingItems)
             {
                 gm.gameObject.GetComponent<Inventory2>().items.Add(item);
-                //inventory.AddItem(ItemDatabase.control.GetItem(item.name));
+                inventory.AddItem(item.name);
             }
         }
         //}

@@ -14,4 +14,5 @@ public class ScriptableItem : ScriptableObject
     public Skill skill;
     public bool singleUse;
     public int count;
+    public TargetType targetType = TargetType.ENEMY;
 }

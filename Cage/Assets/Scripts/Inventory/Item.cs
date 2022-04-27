@@ -11,8 +11,9 @@ public class Item
     public Sprite icon;
     public Dictionary<string, int> stats = new Dictionary<string, int>();
     public Skill skill;
+    public TargetType targetType;
 
-    public Item(int id, string name, string character, string description, Dictionary<string, int> stats, Skill skill)
+    public Item(int id, string name, string character, string description, Dictionary<string, int> stats, Skill skill, TargetType targetType)
     {
         this.id = id;
         this.name = name;
@@ -21,6 +22,7 @@ public class Item
         icon = Resources.Load<Sprite>("Sprites/" + name);
         this.stats = stats;
         this.skill = skill;
+        this.targetType = targetType;
     }
 
     public Item(Item item)
@@ -32,6 +34,7 @@ public class Item
         icon = Resources.Load<Sprite>("Sprites/" + name);
         this.stats = item.stats;
         this.skill = item.skill;
+        this.targetType = item.targetType;
     }
 
     public Item(ScriptableItem item)
@@ -41,5 +44,6 @@ public class Item
         this.description = item.description;
         icon = Resources.Load<Sprite>("Sprites/" + name);
         this.skill = item.skill;
+        this.targetType = item.targetType;
     }
 }

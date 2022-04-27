@@ -19,3 +19,4 @@ MonoBehaviour:
   skill: 1
   singleUse: 0
   count: 0
+  targetType: 2

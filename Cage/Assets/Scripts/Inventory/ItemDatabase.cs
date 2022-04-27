@@ -31,31 +31,46 @@ public class ItemDatabase : MonoBehaviour
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }, Skill.POTION),
+            }, Skill.POTION, TargetType.FRIEND),
 
             new Item(1, "sword", "Main", "Fight! Fight!", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }, Skill.SWORD),
+            }, Skill.SWORD, TargetType.ENEMY),
 
             new Item(2, "key", "Ninja","open the door with it!", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }, Skill.SKIP),
+            }, Skill.SKIP, TargetType.ENEMY),
 
             new Item(3, "hammer", "Hulk","", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }, Skill.HAMMER),
+            }, Skill.HAMMER, TargetType.ENEMY),
 
-            new Item(3, "baseball", "Ninja","", new Dictionary<string, int>
+            new Item(4, "baseball", "Ninja","", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
-            }, Skill.BASEBALL),
+            }, Skill.BASEBALL, TargetType.ENEMY),
+            new Item(5, "katana", "Ninja","", new Dictionary<string, int>
+            {
+                { "stat1", 15 },
+                { "stat2", 3 }
+            }, Skill.KATANA, TargetType.ENEMY),
+            new Item(6, "shuriken", "Ninja","", new Dictionary<string, int>
+            {
+                { "stat1", 15 },
+                { "stat2", 3 }
+            }, Skill.SHURIKEN, TargetType.ENEMY),
+            new Item(7, "flashbang", "Ninja","", new Dictionary<string, int>
+            {
+                { "stat1", 15 },
+                { "stat2", 3 }
+            }, Skill.FLASHBANG, TargetType.ENEMY),
 
 
         };

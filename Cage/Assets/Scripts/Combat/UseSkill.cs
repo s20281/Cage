@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public enum Skill {NONE, SKIP, SWORD, POTION, HAMMER, BASEBALL, SHURIKEN, FLASHBANG, KATANA}
 
+public enum TargetType {ENEMY, FRIEND, OBJECT}
+
 
 
 
@@ -17,8 +19,8 @@ public class UseSkill : MonoBehaviour
     public Stats skillUser;
     public Stats target;
     public bool hasTarget;
-
     public Skill actSkill;
+    public TargetType targetType;
     public Item actItem;
     private Dictionary<Skill, Action> skillMapping;
     private GameObject GM;
@@ -53,7 +55,7 @@ public class UseSkill : MonoBehaviour
 
     void Update()
     {
-        if (hasTarget && actSkill != Skill.NONE && Input.GetMouseButtonDown(0))
+        if (hasTarget && actSkill != Skill.NONE && properTarget() && Input.GetMouseButtonDown(0))
         {
             skillUser = turn.getActivePlayer();
             skillMapping[actSkill]();
@@ -83,9 +85,19 @@ public class UseSkill : MonoBehaviour
         hasTarget = false;
     }
 
+    public bool properTarget()
+    {
+        if (targetType == TargetType.ENEMY && target.gameObject.CompareTag("Enemy"))
+            return true;
+        if (targetType == TargetType.FRIEND && target.gameObject.CompareTag("Player"))
+            return true;
+        return false;
+    }
+
     public void selectItem(Item item)
     {
         actSkill = item.skill;
+        targetType = item.targetType;
         actItem = item;
     }
 

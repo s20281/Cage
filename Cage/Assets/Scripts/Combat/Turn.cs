@@ -8,6 +8,7 @@ public enum TurnState { PLAYER, ENEMY }
 
 public class Turn : MonoBehaviour
 {
+    public static Turn control;
     public TurnState turnState;
     private Stats playerStats;
     public int alivePlayersCount;
@@ -24,9 +25,12 @@ public class Turn : MonoBehaviour
 
     public GameObject queuePanel;
     public GameObject queueIcon;
+    public GameObject skipButton;
 
     void Start()
     {
+        control = this;
+        skipButton.SetActive(false);
         GameEventSystem.Instance.OnSkillUse += usedTurn;
         GameEventSystem.Instance.OnEnemyDies += enemyDies;
         GameEventSystem.Instance.OnPlayerDies += playerDies;
@@ -212,6 +216,7 @@ public class Turn : MonoBehaviour
                 
                 //skillsPanel.SetActive(true);
                 playerUsedTurn = false;
+                skipButton.SetActive(true);
                 o.transform.GetChild(2).transform.gameObject.SetActive(true);
                
 
@@ -219,6 +224,7 @@ public class Turn : MonoBehaviour
                 {
                     yield return null;
                 }
+                skipButton.SetActive(false);
                 yield return new WaitForSeconds(1.0f);
                 //skillsPanel.SetActive(false);
                 o.transform.GetChild(2).transform.gameObject.SetActive(false);
@@ -256,7 +262,7 @@ public class Turn : MonoBehaviour
         
     }
 
-    void usedTurn()
+    public void usedTurn()
     {
         playerUsedTurn = true;
     }
