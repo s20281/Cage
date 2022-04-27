@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     bool canPress = false;
     Collider2D collider2d;
 
+    private Sprite sprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 vec = new Vector3(PlayerPrefs.GetFloat("PlayerPostionX"), PlayerPrefs.GetFloat("PlayerPostionY"));
             this.transform.position = vec;
         }
-
+        sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
@@ -50,12 +52,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             moveVelocity = Vector3.left;
-
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             moveVelocity = Vector3.right;
-
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
 
         if (Input.GetAxisRaw("Vertical") > 0)
@@ -70,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        transform.up = moveVelocity;
+        //transform.up = moveVelocity;
         transform.position += moveVelocity * speed * Time.deltaTime;
 
         if(collider2dold != collider2d)
