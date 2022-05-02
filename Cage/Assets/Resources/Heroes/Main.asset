@@ -19,6 +19,6 @@ MonoBehaviour:
   maxHealth: 30
   health: 30
   speed: 5
-  dodge: 6
+  dodge: 4
   accuracy: 6
   strength: 2

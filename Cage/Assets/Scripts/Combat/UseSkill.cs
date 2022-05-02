@@ -127,7 +127,7 @@ public class UseSkill : MonoBehaviour
         {
             damage = baseDmg + skillUser.strength;
             displayEffect(enemy, damage.ToString(), Color.red);
-            target.onHealthChange(-damage);
+            target.healthChange(-damage);
         }
         else
         {
@@ -173,7 +173,7 @@ public class UseSkill : MonoBehaviour
     private void potion()
     {
         int roll = UnityEngine.Random.Range(5, 7);
-        target.onHealthChange(roll);
+        target.healthChange(roll);
         GameEventSystem.Instance.SetPositiveSkillUse(target);
         Debug.Log("Player heals for " + roll);
     }

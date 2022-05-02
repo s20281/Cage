@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum CharacterType {Hero, Enemy}
+
 public class Stats : MonoBehaviour
 {
     public Hero hero;
@@ -13,6 +15,7 @@ public class Stats : MonoBehaviour
     public int dodge;
     public int aim;
     public HpBar hpBar;
+    public CharacterType characterType;
 
     public Sprite dead;
     public bool isDead;
@@ -26,6 +29,11 @@ public class Stats : MonoBehaviour
     {
         isDead = false;
         GM = GameObject.FindGameObjectWithTag("GM");
+
+        if (gameObject.CompareTag("Player"))
+            characterType = CharacterType.Hero;
+        else
+            characterType = CharacterType.Enemy;
     }
 
     void OnMouseOver()
@@ -56,27 +64,30 @@ public class Stats : MonoBehaviour
         }
     }
 
-    public void onHealthChange(int change)
+    public void healthChange(int change)
     {
         health += change;
         if (health <= 0)
         {
             health = 0;
-            onDead();
+            Die();
         }
             
         if (health > maxHealth)
             health = maxHealth;
 
+        if(characterType == CharacterType.Hero)
+            hero.health = health;
+
         hpBar.changeHealth(change);
     }
 
-    public void onDead()
+    public void Die()
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         isDead = true;
         
-        if(gameObject.CompareTag("Enemy"))
+        if(characterType == CharacterType.Enemy)
         {
             GameEventSystem.Instance.SetEnemyDies();
         }

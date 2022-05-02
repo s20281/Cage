@@ -22,6 +22,7 @@ public class Team : MonoBehaviour
             if (heroes[i] == null)
             {
                 heroes[i] = hero;
+                hero.health = hero.maxHealth;
                 break;
             }
         } 

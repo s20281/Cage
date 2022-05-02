@@ -155,7 +155,7 @@ public class Turn : MonoBehaviour
 
                     if (e.damagePerTurn > 0)
                     {
-                        objectStats.onHealthChange(-e.damagePerTurn);
+                        objectStats.healthChange(-e.damagePerTurn);
                     }
 
                     if (e.name == EffectName.STUN)
@@ -255,7 +255,7 @@ public class Turn : MonoBehaviour
         }
 
         int damage = enemyStats.strength;
-        playerStats.onHealthChange(-damage);
+        playerStats.healthChange(-damage);
         player.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(damage.ToString(), Color.red);
         Debug.Log(enemy.name + " attacks " + player.name + " for " + damage);
 
