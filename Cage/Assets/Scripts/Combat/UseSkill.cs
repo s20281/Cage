@@ -68,6 +68,11 @@ public class UseSkill : MonoBehaviour
 
             GameEventSystem.Instance.SetSkillUse();
             Destroy(skillUser.queueIcon);
+
+            if(target.isDead)
+            {
+                skillUser.hero.addExp(5);
+            }
         }
     }
 

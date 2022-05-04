@@ -23,6 +23,7 @@ public class Team : MonoBehaviour
             {
                 heroes[i] = hero;
                 hero.health = hero.maxHealth;
+
                 break;
             }
         } 
