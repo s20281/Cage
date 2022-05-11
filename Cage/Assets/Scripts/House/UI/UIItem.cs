@@ -123,6 +123,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
                     Inventory.control.GetAllCharacters()[slotIndex] = Inventory.control.FindCharacter(0);
 
                     team.temp = team.heroes[slotIndex];
+                    GameEventSystemMap.Instance.SetHeroSelect(team.temp);
                     team.heroes[slotIndex] = null;
 
 

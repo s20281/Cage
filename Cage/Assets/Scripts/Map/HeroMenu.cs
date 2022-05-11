@@ -27,6 +27,7 @@ public class HeroMenu : MonoBehaviour
     private void Start()
     {
         heroPanel.SetActive(false);
+        GameEventSystemMap.Instance.OnHeroSelect += changeHero;
     }
 
 
@@ -108,5 +109,13 @@ public class HeroMenu : MonoBehaviour
             levelUpText.SetActive(false);
             levelUpPoints.SetActive(false);
         }
+        gameObject.GetComponent<HeroInventory>().activeHero = hero;
+        gameObject.GetComponent<HeroInventory>().ReloadItems();
+    }
+
+    private void changeHero(Hero hero)
+    {
+        this.hero = hero;
+        updateUI();
     }
 }

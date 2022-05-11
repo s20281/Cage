@@ -22,6 +22,7 @@ public class Hero : ScriptableObject
 
     public static Dictionary<int, int> expRequiredForLvl = new Dictionary<int, int>() { { 1, 0 }, { 2, 10 }, { 3, 15 }, { 4, 20 }, { 5, 25 }, { 6, 30 } };
 
+
     public void addExp(int exp)
     {
         this.exp += exp;

@@ -9,10 +9,20 @@ public class Team : MonoBehaviour
     public Hero main;
     public Hero temp;
 
+    public Hero h1;
+    public Hero h2;
+    public Hero h3;
+
+    public Dictionary<string, Hero> heroMapping = new Dictionary<string, Hero>();
+
     private void Awake()
     {
         heroes = new Hero[8];
         addHero(main);
+
+        heroMapping.Add(h1.name, h1);
+        heroMapping.Add(h2.name, h2);
+        heroMapping.Add(h3.name, h3);
     }
 
     public void addHero(Hero hero)

@@ -22,3 +22,6 @@ MonoBehaviour:
   dodge: 2
   accuracy: 4
   strength: 5
+  exp: 0
+  level: 1
+  levelUpPoints: 0

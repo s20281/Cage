@@ -41,6 +41,8 @@ public class GameEventSystemMap : MonoBehaviour
         StaticClass.loadScene = true;
     }
 
+    public event Action<Hero> OnHeroSelect;
+
     public void DelteItemFromInventory()
     {
         if (UIItem.control.selectedItem)
@@ -56,6 +58,11 @@ public class GameEventSystemMap : MonoBehaviour
         }
 
         
+    }
+
+    public void SetHeroSelect(Hero hero)
+    {
+        OnHeroSelect.Invoke(hero);
     }
 
     //[SerializeField]
