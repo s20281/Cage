@@ -17,11 +17,11 @@ MonoBehaviour:
   description: main hero
   icon: {fileID: 21300000, guid: 85e8734f789d54242a5606f0f8fbfc9a, type: 3}
   maxHealth: 36
-  health: 34
-  speed: 9
-  dodge: 7
-  accuracy: 20
-  strength: 9
+  health: 30
+  speed: 6
+  dodge: 0
+  accuracy: 5
+  strength: 5
   exp: 0
-  level: 2
-  levelUpPoints: 0
+  level: 3
+  levelUpPoints: 1

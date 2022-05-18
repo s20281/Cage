@@ -47,6 +47,9 @@ public class Turn : MonoBehaviour
         aliveEnemiesCount = enemies.Length;
 
         turnNumber = 1;
+
+        EnemySkill.Start();
+
         StartCoroutine(nextTurn());
     }
     void EnqueAll()
@@ -94,6 +97,19 @@ public class Turn : MonoBehaviour
         }
     }
 
+    void removeAllBuffs()
+    {
+        foreach(GameObject p in alivePlayers)
+        {
+            Stats pStats = p.GetComponent<Stats>();
+            
+            foreach(Buff buff in pStats.buffsList)
+            {
+                buff.remove(pStats);
+            }
+        }
+    }
+
 
     IEnumerator nextTurn()
     {
@@ -102,6 +118,7 @@ public class Turn : MonoBehaviour
             if (aliveEnemiesCount == 0)
             {
                 Debug.Log("All enemies are dead");
+                removeAllBuffs();
                 SceneManager.LoadScene("Level 1");
                 yield break;
             }
@@ -136,8 +153,7 @@ public class Turn : MonoBehaviour
             bool isBleeding = false;
 
             int effectsCount = objectStats.effectsList.Count;
-
-            //Debug.Log("liczba efektów: " + effectsCount);
+            int BuffsCount = objectStats.buffsList.Count;
 
             if (effectsCount > 0)
             {
@@ -145,13 +161,12 @@ public class Turn : MonoBehaviour
                 {
                     Effect e = objectStats.effectsList[i];
 
-                    if (e.turnsCount <= 0)
-                    {
-                        objectStats.effectsList.Remove(e);
-                        effectsCount--;
-                        continue;
-                    }
-                    //Debug.Log(e.name);
+                    //if (e.turnsCount <= 0)
+                    //{
+                    //    objectStats.effectsList.Remove(e);
+                    //    effectsCount--;
+                    //    continue;
+                    //}
 
                     if (e.damagePerTurn > 0)
                     {
@@ -172,26 +187,59 @@ public class Turn : MonoBehaviour
             {
                 o.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("DEAD", Color.red);
                 Destroy(objectStats.queueIcon);
+                o.transform.GetChild(0).GetComponent<SkillEffects>().switchOff();
                 continue;
             }
+
+            bool skipsTurn = false;
 
             if (isStunned)
             {
                 o.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("STUNNED", Color.yellow);
                 Destroy(objectStats.queueIcon);
                 Debug.Log(o.name + " is stunned");
-                continue;
+                skipsTurn = true;
             }
-            else
+            //else
+            //{
+            //    o.transform.GetChild(0).transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
+            //}
+
+            //if(!isBleeding)
+            //{
+            //    o.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
+            //}
+
+            isStunned = false;
+            isBleeding = false;
+
+            if (effectsCount > 0)
             {
-                o.transform.GetChild(0).transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
+                for (int i = 0; i < effectsCount; i++)
+                {
+                    Effect e = objectStats.effectsList[i];
+
+                    if (e.turnsCount <= 0)
+                    {
+                        objectStats.effectsList.Remove(e);
+                        effectsCount--;
+                        continue;
+                    }
+                    if (e.name == EffectName.STUN)
+                        isStunned = true;
+
+                    if (e.name == EffectName.BLEEDING && e.turnsCount > 0)
+                        isBleeding = true;
+                }
             }
 
-            if(!isBleeding)
-            {
-                o.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
-            }
-                
+            if(!isStunned)
+                o.transform.GetChild(0).GetComponent<SkillEffects>().setStunIcon(false);
+            if (!isBleeding)
+                o.transform.GetChild(0).GetComponent<SkillEffects>().setBleedingIcon(false);
+
+            if (skipsTurn)
+                continue;
 
 
             if (o.CompareTag("Enemy"))
@@ -205,7 +253,12 @@ public class Turn : MonoBehaviour
                 float blue = c.b;
                 o.GetComponent<SpriteRenderer>().color = new Color(red + 20, green + 20, blue + 20);
                 yield return new WaitForSeconds(1.5f);
-                enemyAttack(o);
+
+                //enemyAttack(o);
+                EnemySkill.UseSkill(objectStats, getRandomPlayer().GetComponent<Stats>());
+                Destroy(objectStats.GetComponent<Stats>().queueIcon);
+
+
                 o.GetComponent<SpriteRenderer>().color = new Color(red, green, blue); ;
                 
             }
@@ -229,6 +282,14 @@ public class Turn : MonoBehaviour
                 //skillsPanel.SetActive(false);
                 o.transform.GetChild(2).transform.gameObject.SetActive(false);
                 o.GetComponent<InventoryForCombat>().ReloadItems();
+            }
+
+            foreach (Buff buff in objectStats.buffsList)
+            {
+                buff.turns--;
+
+                if (buff.turns <= 0)
+                    buff.remove(objectStats);
             }
             Destroy(objectStats.queueIcon);
         }   
@@ -280,6 +341,7 @@ public class Turn : MonoBehaviour
 
     public void AutoWin()
     {
+        removeAllBuffs();
         Debug.Log("Auto WIN");
         SceneManager.LoadScene("Level 1");
     }

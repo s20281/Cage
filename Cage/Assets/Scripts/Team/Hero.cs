@@ -20,7 +20,7 @@ public class Hero : ScriptableObject
     public int level;
     public int levelUpPoints;
 
-    public static Dictionary<int, int> expRequiredForLvl = new Dictionary<int, int>() { { 1, 0 }, { 2, 10 }, { 3, 15 }, { 4, 20 }, { 5, 25 }, { 6, 30 } };
+    public static Dictionary<int, int> expRequiredForLvl = new Dictionary<int, int>() { { 1, 0 }, { 2, 10 }, { 3, 15 }, { 4, 20 }, { 5, 25 }, { 6, 30 }, { 7, 35 }, { 8, 40 }, { 9, 45 }, { 10, 50 }, { 11, int.MaxValue} };
 
 
     public void addExp(int exp)

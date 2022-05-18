@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7710231953007357884}
   - component: {fileID: 5761392811550770007}
   - component: {fileID: 2622771785382695548}
+  - component: {fileID: 6050753646311259792}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -84,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2622771785382695548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +103,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6050753646311259792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587811552644345503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b2240a82cd69e49bf34b742a6489be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1598055358577005466
 GameObject:
   m_ObjectHideFlags: 0

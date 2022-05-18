@@ -22,6 +22,7 @@ public class LoadCharacters : MonoBehaviour
     public GameObject enemy0Prefab;
     public GameObject enemy1Prefab;
     public GameObject enemy2Prefab;
+    public GameObject enemy3Prefab;
 
     //public GameObject playerPrefab;
     //public GameObject hulkPrefab;
@@ -74,6 +75,7 @@ public class LoadCharacters : MonoBehaviour
         enemyPrefabs.Add(EnemyName.None, enemy0Prefab);
         enemyPrefabs.Add(EnemyName.Shadow, enemy1Prefab);
         enemyPrefabs.Add(EnemyName.Rock, enemy2Prefab);
+        enemyPrefabs.Add(EnemyName.Spider, enemy3Prefab);
 
         GameObject[] enemySpawnPoints = new GameObject[] { enemySpawnPoint1, enemySpawnPoint2, enemySpawnPoint3, enemySpawnPoint4 };
 

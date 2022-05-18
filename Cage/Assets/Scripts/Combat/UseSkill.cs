@@ -57,24 +57,25 @@ public class UseSkill : MonoBehaviour
     {
         if (hasTarget && actSkill != Skill.NONE && properTarget() && Input.GetMouseButtonDown(0))
         {
-            skillUser = turn.getActivePlayer();
-            skillMapping[actSkill]();
-
-            if (actItem.name == "potion")
-                GM.GetComponent<Inventory2>().removeItem(actItem);
-                
-
-            actSkill = Skill.NONE;
-
-            GameEventSystem.Instance.SetSkillUse();
-            Destroy(skillUser.queueIcon);
-
-            if(target.isDead)
-            {
-                skillUser.hero.addExp(5);
-            }
+            Use();
         }
     }
+
+    public void Use()
+    {
+        skillUser = turn.getActivePlayer();
+        skillMapping[actSkill]();
+
+        if (actItem.name == "potion")
+            GM.GetComponent<Inventory2>().removeItem(actItem);
+
+
+        actSkill = Skill.NONE;
+
+        GameEventSystem.Instance.SetSkillUse();
+        Destroy(skillUser.queueIcon);
+    }
+
 
     public void setTarget(Stats stats)
     {
@@ -148,14 +149,14 @@ public class UseSkill : MonoBehaviour
         Effect stun = new Effect(EffectName.STUN, turns, 0, true);
         target.addEffect(stun);
         displayEffect(target.gameObject, "STUN", Color.yellow);
-        target.transform.GetChild(0).transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(true);
+        target.transform.GetChild(0).GetComponent<SkillEffects>().setStunIcon(true);
     }
 
     private void bleeding(int turns, int damage)
     {
         Effect bleeding = new Effect(EffectName.BLEEDING, turns, damage, false);
         target.addEffect(bleeding);
-        target.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(true);
+        target.transform.GetChild(0).GetComponent<SkillEffects>().setBleedingIcon(true);
     }
 
     private void sword()

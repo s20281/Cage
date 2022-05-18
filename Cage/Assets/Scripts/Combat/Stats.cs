@@ -16,12 +16,14 @@ public class Stats : MonoBehaviour
     public int aim;
     public HpBar hpBar;
     public CharacterType characterType;
+    public int expForKill;
 
     public Sprite dead;
     public bool isDead;
     public bool queued = false;
     public GameObject queueIcon;
     public List<Effect> effectsList = new List<Effect>();
+    public List<Buff> buffsList = new List<Buff>();
 
     private GameObject GM;
 
@@ -90,6 +92,7 @@ public class Stats : MonoBehaviour
         if(characterType == CharacterType.Enemy)
         {
             GameEventSystem.Instance.SetEnemyDies();
+            GM.GetComponent<Team>().shareExp(expForKill);
         }
         else if (gameObject.CompareTag("Player"))
         {
@@ -116,5 +119,11 @@ public class Stats : MonoBehaviour
         dodge = hero.dodge;
         aim = hero.accuracy;
         gameObject.GetComponent<SpriteRenderer>().sprite = hero.icon;
+    }
+
+    public void addBuff(Buff buff)
+    {
+        buffsList.Add(buff);
+        buff.apply(this);
     }
 }

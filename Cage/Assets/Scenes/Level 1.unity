@@ -9119,11 +9119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[2]
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[3]
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad2.Array.data[0]
@@ -22539,7 +22539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[3]
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad2.Array.data[0]

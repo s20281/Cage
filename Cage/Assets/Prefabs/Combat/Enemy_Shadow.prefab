@@ -133,6 +133,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: expForKill
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7340462726010018307, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_IsActive
       value: 1

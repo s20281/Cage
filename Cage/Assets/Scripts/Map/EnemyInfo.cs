@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnemyName { Shadow, Rock, None}
+public enum EnemyName { Shadow, Rock, Spider, None}
 
 public class EnemyInfo : MonoBehaviour
 {

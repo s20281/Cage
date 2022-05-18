@@ -5,6 +5,7 @@ using UnityEngine;
 public class Team : MonoBehaviour
 {
     public static int heroesLimit = 8;
+    public static int heroesCount;
     public Hero[] heroes;
     public Hero main;
     public Hero temp;
@@ -18,6 +19,7 @@ public class Team : MonoBehaviour
     private void Awake()
     {
         heroes = new Hero[8];
+        heroesCount = 0;
         addHero(main);
 
         heroMapping.Add(h1.name, h1);
@@ -33,6 +35,7 @@ public class Team : MonoBehaviour
             {
                 heroes[i] = hero;
                 hero.health = hero.maxHealth;
+                heroesCount++;
 
                 break;
             }
@@ -46,7 +49,19 @@ public class Team : MonoBehaviour
             if (heroes[i].name == hero.name)
             {
                 heroes[i] = null;
+                heroesCount--;
                 break;
+            }
+        }
+    }
+
+    public void shareExp(int exp)
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            if (heroes[i] != null)
+            {
+                heroes[i].addExp(exp / heroesCount);
             }
         }
     }
