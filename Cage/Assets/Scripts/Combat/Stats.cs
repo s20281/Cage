@@ -17,6 +17,7 @@ public class Stats : MonoBehaviour
     public HpBar hpBar;
     public CharacterType characterType;
     public int expForKill;
+    public int mentalHealth;
 
     public Sprite dead;
     public bool isDead;
@@ -118,6 +119,7 @@ public class Stats : MonoBehaviour
         strength = hero.strength;
         dodge = hero.dodge;
         aim = hero.accuracy;
+        mentalHealth = hero.mentalHealth;
         gameObject.GetComponent<SpriteRenderer>().sprite = hero.icon;
     }
 

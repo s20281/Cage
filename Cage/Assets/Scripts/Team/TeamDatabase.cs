@@ -5,10 +5,13 @@ using UnityEngine;
 public class TeamDatabase : MonoBehaviour
 {
     public List<Character> characters = new List<Character>();
+    public static TeamDatabase control;
+
 
     private void Awake()
     {
         BuildDatabase();
+        control = this;
     }
 
     public Character GetCharacter(int id)
@@ -25,30 +28,30 @@ public class TeamDatabase : MonoBehaviour
     {
         characters = new List<Character>()
         {
-            new Character(0, "blank", ".", new Dictionary<string, int>
+            new Character(0, "blank", "", ".", new Dictionary<string, int>
             {
                 { "stat1", 0 },
                 { "stat2", 0 }
             }),
-            new Character(1, "player", "Uhahah.", new Dictionary<string, int>
+            new Character(1, "player", "","Uhahah.", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
             }),
 
-            new Character(2, "hulk", "I'm going to overpower you.", new Dictionary<string, int>
+            new Character(2, "hulk", "wantToStandout", "I'm going to overpower you.", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
             }),
 
-            new Character(3, "ninja", "Hyaaa, ha, hya", new Dictionary<string, int>
+            new Character(3, "ninja", "zrêcznoœæ","Hyaaa, ha, hya", new Dictionary<string, int>
             {
                 { "stat1", 15 },
                 { "stat2", 3 }
             }),
 
-            new Character(4, "swordman","Fight! Fight!", new Dictionary<string, int>
+            new Character(4, "swordman", "zrêcznoœæ","Fight! Fight!", new Dictionary<string, int>
             {
                 { "stat1", 10 },
                 { "stat2", 1 }
