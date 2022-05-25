@@ -77,8 +77,15 @@ public static class EnemySkill
                 }
 
             case EnemyType.SPIDER:
-                rand = UnityEngine.Random.Range(0, 1);
-                return skillMaping[enemyType][rand];
+                rand = UnityEngine.Random.Range(0, 2);
+                switch (rand)
+                {
+                    case 0:
+                        return spiderVenom;
+
+                    default:
+                        return spiderWeb;
+                }
 
             case EnemyType.ZOMBIE:
                 if (caster.health < caster.maxHealth && caster.effectsList.Count == 0)  // TODO Sprawdzenie czy ten efekt to heal
@@ -248,7 +255,8 @@ public static class EnemySkill
         foreach (GameObject player in Turn.control.alivePlayers)
         {
             target = player.GetComponent<Stats>();
-            if (!hit()) return;
+            if (!hit())
+                continue;
             dealDmg(3);
         }
         caster.healthChange(-1);

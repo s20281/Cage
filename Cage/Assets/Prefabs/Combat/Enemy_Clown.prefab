@@ -120,6 +120,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: expForKill
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: characterType
       value: 1
       objectReference: {fileID: 0}

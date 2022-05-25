@@ -93,6 +93,7 @@ public class Stats : MonoBehaviour
         {
             health = 0;
             Die();
+            Turn.control.aliveEnemies.Remove(this.gameObject);
         }
             
         if (health > maxHealth)
@@ -112,9 +113,6 @@ public class Stats : MonoBehaviour
 
     public void Die()
     {
-        if (gameObject.name == "Enemy_Tornado")
-            Destroy(gameObject);
-
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         isDead = true;
         

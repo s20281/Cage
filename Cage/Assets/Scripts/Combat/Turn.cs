@@ -17,7 +17,8 @@ public class Turn : MonoBehaviour
     GameObject[] players;
     public List<GameObject> alivePlayers = new List<GameObject>();
     public GameObject[] enemies;
-    Queue<GameObject> queue = new Queue<GameObject>();
+    public List<GameObject> aliveEnemies = new List<GameObject>();
+    public Queue<GameObject> queue = new Queue<GameObject>();
     private bool allDead = false;
     private bool playerDead = false;
     public GameObject skillsPanel;
@@ -45,6 +46,11 @@ public class Turn : MonoBehaviour
         
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+        foreach (GameObject e in enemies)
+        {
+            aliveEnemies.Add(e);
+        }
+
         alivePlayersCount = players.Length;
         aliveEnemiesCount = enemies.Length;
 
@@ -62,10 +68,8 @@ public class Turn : MonoBehaviour
             GameObject fastest = new GameObject();
             Destroy(fastest);
 
-            foreach (GameObject e in enemies)
+            foreach (GameObject e in aliveEnemies)
             {
-                if (e.GetComponent<Stats>().isDead)
-                    continue;
                 int speed = e.GetComponent<Stats>().speed;
                 if (!e.GetComponent<Stats>().queued && speed > maxSpeed)
                 {
@@ -120,7 +124,6 @@ public class Turn : MonoBehaviour
             if (aliveEnemiesCount == 0)
             {
                 Debug.Log("All enemies are dead");
-                removeAllBuffs();
                 SceneManager.LoadScene("Level 1");
                 yield break;
             }
@@ -156,7 +159,6 @@ public class Turn : MonoBehaviour
             bool isHealing = false;
 
             int effectsCount = objectStats.effectsList.Count;
-            int BuffsCount = objectStats.buffsList.Count;
 
             if (effectsCount > 0)
             {
@@ -296,8 +298,12 @@ public class Turn : MonoBehaviour
                 o.GetComponent<InventoryForCombat>().ReloadItems();
             }
 
-            foreach (Buff buff in objectStats.buffsList)
+            int buffsCount = objectStats.buffsList.Count;
+
+            for (int i = 0; i < buffsCount ; i++) // tu jest jakiœ problem !
             {
+                Buff buff = objectStats.buffsList[i];
+
                 buff.turns--;
 
                 if (buff.turns <= 0)
@@ -353,7 +359,6 @@ public class Turn : MonoBehaviour
 
     public void AutoWin()
     {
-        removeAllBuffs();
         Debug.Log("Auto WIN");
         SceneManager.LoadScene("Level 1");
     }
@@ -373,7 +378,7 @@ public class Turn : MonoBehaviour
     {
         List<Stats> result = new List<Stats>();
 
-        foreach(GameObject enemy in enemies)
+        foreach(GameObject enemy in aliveEnemies)
         {
             Stats s = enemy.GetComponent<Stats>();
             if(!s.isDead)

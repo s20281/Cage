@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418081, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_Name
-      value: Enemy_Spider Variant
+      value: Enemy_Spider
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418082, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_Sprite
@@ -119,6 +119,10 @@ PrefabInstance:
       propertyPath: dead
       value: 
       objectReference: {fileID: 21300000, guid: a688a963624844e4597fdfa81a16ef8b, type: 3}
+    - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: expForKill
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7953358561660339473, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

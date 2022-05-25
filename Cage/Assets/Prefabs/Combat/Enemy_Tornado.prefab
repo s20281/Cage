@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3547616470683824752, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: expForKill
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1533657076376957983, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_AnchorMax.x
@@ -88,6 +88,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: dead
+      value: 
+      objectReference: {fileID: 21300000, guid: 15938634e70f2034fb95affcf620c914, type: 3}
+    - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: dodge
       value: 30
       objectReference: {fileID: 0}
@@ -106,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: maxHealth
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: expForKill
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7953358561660339473, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_AnchorMax.x

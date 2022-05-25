@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static EnemySkill;
 
 public class UIUpdate : MonoBehaviour
 {
@@ -37,11 +38,55 @@ public class UIUpdate : MonoBehaviour
     {
         if (stats.gameObject.CompareTag("Enemy"))
         {
+            EnemyType et = stats.gameObject.GetComponent<EnemyProperties>().enemyType;
+
             healthText.text = stats.health.ToString();
+
             speedText.text = stats.speed.ToString();
+
+            int baseSpeed = Enemies.enemyStat[et]["speed"];
+
+            if (stats.speed < baseSpeed)
+                speedText.color = Color.red;
+            else if (stats.speed == baseSpeed)
+                speedText.color = Color.white;
+            else
+                speedText.color = Color.green;
+
+
+
             strengthText.text = stats.strength.ToString();
+            int baseStrength = Enemies.enemyStat[et]["strength"];
+
+            if (stats.strength < baseStrength)
+                strengthText.color = Color.red;
+            else if (stats.strength == baseStrength)
+                strengthText.color = Color.white;
+            else
+                strengthText.color = Color.green;
+
             dodgeText.text = stats.dodge.ToString();
+
+            int baseDodge = Enemies.enemyStat[et]["dodge"];
+
+            if (stats.dodge < baseDodge)
+                dodgeText.color = Color.red;
+            else if (stats.dodge == baseDodge)
+                dodgeText.color = Color.white;
+            else
+                dodgeText.color = Color.green;
+
             aimText.text = stats.aim.ToString();
+
+            int baseAim = Enemies.enemyStat[et]["aim"];
+
+            if (stats.aim < baseAim)
+                aimText.color = Color.red;
+            else if (stats.aim == baseAim)
+                aimText.color = Color.white;
+            else
+                aimText.color = Color.green;
+
         }
         else
             UpdatePlayerStatistics(stats);

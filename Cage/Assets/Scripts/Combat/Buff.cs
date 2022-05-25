@@ -29,6 +29,7 @@ public class Buff
 
     public void remove(Stats target)
     {
+        target.buffsList.Remove(this);
         target.speed -= speed;
         target.strength -= strength;
         target.dodge -= dodge;

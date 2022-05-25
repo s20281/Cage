@@ -144,7 +144,8 @@ public class LoadCharacters : MonoBehaviour
                 if (!enemy.isDead)
                     continue;
 
-                Destroy(enemySpawnPoints[i].transform.GetChild(0));
+                Turn.control.aliveEnemies.Remove(enemy.gameObject);
+                Destroy(enemy.gameObject);
             }
 
             GameObject o = GameObject.Instantiate(enemyPrefabs[type], enemySpawnPoints[i].transform, false);
@@ -154,7 +155,9 @@ public class LoadCharacters : MonoBehaviour
             Vector3 updatedSpawnPosition = new Vector3(spawnPosition.x, spawnPosition.y + o.GetComponent<SpriteRenderer>().bounds.size.y / 2);
             o.transform.position = updatedSpawnPosition;
 
-            Turn.control.updateEnemies();
+            Turn.control.aliveEnemies.Add(o);
+            Turn.control.aliveEnemiesCount++;
+            //Turn.control.updateEnemies();
 
             counter++;
         }
