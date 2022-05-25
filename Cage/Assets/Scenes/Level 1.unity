@@ -3674,9 +3674,9 @@ MonoBehaviour:
   canBeRecruited: 1
   haveToGiveObject: 1
   shouldOpenTheDoor: 1
-  ifHaveImpactOnMind: 1
+  ifHaveImpactOnMind: 0
   pointsToImpactTheMind: 20
-  prefabToFindStats: {fileID: 0}
+  prefabToFindStats: {fileID: 11400000, guid: c5b9d7ed00cce9243960fdf20de7969b, type: 2}
   prefabWhichWantToCompareStats: {fileID: 0}
   doorToOpen: {fileID: 702826176}
 --- !u!114 &335865544
@@ -13145,9 +13145,9 @@ MonoBehaviour:
   heroes: []
   main: {fileID: 11400000, guid: 0f9a0e64d19276445a50b1bb2e707265, type: 2}
   temp: {fileID: 0}
-  h1: {fileID: 11400000, guid: 0f9a0e64d19276445a50b1bb2e707265, type: 2}
-  h2: {fileID: 11400000, guid: e207fe8aaf7c7a54998ca4bd724f3c95, type: 2}
-  h3: {fileID: 11400000, guid: c5b9d7ed00cce9243960fdf20de7969b, type: 2}
+  h1: {fileID: 0}
+  h2: {fileID: 0}
+  h3: {fileID: 0}
 --- !u!1 &1091809870
 GameObject:
   m_ObjectHideFlags: 0

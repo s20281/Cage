@@ -96,6 +96,21 @@ public class DialogueUI : MonoBehaviour
                 Debug.Log(dialogueObject.name);
                 Debug.Log(goodAnswer);
 
+                if (dialogueObject.name.ToLower() == goodAnswer.ToLower())
+                {
+                    Debug.Log(shouldOpenTheDoor);
+                    Debug.Log(doorToOpen.name);
+
+                    if (shouldOpenTheDoor = true && doorToOpen != null)
+                    {
+                        if (doorToOpen.GetComponent<OpenableItem>() != null)
+                        {
+                            Debug.Log("Open");
+                            doorToOpen.GetComponent<OpenableItem>().doorOpening();
+                        }
+                    }
+                }
+
                 if (canBeRecruited && dialogueObject.name.ToLower() == goodAnswer.ToLower())
                 {
                     Debug.Log("pick");
@@ -106,13 +121,7 @@ public class DialogueUI : MonoBehaviour
                         prefabToFindStats.mentalHealth += pointsToImpactTheMind;
                     }
 
-                    if (shouldOpenTheDoor = true && doorToOpen != null)
-                    {
-                        if (doorToOpen.GetComponent<OpenableItem>() != null)
-                        {
-                            doorToOpen.GetComponent<OpenableItem>().doorOpening();
-                        }
-                    }
+               
 
                 }
                 else
