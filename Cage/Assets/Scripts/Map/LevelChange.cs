@@ -21,5 +21,12 @@ public class LevelChange : MonoBehaviour
 
             SceneManager.LoadScene("Combat");
         }
+
+        if (collision.gameObject.CompareTag("NextLevelDoor"))
+        {
+            Debug.Log("Next level");
+            SceneManager.LoadScene("Level 2");
+
+        }
     }
 }

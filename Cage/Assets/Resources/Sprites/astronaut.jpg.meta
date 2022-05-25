@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 24f769d2314c40342a98f53a907cea45
+guid: 16f07fb9432019a49beaf842a0fc365e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5125268258512110123
-    second: anne-roos-leeuwis-idle-sprite-sheet_0
+      213: 6362290972351372809
+    second: astronaut_0
   - first:
-      213: 1486623062899470520
-    second: anne-roos-leeuwis-idle-sprite-sheet_1
+      213: -1288049615716269
+    second: astronaut_1
   - first:
-      213: -1794224473720012079
-    second: anne-roos-leeuwis-idle-sprite-sheet_2
+      213: 3882900790196195014
+    second: astronaut_2
   - first:
-      213: 809465714026555679
-    second: anne-roos-leeuwis-idle-sprite-sheet_3
+      213: 5617970741713943694
+    second: astronaut_3
   - first:
-      213: -984271680707118112
-    second: anne-roos-leeuwis-idle-sprite-sheet_4
+      213: -5826254180988321375
+    second: astronaut_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,7 +47,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -106,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: anne-roos-leeuwis-idle-sprite-sheet_0
+      name: astronaut_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,41 +114,41 @@ TextureImporter:
         width: 384
         height: 529
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b220337835c902740800000000000000
-      internalID: 5125268258512110123
+      spriteID: 90e9da43ee56b4850800000000000000
+      internalID: 6362290972351372809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: anne-roos-leeuwis-idle-sprite-sheet_1
+      name: astronaut_1
       rect:
         serializedVersion: 2
-        x: 384
+        x: 390
         y: 0
         width: 384
         height: 529
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b0b60b9ccb81a410800000000000000
-      internalID: 1486623062899470520
+      spriteID: 350c334968c6bfff0800000000000000
+      internalID: -1288049615716269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: anne-roos-leeuwis-idle-sprite-sheet_2
+      name: astronaut_2
       rect:
         serializedVersion: 2
         x: 768
@@ -156,20 +156,20 @@ TextureImporter:
         width: 384
         height: 529
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d24b9ce852a917e0800000000000000
-      internalID: -1794224473720012079
+      spriteID: 6ce4ab932b5d2e530800000000000000
+      internalID: 3882900790196195014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: anne-roos-leeuwis-idle-sprite-sheet_3
+      name: astronaut_3
       rect:
         serializedVersion: 2
         x: 1152
@@ -177,20 +177,20 @@ TextureImporter:
         width: 384
         height: 529
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f19296637cccb3b00800000000000000
-      internalID: 809465714026555679
+      spriteID: e8cb562df9a07fd40800000000000000
+      internalID: 5617970741713943694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: anne-roos-leeuwis-idle-sprite-sheet_4
+      name: astronaut_4
       rect:
         serializedVersion: 2
         x: 1536
@@ -198,14 +198,14 @@ TextureImporter:
         width: 384
         height: 529
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ebb9fc0f1a2752f0800000000000000
-      internalID: -984271680707118112
+      spriteID: 1a18e03f0bcf42fa0800000000000000
+      internalID: -5826254180988321375
       vertices: []
       indices: 
       edges: []
