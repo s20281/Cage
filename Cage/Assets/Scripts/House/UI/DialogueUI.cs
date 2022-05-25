@@ -8,7 +8,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private GameObject player;
-   
+
 
     private ResponseHandler responseHandler;
     private TypeWriterEffect typeWriterEffect;
@@ -36,24 +36,24 @@ public class DialogueUI : MonoBehaviour
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
-    {       
-        dialogueBox.SetActive(true);       
+    {
+        dialogueBox.SetActive(true);
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
     {
-        for(int i = 0; i<dialogueObject.Dialogue.Length; i++)
+        for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
             string dialogue = dialogueObject.Dialogue[i];
             yield return typeWriterEffect.Run(dialogue, textLabel);
 
             if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.Responses != null && dialogueObject.Responses.Length > 0) break;
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-        
+
         }
 
-        if(dialogueObject.name == goodAnswer)
+        if (dialogueObject.name == goodAnswer)
         {
             if (objectToDrop != null)
             {
@@ -97,7 +97,7 @@ public class DialogueUI : MonoBehaviour
                 Debug.Log(goodAnswer);
 
                 if (dialogueObject.name.ToLower() == goodAnswer.ToLower())
-                {                 
+                {
 
                     if (shouldOpenTheDoor = true && doorToOpen != null)
                     {
@@ -119,26 +119,45 @@ public class DialogueUI : MonoBehaviour
                         prefabToFindStats.mentalHealth += pointsToImpactTheMind;
                     }
 
-               
+
 
                 }
                 else
                 {
-                    objectToAddToTeam.SetActive(false);
-                    objectToAddToTeam.GetComponent<ObjectsManager>().setOff();
 
-
-                    if (ifHaveImpactOnMind)
+                    if (canBeRecruited &&  goodAnswer=="")
                     {
-                        prefabToFindStats.mentalHealth -= pointsToImpactTheMind;
+                        Debug.Log("pick");
+                        objectToAddToTeam.GetComponent<PickableItem>().PickItem(player.GetComponent<Inventory>());
+
+                        if (ifHaveImpactOnMind == true && prefabToFindStats != null)
+                        {
+                            prefabToFindStats.mentalHealth += pointsToImpactTheMind;
+                        }
+
+
+
                     }
+                    else
+                    {
+                        objectToAddToTeam.SetActive(false);
+                        objectToAddToTeam.GetComponent<ObjectsManager>().setOff();
+
+
+                        if (ifHaveImpactOnMind)
+                        {
+                            prefabToFindStats.mentalHealth -= pointsToImpactTheMind;
+                        }
+                    }
+
                 }
+
 
 
 
             }
         }
-       
+
     }
 
     private void CloseDialogueBox()
