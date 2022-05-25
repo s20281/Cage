@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Skill {NONE, SKIP, SWORD, POTION, HAMMER, BASEBALL, SHURIKEN, FLASHBANG, KATANA}
+public enum Skill {NONE, SKIP, SWORD, POTION, HAMMER, BASEBALL, SHURIKEN, FLASHBANG, KATANA, LASERGUN, FORCEFIELD, SHIELD, BACTA}
 
 public enum TargetType {ENEMY, FRIEND, OBJECT}
 
@@ -47,7 +47,10 @@ public class UseSkill : MonoBehaviour
             {Skill.SKIP, () => {skipTurn(); } },
             {Skill.SHURIKEN, () => {shuriken(); } },
             {Skill.KATANA, () => {katana(); } },
-            {Skill.FLASHBANG, () => {flashbang(); } }
+            {Skill.FLASHBANG, () => {flashbang(); } },
+            {Skill.SHIELD, () => {shield(); } },
+            {Skill.LASERGUN, () => {laserGun(); } },
+            {Skill.BACTA, () => {bactaTank(); } }
         };
 
         GM = GameManager.getGameObject();
@@ -107,9 +110,9 @@ public class UseSkill : MonoBehaviour
         actItem = item;
     }
 
-    private void displayEffect(GameObject gm, string text, Color color)
+    private void displayEffect(GameObject go, string text, Color color)
     {
-        gm.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(text, color);
+        go.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(text, color);
     }
 
     private bool simpleAtack(int baseDmg, bool dealsDamage = true)
@@ -129,18 +132,12 @@ public class UseSkill : MonoBehaviour
         }
 
         int damage = 0;
+       
         if(dealsDamage)
-        {
             damage = baseDmg + skillUser.strength;
-            displayEffect(enemy, damage.ToString(), Color.red);
-            target.healthChange(-damage);
-        }
-        else
-        {
-            displayEffect(enemy, damage.ToString(), Color.yellow);
-        }
-        
-        Debug.Log("Player attacks for " + damage);
+        target.healthChange(-damage);
+ 
+        Debug.Log(player.gameObject.name + " attacks for " + damage);
         return true;
     }
 
@@ -148,16 +145,28 @@ public class UseSkill : MonoBehaviour
     {
         Effect stun = new Effect(EffectName.STUN, turns, 0, true);
         target.addEffect(stun);
-        displayEffect(target.gameObject, "STUN", Color.yellow);
-        target.transform.GetChild(0).GetComponent<SkillEffects>().setStunIcon(true);
     }
-
     private void bleeding(int turns, int damage)
     {
         Effect bleeding = new Effect(EffectName.BLEEDING, turns, damage, false);
         target.addEffect(bleeding);
-        target.transform.GetChild(0).GetComponent<SkillEffects>().setBleedingIcon(true);
     }
+    private void healing(int turns, int heal)
+    {
+        Effect healing = new Effect(EffectName.BLEEDING, turns, -heal, false);
+        target.addEffect(healing);
+    }
+    private void shield(int turns)
+    {
+        Effect shield = new Effect(EffectName.SHIELD, turns, 0, false);
+        target.addEffect(shield);
+    }
+    private void addBuff(Stats s, int speed, int strength, int dodge, int aim, int turns)
+    {
+        Buff buff = new Buff(speed, strength, dodge, aim, turns);
+        s.addBuff(buff);
+    }
+
 
     private void sword()
     {
@@ -200,18 +209,44 @@ public class UseSkill : MonoBehaviour
 
     private void shuriken()
     {
-        simpleAtack(4);
+        simpleAtack(5);
 
     }
     private void katana()
     {
-        if (simpleAtack(2) && !target.isDead)
+        if (simpleAtack(3) && !target.isDead)
             bleeding(2, 2);
     }
     private void flashbang()
     {
         if (simpleAtack(0, false) && !target.isDead)
             stun(2);
+    }
+    private void forceField()
+    {
+        Effect shield = new Effect(EffectName.SHIELD, 1, 0, false);
+        target.addEffect(shield);
+    }
+
+    private void laserGun()
+    {
+        if (simpleAtack(3) && !target.isDead)
+        {
+            addBuff(target,0, 0, 0, -2, 2);
+        }
+    }
+
+    private void bactaTank()
+    {
+        Effect bacta = new Effect(EffectName.SHIELD, 2, -3, false);
+        target.addEffect(bacta);
+    }
+
+
+    private void shield()
+    {
+        Effect protect = new Effect(EffectName.PROTECTION, 2, 0, false);
+        target.addEffect(protect);
     }
 
 }

@@ -48,7 +48,7 @@ public class TeamDatabase : MonoBehaviour
                 { "stat2", 3 }
             }),
 
-            new Character(4, "swordman","Fight! Fight!", new Dictionary<string, int>
+            new Character(4, "astronaut","", new Dictionary<string, int>
             {
                 { "stat1", 10 },
                 { "stat2", 1 }

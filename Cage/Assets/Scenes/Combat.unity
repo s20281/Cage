@@ -790,11 +790,14 @@ MonoBehaviour:
   turnState: 0
   alivePlayersCount: 0
   aliveEnemiesCount: 0
+  alivePlayers: []
+  enemies: []
   skillsPanel: {fileID: 548160151}
   playerUsedTurn: 0
   queuePanel: {fileID: 660762872}
   queueIcon: {fileID: 4840885572140585028, guid: e40e715f263ecd14abb61a09572796f1, type: 3}
   skipButton: {fileID: 1101051620}
+  objectStats: {fileID: 0}
 --- !u!114 &521555933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -815,10 +818,15 @@ MonoBehaviour:
   heroSpawnPoint2: {fileID: 449826852}
   heroSpawnPoint3: {fileID: 2043027409}
   heroSpawnPoint4: {fileID: 96520291}
-  enemy0Prefab: {fileID: 3246074616068418081, guid: 98b97dee7bee035469293084c167b146, type: 3}
-  enemy1Prefab: {fileID: 777634431527917437, guid: e924cd93645c2e548bc23ad7269114b3, type: 3}
-  enemy2Prefab: {fileID: 86386744747759596, guid: 457478c8eceb79f42add06f82a5c7c60, type: 3}
-  enemy3Prefab: {fileID: 7868939099561874884, guid: 506102a4a162b5242874fe6a7730528e, type: 3}
+  none: {fileID: 3246074616068418081, guid: 98b97dee7bee035469293084c167b146, type: 3}
+  shadow: {fileID: 777634431527917437, guid: e924cd93645c2e548bc23ad7269114b3, type: 3}
+  rock: {fileID: 86386744747759596, guid: 457478c8eceb79f42add06f82a5c7c60, type: 3}
+  spider: {fileID: 7868939099561874884, guid: 506102a4a162b5242874fe6a7730528e, type: 3}
+  zombie: {fileID: 312104732760954458, guid: 04ccd41820228434b927de784aaa3a0e, type: 3}
+  clown: {fileID: 593519639099054871, guid: d6704c7036d0dd146be04b01f75a1fec, type: 3}
+  witch: {fileID: 8866644826626464909, guid: 4e428f5f213917147a1bd89e2df10151, type: 3}
+  rat: {fileID: 5478830493704094920, guid: 2dbcf7e9d7f26d44992984b6b918ba5b, type: 3}
+  tornado: {fileID: 1407466795102623232, guid: add59feb35b9c3d4a9ff61c0e639c11c, type: 3}
   heroPrefab: {fileID: 7867797881197011546, guid: 072dc6b5703912d438df842d74013eaa, type: 3}
 --- !u!1 &548160151
 GameObject:

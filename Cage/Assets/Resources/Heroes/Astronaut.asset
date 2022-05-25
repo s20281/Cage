@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa1fdd11dd140f4281625c5bddba72d, type: 3}
+  m_Name: Astronaut
+  m_EditorClassIdentifier: 
+  id: 4
+  name: Astronaut
+  description: 
+  icon: {fileID: 5125268258512110123, guid: 24f769d2314c40342a98f53a907cea45, type: 3}
+  maxHealth: 22
+  health: 22
+  speed: 3
+  dodge: 4
+  accuracy: 6
+  strength: 3
+  exp: 0
+  level: 0
+  levelUpPoints: 0

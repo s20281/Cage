@@ -9103,11 +9103,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4929792665115701326, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 6
+      value: 4.58
       objectReference: {fileID: 0}
     - target: {fileID: 4929792665115701326, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 5
+      value: 3.83
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[0]
@@ -9119,11 +9119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[2]
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[3]
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad2.Array.data[0]
@@ -13113,6 +13113,7 @@ MonoBehaviour:
   h1: {fileID: 11400000, guid: 0f9a0e64d19276445a50b1bb2e707265, type: 2}
   h2: {fileID: 11400000, guid: e207fe8aaf7c7a54998ca4bd724f3c95, type: 2}
   h3: {fileID: 11400000, guid: c5b9d7ed00cce9243960fdf20de7969b, type: 2}
+  h4: {fileID: 11400000, guid: e4320941c2beeb2429477824211a2aca, type: 2}
 --- !u!1 &1091809870
 GameObject:
   m_ObjectHideFlags: 0
@@ -17593,11 +17594,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4929792665115701326, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 6
+      value: 4.58
       objectReference: {fileID: 0}
     - target: {fileID: 4929792665115701326, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 5
+      value: 3.83
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[0]
@@ -22539,7 +22540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[3]
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad2.Array.data[0]

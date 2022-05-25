@@ -71,6 +71,21 @@ public class ItemDatabase : MonoBehaviour
                 { "stat1", 15 },
                 { "stat2", 3 }
             }, Skill.FLASHBANG, TargetType.ENEMY),
+            new Item(8, "shield", "Hulk","", new Dictionary<string, int>
+            {
+                { "stat1", 15 },
+                { "stat2", 3 }
+            }, Skill.SHIELD, TargetType.FRIEND),
+             new Item(9, "laserGun", "Astronaut","", new Dictionary<string, int>
+            {
+                { "stat1", 15 },
+                { "stat2", 3 }
+            }, Skill.LASERGUN, TargetType.ENEMY),
+              new Item(10, "bacta", "Astronaut","", new Dictionary<string, int>
+            {
+                { "stat1", 15 },
+                { "stat2", 3 }
+            }, Skill.BACTA, TargetType.FRIEND),
 
 
         };

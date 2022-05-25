@@ -51,6 +51,18 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -3547616470683824752, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: enemyName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3547616470683824752, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: enemyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3547616470683824752, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: expForKill
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 924171441174363737, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.31395513
@@ -214,6 +226,10 @@ PrefabInstance:
     - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: expForKill
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: characterType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5039349178668739740, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_LocalScale.x

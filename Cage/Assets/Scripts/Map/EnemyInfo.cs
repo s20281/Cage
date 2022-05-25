@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum EnemyName { Shadow, Rock, Spider, None}
+using static EnemySkill;
 
 public class EnemyInfo : MonoBehaviour
 {
-    public EnemyName[] enemiesToLoad = new EnemyName[4] { EnemyName.None, EnemyName.None, EnemyName.None, EnemyName.None };
+    public EnemyType[] enemiesToLoad = new EnemyType[4] { EnemyType.NONE, EnemyType.NONE, EnemyType.NONE, EnemyType.NONE };
 }

@@ -13,6 +13,7 @@ public class Team : MonoBehaviour
     public Hero h1;
     public Hero h2;
     public Hero h3;
+    public Hero h4;
 
     public Dictionary<string, Hero> heroMapping = new Dictionary<string, Hero>();
 
@@ -25,6 +26,7 @@ public class Team : MonoBehaviour
         heroMapping.Add(h1.name, h1);
         heroMapping.Add(h2.name, h2);
         heroMapping.Add(h3.name, h3);
+        heroMapping.Add(h4.name, h4);
     }
 
     public void addHero(Hero hero)

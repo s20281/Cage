@@ -45,6 +45,14 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 9.74
       objectReference: {fileID: 0}
+    - target: {fileID: -3547616470683824752, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: enemyName
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3547616470683824752, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: expForKill
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1533657076376957983, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EffectName { STUN, BLEEDING}
+public enum EffectName { STUN, BLEEDING, HEAL, SHIELD, PROTECTION}
 
 public class Effect
 {

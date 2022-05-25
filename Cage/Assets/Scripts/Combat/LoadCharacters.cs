@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static EnemySkill;
 
 public enum HeroName
 {
@@ -8,6 +9,9 @@ public enum HeroName
 }
 public class LoadCharacters : MonoBehaviour
 {
+    public static LoadCharacters control;
+
+    GameObject[] enemySpawnPoints;
     public GameObject enemySpawnPoint1;
     public GameObject enemySpawnPoint2;
     public GameObject enemySpawnPoint3;
@@ -19,10 +23,15 @@ public class LoadCharacters : MonoBehaviour
     public GameObject heroSpawnPoint4;
 
 
-    public GameObject enemy0Prefab;
-    public GameObject enemy1Prefab;
-    public GameObject enemy2Prefab;
-    public GameObject enemy3Prefab;
+    public GameObject none;
+    public GameObject shadow;
+    public GameObject rock;
+    public GameObject spider;
+    public GameObject zombie;
+    public GameObject clown;
+    public GameObject witch;
+    public GameObject rat;
+    public GameObject tornado;
 
     //public GameObject playerPrefab;
     //public GameObject hulkPrefab;
@@ -36,12 +45,14 @@ public class LoadCharacters : MonoBehaviour
     private Dictionary<string, HeroName> heroMapping = new Dictionary<string, HeroName>();
 
 
-    Dictionary<EnemyName, GameObject> enemyPrefabs = new Dictionary<EnemyName, GameObject>();
+    Dictionary<EnemyType, GameObject> enemyPrefabs = new Dictionary<EnemyType, GameObject>();
 
     private void Awake()
     {
+        control = this;
+
         GameObject gm = GameObject.FindGameObjectWithTag("GM");
-        EnemyName[] enemiesToLoad = StaticClass.getEnemies();
+        EnemyType[] enemiesToLoad = StaticClass.getEnemies();
         int enemiesCount = enemiesToLoad.Length;
 
         string[] heroesToLoad = new string[4];
@@ -72,16 +83,21 @@ public class LoadCharacters : MonoBehaviour
         heroMapping.Add("hulk", HeroName.HULK);
         heroMapping.Add("ninja", HeroName.NINJA);
 
-        enemyPrefabs.Add(EnemyName.None, enemy0Prefab);
-        enemyPrefabs.Add(EnemyName.Shadow, enemy1Prefab);
-        enemyPrefabs.Add(EnemyName.Rock, enemy2Prefab);
-        enemyPrefabs.Add(EnemyName.Spider, enemy3Prefab);
+        enemyPrefabs.Add(EnemyType.NONE, none);
+        enemyPrefabs.Add(EnemyType.SHADOW, shadow);
+        enemyPrefabs.Add(EnemyType.ROCK, rock);
+        enemyPrefabs.Add(EnemyType.SPIDER, spider);
+        enemyPrefabs.Add(EnemyType.ZOMBIE, zombie);
+        enemyPrefabs.Add(EnemyType.CLOWN, clown);
+        enemyPrefabs.Add(EnemyType.WITCH, witch);
+        enemyPrefabs.Add(EnemyType.RAT, rat);
+        enemyPrefabs.Add(EnemyType.TORNADO, tornado);
 
-        GameObject[] enemySpawnPoints = new GameObject[] { enemySpawnPoint1, enemySpawnPoint2, enemySpawnPoint3, enemySpawnPoint4 };
+        enemySpawnPoints = new GameObject[] { enemySpawnPoint1, enemySpawnPoint2, enemySpawnPoint3, enemySpawnPoint4 };
 
         for(int i=0; i<4; i++)
         {
-            if(enemiesToLoad[i] != EnemyName.None && enemyPrefabs.ContainsKey(enemiesToLoad[i]))
+            if(enemiesToLoad[i] != EnemyType.NONE && enemyPrefabs.ContainsKey(enemiesToLoad[i]))
             {
                 GameObject o = GameObject.Instantiate(enemyPrefabs[enemiesToLoad[i]], enemySpawnPoints[i].transform, false);
                 o.name = enemyPrefabs[enemiesToLoad[i]].name;
@@ -113,6 +129,34 @@ public class LoadCharacters : MonoBehaviour
                     o.transform.position = updatedSpawnPosition;
                 }
             }
+        }
+    }
+
+    public void summon(EnemyType type, int count)
+    {
+        int counter = 0;
+        for (int i = 0; i < 4 && counter < count; i++)
+        {
+            if (enemySpawnPoints[i].transform.childCount > 0)
+            {
+                Stats enemy = enemySpawnPoints[i].transform.GetChild(0).gameObject.GetComponent<Stats>();
+
+                if (!enemy.isDead)
+                    continue;
+
+                Destroy(enemySpawnPoints[i].transform.GetChild(0));
+            }
+
+            GameObject o = GameObject.Instantiate(enemyPrefabs[type], enemySpawnPoints[i].transform, false);
+            o.name = enemyPrefabs[type].name;
+
+            Vector3 spawnPosition = enemySpawnPoints[i].transform.position;
+            Vector3 updatedSpawnPosition = new Vector3(spawnPosition.x, spawnPosition.y + o.GetComponent<SpriteRenderer>().bounds.size.y / 2);
+            o.transform.position = updatedSpawnPosition;
+
+            Turn.control.updateEnemies();
+
+            counter++;
         }
     }
 }

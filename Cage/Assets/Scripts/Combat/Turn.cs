@@ -15,8 +15,8 @@ public class Turn : MonoBehaviour
     public int aliveEnemiesCount;
     int turnNumber = 1;
     GameObject[] players;
-    List<GameObject> alivePlayers = new List<GameObject>();
-    GameObject[] enemies;
+    public List<GameObject> alivePlayers = new List<GameObject>();
+    public GameObject[] enemies;
     Queue<GameObject> queue = new Queue<GameObject>();
     private bool allDead = false;
     private bool playerDead = false;
@@ -26,6 +26,8 @@ public class Turn : MonoBehaviour
     public GameObject queuePanel;
     public GameObject queueIcon;
     public GameObject skipButton;
+
+    public Stats objectStats;
 
     void Start()
     {
@@ -141,7 +143,7 @@ public class Turn : MonoBehaviour
             }
 
             GameObject o = queue.Dequeue();
-            Stats objectStats = o.GetComponent<Stats>();
+            objectStats = o.GetComponent<Stats>();
             objectStats.queued = false;
 
             if (objectStats.isDead)
@@ -151,6 +153,7 @@ public class Turn : MonoBehaviour
 
             bool isStunned = false;
             bool isBleeding = false;
+            bool isHealing = false;
 
             int effectsCount = objectStats.effectsList.Count;
             int BuffsCount = objectStats.buffsList.Count;
@@ -161,14 +164,7 @@ public class Turn : MonoBehaviour
                 {
                     Effect e = objectStats.effectsList[i];
 
-                    //if (e.turnsCount <= 0)
-                    //{
-                    //    objectStats.effectsList.Remove(e);
-                    //    effectsCount--;
-                    //    continue;
-                    //}
-
-                    if (e.damagePerTurn > 0)
+                    if (e.damagePerTurn != 0)
                     {
                         objectStats.healthChange(-e.damagePerTurn);
                     }
@@ -178,6 +174,9 @@ public class Turn : MonoBehaviour
 
                     if (e.name == EffectName.BLEEDING && e.turnsCount > 0)
                         isBleeding = true;
+
+                    if (e.name == EffectName.HEAL && e.turnsCount > 0)
+                        isHealing = true;
 
                     e.turnsCount--;
                 }
@@ -200,18 +199,11 @@ public class Turn : MonoBehaviour
                 Debug.Log(o.name + " is stunned");
                 skipsTurn = true;
             }
-            //else
-            //{
-            //    o.transform.GetChild(0).transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
-            //}
-
-            //if(!isBleeding)
-            //{
-            //    o.transform.GetChild(0).transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
-            //}
 
             isStunned = false;
             isBleeding = false;
+            bool isShielded = false;
+            bool isProtected = false;
 
             if (effectsCount > 0)
             {
@@ -230,6 +222,17 @@ public class Turn : MonoBehaviour
 
                     if (e.name == EffectName.BLEEDING && e.turnsCount > 0)
                         isBleeding = true;
+
+                    if (e.name == EffectName.HEAL && e.turnsCount > 0)
+                        isHealing = true;
+
+                    if (e.name == EffectName.SHIELD && e.turnsCount > 0)
+                        isShielded = true;
+
+                    if (e.name == EffectName.PROTECTION && e.turnsCount > 0)
+                        isProtected = true;
+
+
                 }
             }
 
@@ -237,6 +240,16 @@ public class Turn : MonoBehaviour
                 o.transform.GetChild(0).GetComponent<SkillEffects>().setStunIcon(false);
             if (!isBleeding)
                 o.transform.GetChild(0).GetComponent<SkillEffects>().setBleedingIcon(false);
+            if (!isHealing)
+                o.transform.GetChild(0).GetComponent<SkillEffects>().setHealIcon(false);
+            if (!isShielded)
+                objectStats.setShield(false);
+            if (!isProtected && objectStats.isProtected)
+            {
+                objectStats.isProtected = false;
+                o.transform.GetChild(0).GetComponent<SkillEffects>().setProtectionIcon(false);
+            }
+                objectStats.setShield(false);
 
             if (skipsTurn)
                 continue;
@@ -254,7 +267,6 @@ public class Turn : MonoBehaviour
                 o.GetComponent<SpriteRenderer>().color = new Color(red + 20, green + 20, blue + 20);
                 yield return new WaitForSeconds(1.5f);
 
-                //enemyAttack(o);
                 EnemySkill.UseSkill(objectStats, getRandomPlayer().GetComponent<Stats>());
                 Destroy(objectStats.GetComponent<Stats>().queueIcon);
 
@@ -355,5 +367,24 @@ public class Turn : MonoBehaviour
     public Stats getActivePlayer()
     {
         return playerStats;
+    }
+
+    public List<Stats> getAliveEnemies()
+    {
+        List<Stats> result = new List<Stats>();
+
+        foreach(GameObject enemy in enemies)
+        {
+            Stats s = enemy.GetComponent<Stats>();
+            if(!s.isDead)
+                result.Add(s);
+        }
+        return result;
+    }
+
+    public void updateEnemies()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        aliveEnemiesCount = enemies.Length;
     }
 }

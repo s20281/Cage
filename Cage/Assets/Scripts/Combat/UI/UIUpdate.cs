@@ -52,9 +52,40 @@ public class UIUpdate : MonoBehaviour
     {
         playerHealthText.text = stats.health.ToString();
         playerSpeedText.text = stats.speed.ToString();
+
+        if (stats.speed < stats.hero.speed)
+            playerSpeedText.color = Color.red;
+        else if(stats.speed == stats.hero.speed)
+            playerSpeedText.color = Color.white;
+        else
+            playerSpeedText.color = Color.green;
+
         playerStrengthText.text = stats.strength.ToString();
+
+        if (stats.strength < stats.hero.strength)
+            playerStrengthText.color = Color.red;
+        else if (stats.strength == stats.hero.strength)
+            playerStrengthText.color = Color.white;
+        else
+            playerStrengthText.color = Color.green;
+
         playerDodgeText.text = stats.dodge.ToString();
+
+        if (stats.dodge < stats.hero.dodge)
+            playerDodgeText.color = Color.red;
+        else if (stats.dodge == stats.hero.dodge)
+            playerDodgeText.color = Color.white;
+        else
+            playerDodgeText.color = Color.green;
+
         playerAimText.text = stats.aim.ToString();
+
+        if (stats.aim < stats.hero.accuracy)
+            playerAimText.color = Color.red;
+        else if (stats.aim == stats.hero.accuracy)
+            playerAimText.color = Color.white;
+        else
+            playerAimText.color = Color.green;
     }
 
     void deselectSkills()

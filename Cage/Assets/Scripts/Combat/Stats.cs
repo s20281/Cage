@@ -24,6 +24,11 @@ public class Stats : MonoBehaviour
     public GameObject queueIcon;
     public List<Effect> effectsList = new List<Effect>();
     public List<Buff> buffsList = new List<Buff>();
+    public bool hasShield = false;
+    public bool usedSpecialPower = false;
+
+    public bool isProtected = false;
+    public Stats Protector;
 
     private GameObject GM;
 
@@ -68,6 +73,20 @@ public class Stats : MonoBehaviour
 
     public void healthChange(int change)
     {
+        if(hasShield && change < 0)
+        {
+            setShield(false);
+            gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("SHIELDED", Color.yellow);
+            return;
+        }
+
+        if(change < 0)
+            gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect((-change).ToString(), Color.red);
+        else if(change == 0)
+            gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(change.ToString(), Color.white);
+        else
+            gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(change.ToString(), Color.green);
+
         health += change;
         if (health <= 0)
         {
@@ -84,8 +103,17 @@ public class Stats : MonoBehaviour
         hpBar.changeHealth(change);
     }
 
+    public void setShield(bool isActive)
+    {
+        hasShield = isActive;
+        gameObject.transform.GetChild(0).GetComponent<SkillEffects>().setShieldIcon(isActive);
+    }
+
     public void Die()
     {
+        if (gameObject.name == "Enemy_Tornado")
+            Destroy(gameObject);
+
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         isDead = true;
         
@@ -107,6 +135,29 @@ public class Stats : MonoBehaviour
     public void addEffect(Effect effect)
     {
         effectsList.Add(effect);
+
+        switch(effect.name)
+        {
+            case EffectName.SHIELD:
+                setShield(true);
+                break;
+            case EffectName.HEAL:
+                transform.GetChild(0).GetComponent<SkillEffects>().setHealIcon(true);
+                break;
+            case EffectName.BLEEDING:
+                transform.GetChild(0).GetComponent<SkillEffects>().setBleedingIcon(true);
+                break;
+            case EffectName.STUN:
+                transform.GetChild(0).GetComponent<SkillEffects>().setStunIcon(true);
+                break;
+            case EffectName.PROTECTION:
+                transform.GetChild(0).GetComponent<SkillEffects>().setProtectionIcon(true);
+                isProtected = true;
+                Protector = Turn.control.objectStats;
+                break;
+            default:
+                break;
+        }
     }
 
     public void setStats(Hero hero)

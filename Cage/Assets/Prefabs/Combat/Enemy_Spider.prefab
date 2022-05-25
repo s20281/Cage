@@ -8,12 +8,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -9065101500672513482, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: m_Size.x
+      value: 5.996205
+      objectReference: {fileID: 0}
+    - target: {fileID: -9065101500672513482, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: m_Size.y
+      value: 4.4859524
+      objectReference: {fileID: 0}
+    - target: {fileID: -9065101500672513482, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.12637115
+      objectReference: {fileID: 0}
+    - target: {fileID: -9065101500672513482, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.1281936
+      objectReference: {fileID: 0}
+    - target: {fileID: -9065101500672513482, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -9065101500672513482, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 7.58
+      objectReference: {fileID: 0}
+    - target: {fileID: -3547616470683824752, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: enemyName
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3547616470683824752, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: enemyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3547616470683824752, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: expForKill
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1533657076376957983, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_AnchorMax.x
@@ -25,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418081, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_Name
-      value: Enemy_Spider
+      value: Enemy_Spider Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3246074616068418082, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_Sprite
@@ -87,6 +115,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3246074616068418084, guid: 98b97dee7bee035469293084c167b146, type: 3}
+      propertyPath: dead
+      value: 
+      objectReference: {fileID: 21300000, guid: a688a963624844e4597fdfa81a16ef8b, type: 3}
     - target: {fileID: 7953358561660339473, guid: 98b97dee7bee035469293084c167b146, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
