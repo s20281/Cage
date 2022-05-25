@@ -97,9 +97,7 @@ public class DialogueUI : MonoBehaviour
                 Debug.Log(goodAnswer);
 
                 if (dialogueObject.name.ToLower() == goodAnswer.ToLower())
-                {
-                    Debug.Log(shouldOpenTheDoor);
-                    Debug.Log(doorToOpen.name);
+                {                 
 
                     if (shouldOpenTheDoor = true && doorToOpen != null)
                     {
