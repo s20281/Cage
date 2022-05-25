@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f42095435ade24aa848dab52b5a5bc, type: 3}
+  m_Name: NieDam
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "No c\xF3\u017C bardzo mi na nim zale\u017Ca\u0142o, ale m\xF3wi si\u0119 trudno."
+  responses: []

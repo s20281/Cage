@@ -8,6 +8,7 @@ public class Hero : ScriptableObject
     public int id;
     public string name;
     public string description;
+    public string whatWantInTeammates; //docelowo mo¿e enum
     public Sprite icon;
     public int maxHealth;
     public int health;
@@ -15,6 +16,7 @@ public class Hero : ScriptableObject
     public int dodge;
     public int accuracy;
     public int strength;
+    public int mentalHealth;
 
     public int exp;
     public int level;

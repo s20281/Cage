@@ -18,5 +18,7 @@ MonoBehaviour:
   responses:
   - responseText: W takim razie czekam na pytanie.
     dialogueObject: {fileID: 11400000, guid: dd8fdeaa9434d49489a3b09917c2a449, type: 2}
+    objectToDrop: {fileID: 0}
   - responseText: "Spr\xF3buj\u0119 innym razem."
     dialogueObject: {fileID: 11400000, guid: 0e8421d9d18ad764fbf7217b2591bed8, type: 2}
+    objectToDrop: {fileID: 0}

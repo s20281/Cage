@@ -3665,10 +3665,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogUI: {fileID: 520988959}
-  testDialogue: {fileID: 11400000, guid: dd8fdeaa9434d49489a3b09917c2a449, type: 2}
+  dialogue1: {fileID: 11400000, guid: dd8fdeaa9434d49489a3b09917c2a449, type: 2}
+  dialogue2: {fileID: 11400000, guid: 6ddcbc478cd0224438e1be5b7abdb7e5, type: 2}
   objectToDrop: {fileID: 0}
+  objectWanted: {fileID: 496986365}
+  answerToGiveObject: DlaCiebie
   goodAnswer: "si\u0142a"
   canBeRecruited: 1
+  haveToGiveObject: 1
+  shouldOpenTheDoor: 1
+  ifHaveImpactOnMind: 0
+  pointsToImpactTheMind: 20
+  prefabToFindStats: {fileID: 11400000, guid: c5b9d7ed00cce9243960fdf20de7969b, type: 2}
+  prefabWhichWantToCompareStats: {fileID: 0}
+  doorToOpen: {fileID: 702826176}
 --- !u!114 &335865544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3807,7 +3817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335865542}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 60.14, y: 1.97, z: 11.968759}
+  m_LocalPosition: {x: 2.79, y: 4.16, z: 11.968759}
   m_LocalScale: {x: 0.43199298, y: 0.43885854, z: 1}
   m_Children:
   - {fileID: 2003120338}
@@ -5079,6 +5089,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &496986365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3999242606818546716, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
+  m_PrefabInstance: {fileID: 1451777359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &501915161
 GameObject:
   m_ObjectHideFlags: 0
@@ -9902,10 +9917,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogUI: {fileID: 520988959}
-  testDialogue: {fileID: 11400000, guid: cea2b14d954947645890b669574be030, type: 2}
+  dialogue1: {fileID: 0}
+  dialogue2: {fileID: 11400000, guid: 2f477f42e35ecb749975be2e0817ed74, type: 2}
   objectToDrop: {fileID: 0}
-  goodAnswer: "si\u0142a"
+  objectWanted: {fileID: 0}
+  answerToGiveObject: 
+  goodAnswer: "Si\u0142a"
   canBeRecruited: 1
+  haveToGiveObject: 0
+  shouldOpenTheDoor: 0
+  ifHaveImpactOnMind: 0
+  pointsToImpactTheMind: 0
+  prefabToFindStats: {fileID: 11400000, guid: 0f9a0e64d19276445a50b1bb2e707265, type: 2}
+  prefabWhichWantToCompareStats: {fileID: 11400000, guid: e207fe8aaf7c7a54998ca4bd724f3c95, type: 2}
+  doorToOpen: {fileID: 0}
 --- !u!114 &867635156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10210,10 +10235,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogUI: {fileID: 520988959}
-  testDialogue: {fileID: 11400000, guid: 0b4c1d66cb68e844b81009f8d6de8567, type: 2}
+  dialogue1: {fileID: 0}
+  dialogue2: {fileID: 0}
   objectToDrop: {fileID: 1758744980}
+  objectWanted: {fileID: 0}
+  answerToGiveObject: 
   goodAnswer: Tak
   canBeRecruited: 0
+  haveToGiveObject: 0
+  shouldOpenTheDoor: 0
+  ifHaveImpactOnMind: 0
+  pointsToImpactTheMind: 0
+  prefabToFindStats: {fileID: 0}
+  prefabWhichWantToCompareStats: {fileID: 0}
+  doorToOpen: {fileID: 0}
 --- !u!114 &893098441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13110,10 +13145,9 @@ MonoBehaviour:
   heroes: []
   main: {fileID: 11400000, guid: 0f9a0e64d19276445a50b1bb2e707265, type: 2}
   temp: {fileID: 0}
-  h1: {fileID: 11400000, guid: 0f9a0e64d19276445a50b1bb2e707265, type: 2}
-  h2: {fileID: 11400000, guid: e207fe8aaf7c7a54998ca4bd724f3c95, type: 2}
-  h3: {fileID: 11400000, guid: c5b9d7ed00cce9243960fdf20de7969b, type: 2}
-  h4: {fileID: 11400000, guid: e4320941c2beeb2429477824211a2aca, type: 2}
+  h1: {fileID: 0}
+  h2: {fileID: 0}
+  h3: {fileID: 0}
 --- !u!1 &1091809870
 GameObject:
   m_ObjectHideFlags: 0
@@ -17440,11 +17474,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1184216293067100126, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.31
+      value: -10.96
       objectReference: {fileID: 0}
     - target: {fileID: 1184216293067100126, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.14
+      value: 12.12
       objectReference: {fileID: 0}
     - target: {fileID: 1184216293067100126, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
       propertyPath: m_LocalPosition.z

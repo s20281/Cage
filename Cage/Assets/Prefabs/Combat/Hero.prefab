@@ -644,6 +644,7 @@ MonoBehaviour:
   dodge: 5
   aim: 10
   hpBar: {fileID: 7003506233119557249}
+  characterType: 0
   dead: {fileID: 0}
   isDead: 0
   queued: 0
