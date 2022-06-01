@@ -273,6 +273,7 @@ public class Turn : MonoBehaviour
                 Destroy(objectStats.GetComponent<Stats>().queueIcon);
 
 
+
                 o.GetComponent<SpriteRenderer>().color = new Color(red, green, blue); ;
                 yield return new WaitForSeconds(1f);
 
@@ -292,10 +293,11 @@ public class Turn : MonoBehaviour
                 {
                     yield return null;
                 }
+                o.transform.GetChild(2).transform.gameObject.SetActive(false);
                 skipButton.SetActive(false);
                 yield return new WaitForSeconds(1.0f);
                 //skillsPanel.SetActive(false);
-                o.transform.GetChild(2).transform.gameObject.SetActive(false);
+                //o.transform.GetChild(2).transform.gameObject.SetActive(false);
                 o.GetComponent<InventoryForCombat>().ReloadItems();
             }
 
