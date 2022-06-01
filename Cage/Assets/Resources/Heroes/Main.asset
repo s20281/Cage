@@ -16,14 +16,15 @@ MonoBehaviour:
   name: Main
   description: main hero
   whatWantInTeammates: 
-  icon: {fileID: 21300000, guid: 85e8734f789d54242a5606f0f8fbfc9a, type: 3}
+  icon: {fileID: 21300000, guid: 81fa6f1ee4af00d49819b83ee2565b20, type: 3}
   maxHealth: 36
-  health: 5
+  health: 22
   speed: 6
-  dodge: 0
+  dodge: 5
   accuracy: 5
   strength: 5
   mentalHealth: 0
-  exp: 5
-  level: 1
-  levelUpPoints: 0
+  combatPrefab: {fileID: 1062518002907480377, guid: 837fd11e665d0f0488f2ea5608c57507, type: 3}
+  exp: 20
+  level: 7
+  levelUpPoints: 6

@@ -82,7 +82,12 @@ public class Stats : MonoBehaviour
         }
 
         if(change < 0)
+        {
             gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect((-change).ToString(), Color.red);
+            if (characterType == CharacterType.Hero)
+                gameObject.GetComponent<Animations>().hit();
+        }
+            
         else if(change == 0)
             gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(change.ToString(), Color.white);
         else
@@ -101,6 +106,13 @@ public class Stats : MonoBehaviour
 
         if(characterType == CharacterType.Hero)
             hero.health = health;
+        else
+        {
+            if (GetComponent<EnemyProperties>().enemyType == EnemySkill.EnemyType.WITCH)
+            {
+                GetComponent<Witch>().hitAnimation();
+            }
+        }
 
         hpBar.changeHealth(change);
     }
@@ -120,6 +132,12 @@ public class Stats : MonoBehaviour
         {
             GameEventSystem.Instance.SetEnemyDies();
             GM.GetComponent<Team>().shareExp(expForKill);
+
+            if(GetComponent<EnemyProperties>().enemyType == EnemySkill.EnemyType.WITCH)
+            {
+                GetComponent<Witch>().deathAnimation();
+            }
+
         }
         else if (gameObject.CompareTag("Player"))
         {

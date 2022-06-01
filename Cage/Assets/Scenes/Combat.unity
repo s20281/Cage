@@ -792,6 +792,7 @@ MonoBehaviour:
   aliveEnemiesCount: 0
   alivePlayers: []
   enemies: []
+  aliveEnemies: []
   skillsPanel: {fileID: 548160151}
   playerUsedTurn: 0
   queuePanel: {fileID: 660762872}

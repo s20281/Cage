@@ -97,23 +97,9 @@ public static class EnemySkill
                 return clownBasic;
 
             case EnemyType.WITCH:
-                rand = UnityEngine.Random.Range(0, 4);
-                switch (rand)
-                {
-                    case 0:
-                        if (!caster.usedSpecialPower && Turn.control.aliveEnemiesCount < 4)
-                        {
-                            caster.usedSpecialPower = true;
-                            return witchSummon;
-                        }
-                        else
-                            return chooseSKill(enemyType);
-                       
-                    case 1:
-                        return witchHeal;
-                    default:
-                        return witchBasic;
-                }
+
+                return caster.gameObject.GetComponent<Witch>().AI();
+
             case EnemyType.RAT:
                 if (Turn.control.aliveEnemiesCount < 4)
                     return ratSummonRats;
@@ -132,7 +118,7 @@ public static class EnemySkill
     }
 
 
-    private static bool hit()
+    public static bool hit()
     {
         int aim = caster.aim;
         int dodge = target.dodge;
@@ -150,7 +136,7 @@ public static class EnemySkill
         return true;
     }
 
-    private static void dealDmg(int damage)
+    public static void dealDmg(int damage)
     {
         target.healthChange(-damage);
         target.gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect(damage.ToString(), Color.red);
@@ -266,7 +252,8 @@ public static class EnemySkill
     {   
         foreach (Stats s in Turn.control.getAliveEnemies())
         {
-            s.addBuff(new Buff(3, 0, 0, 0, 2));
+            if(s.gameObject.GetComponent<EnemyProperties>().enemyType != EnemyType.TORNADO)
+                s.addBuff(new Buff(3, 0, 0, 0, 2));
         }
         caster.healthChange(-1);
     }

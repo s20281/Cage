@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 2
   name: Hulk
   description: tank
+  whatWantInTeammates: 
   icon: {fileID: 21300000, guid: 91c3de0a6fc801e44b46429f0f0499b8, type: 3}
   maxHealth: 30
   health: 30
@@ -22,6 +23,8 @@ MonoBehaviour:
   dodge: 2
   accuracy: 4
   strength: 5
+  mentalHealth: 0
+  combatPrefab: {fileID: 7534003230420081401, guid: 0e618ae35b5cfe74a8b763d91051a23a, type: 3}
   exp: 0
   level: 1
   levelUpPoints: 0

@@ -132,7 +132,9 @@ public class UseSkill : MonoBehaviour
         }
 
         int damage = 0;
-       
+
+        skillUser.gameObject.GetComponent<Animations>().attack();
+
         if(dealsDamage)
             damage = baseDmg + skillUser.strength;
         target.healthChange(-damage);

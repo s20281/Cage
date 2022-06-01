@@ -62,7 +62,7 @@ public class LoadCharacters : MonoBehaviour
         if (hasCompanion)
         {
             Character[] harr = Inventory.control.GetAllCharacters().ToArray();
-            var allCharacters= Inventory.control.GetAllCharacters();           
+//            var allCharacters= Inventory.control.GetAllCharacters();           
             
             for (int i = 0; i < 4; i++)
             {
@@ -108,8 +108,8 @@ public class LoadCharacters : MonoBehaviour
             }  
         }
 
-        if (hasCompanion)
-        {           
+        //if (hasCompanion)
+        //{           
             GameObject[] heroSpawnPoints = new GameObject[] { heroSpawnPoint1, heroSpawnPoint2, heroSpawnPoint3, heroSpawnPoint4 };
 
             Hero [] heroes = gm.GetComponent<Team>().heroes;
@@ -118,8 +118,8 @@ public class LoadCharacters : MonoBehaviour
             {
                 if (heroes[i] != null)
                 {
-                    GameObject o = GameObject.Instantiate(heroPrefab, heroSpawnPoints[i].transform);
                     Hero h = heroes[i];
+                    GameObject o = GameObject.Instantiate(h.combatPrefab, heroSpawnPoints[i].transform);
                     o.gameObject.GetComponent<Stats>().setStats(h);
                     o.name = h.name;
                     o.transform.GetChild(2).gameObject.SetActive(false);
@@ -129,7 +129,7 @@ public class LoadCharacters : MonoBehaviour
                     o.transform.position = updatedSpawnPosition;
                 }
             }
-        }
+        //}
     }
 
     public void summon(EnemyType type, int count)

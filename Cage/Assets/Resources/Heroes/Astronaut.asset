@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 4
   name: Astronaut
   description: 
+  whatWantInTeammates: 
   icon: {fileID: 5125268258512110123, guid: 24f769d2314c40342a98f53a907cea45, type: 3}
   maxHealth: 22
   health: 22
@@ -22,6 +23,8 @@ MonoBehaviour:
   dodge: 4
   accuracy: 6
   strength: 3
+  mentalHealth: 0
+  combatPrefab: {fileID: 3353890711188602314, guid: 6c0aae567e21b8c4a8cc68f02ac10fe0, type: 3}
   exp: 0
   level: 0
   levelUpPoints: 0

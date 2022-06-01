@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     Inventory inventory;
     bool canPress = false;
     Collider2D collider2d;
+    Animator animator;
+
 
     private Sprite sprite;
 
@@ -26,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
             this.transform.position = vec;
         }
         sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -53,23 +57,29 @@ public class PlayerMovement : MonoBehaviour
         {
             moveVelocity = Vector3.left;
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            animator.SetBool("isMoving", true);
         }
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        else if (Input.GetAxisRaw("Horizontal") > 0)
         {
             moveVelocity = Vector3.right;
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            animator.SetBool("isMoving", true);
         }
 
-        if (Input.GetAxisRaw("Vertical") > 0)
+        else if (Input.GetAxisRaw("Vertical") > 0)
         {
             moveVelocity = Vector3.up;
-
+            animator.SetBool("isMoving", true);
         }
 
-        if (Input.GetAxisRaw("Vertical") < 0)
+        else if (Input.GetAxisRaw("Vertical") < 0)
         {
             moveVelocity = Vector3.down;
-
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
         }
 
         //transform.up = moveVelocity;

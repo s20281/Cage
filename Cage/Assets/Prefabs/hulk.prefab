@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 4269056865313537976}
   - component: {fileID: -9132993536825931532}
   - component: {fileID: 7487521260981567952}
+  - component: {fileID: 8173079179627950423}
   m_Layer: 0
   m_Name: hulk
   m_TagString: Player
@@ -405,6 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab5803a5e8c3544497f863c4074baa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hero: {fileID: 0}
   maxHealth: 1
   health: 1
   speed: 3
@@ -412,10 +414,17 @@ MonoBehaviour:
   dodge: 2
   aim: 4
   hpBar: {fileID: 0}
+  characterType: 0
+  expForKill: 0
+  mentalHealth: 0
   dead: {fileID: 0}
   isDead: 0
   queued: 0
   queueIcon: {fileID: 0}
+  hasShield: 0
+  usedSpecialPower: 0
+  isProtected: 0
+  Protector: {fileID: 0}
 --- !u!114 &7487521260981567952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +440,25 @@ MonoBehaviour:
   slotPrefab: {fileID: 5879349468074249698, guid: ba0601ae84b63bb4e9c276b198b1f34d, type: 3}
   slotPanel: {fileID: 0}
   numberOfslots: 5
+--- !u!95 &8173079179627950423
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4269056865313537971}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 275de8ebf87ddad49b9b3dae305a5405, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5501166592788693641
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d774c01682f2a344b0e3c06991f648e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedItem: {fileID: 0}
 --- !u!225 &1210359871020488881
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -545,6 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336397092b2afd346b1b4af119170803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCanvas: {fileID: 0}
 --- !u!1 &6366987065010732733
 GameObject:
   m_ObjectHideFlags: 0

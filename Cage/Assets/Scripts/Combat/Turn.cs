@@ -13,7 +13,7 @@ public class Turn : MonoBehaviour
     private Stats playerStats;
     public int alivePlayersCount;
     public int aliveEnemiesCount;
-    int turnNumber = 1;
+    public int turnNumber = 1;
     GameObject[] players;
     public List<GameObject> alivePlayers = new List<GameObject>();
     public GameObject[] enemies;
@@ -274,7 +274,8 @@ public class Turn : MonoBehaviour
 
 
                 o.GetComponent<SpriteRenderer>().color = new Color(red, green, blue); ;
-                
+                yield return new WaitForSeconds(1f);
+
             }
             else
             {

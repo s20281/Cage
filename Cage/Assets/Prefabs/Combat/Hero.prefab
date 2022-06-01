@@ -549,6 +549,7 @@ GameObject:
   - component: {fileID: 7867797881197011549}
   - component: {fileID: 7266051287841890113}
   - component: {fileID: 7448718331971504838}
+  - component: {fileID: -2421110851731445469}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -645,10 +646,16 @@ MonoBehaviour:
   aim: 10
   hpBar: {fileID: 7003506233119557249}
   characterType: 0
+  expForKill: 0
+  mentalHealth: 0
   dead: {fileID: 0}
   isDead: 0
   queued: 0
   queueIcon: {fileID: 0}
+  hasShield: 0
+  usedSpecialPower: 0
+  isProtected: 0
+  Protector: {fileID: 0}
 --- !u!61 &7266051287841890113
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -690,6 +697,18 @@ MonoBehaviour:
   slotPrefab: {fileID: 5879349468074249698, guid: ba0601ae84b63bb4e9c276b198b1f34d, type: 3}
   slotPanel: {fileID: 7448718332640820722}
   numberOfslots: 6
+--- !u!114 &-2421110851731445469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867797881197011546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035103e456676314a91d5cc8cdc7db7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8939860056055399931
 GameObject:
   m_ObjectHideFlags: 0

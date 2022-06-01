@@ -17,6 +17,7 @@ public class Hero : ScriptableObject
     public int accuracy;
     public int strength;
     public int mentalHealth;
+    public GameObject combatPrefab;
 
     public int exp;
     public int level;
