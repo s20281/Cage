@@ -12,6 +12,7 @@ TagManager:
   - Hero
   - SelectedItem
   - NextLevelDoor
+  - Ending
   layers:
   - Default
   - TransparentFX

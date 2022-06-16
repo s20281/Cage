@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
+    private string sceneName = "Level 1";
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -26,6 +28,14 @@ public class LevelChange : MonoBehaviour
         {
             Debug.Log("Next level");
             SceneManager.LoadScene("Level 2");
+            sceneName = "Level 2";
+
+        }
+
+        if (collision.gameObject.CompareTag("Ending"))
+        {
+            SceneManager.LoadScene("Ending");
+            sceneName = "Ending";
 
         }
     }
