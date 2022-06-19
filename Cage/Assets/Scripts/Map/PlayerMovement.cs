@@ -38,16 +38,6 @@ public class PlayerMovement : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerPostionX", this.transform.position.x);
         PlayerPrefs.SetFloat("PlayerPostionY", this.transform.position.y);
 
-        if (SceneManager.GetActiveScene().name == "Level 1")
-        {
-
-            
-        }
-        else
-        {
-            
-        }
-
         Collider2D collider2dold = collider2d; 
 
         moveVelocity = Vector3.zero;

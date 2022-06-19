@@ -116,6 +116,13 @@ public class Turn : MonoBehaviour
         }
     }
 
+    void returnToMap()
+    {
+        string level = PlayerPrefs.GetString("level");
+        Debug.Log(level);
+        SceneManager.LoadScene(level);
+    }
+
 
     IEnumerator nextTurn()
     {
@@ -124,7 +131,7 @@ public class Turn : MonoBehaviour
             if (aliveEnemiesCount == 0)
             {
                 Debug.Log("All enemies are dead");
-                SceneManager.LoadScene("Level 2");
+                returnToMap();
                 yield break;
             }
             if (alivePlayersCount == 0)
@@ -363,7 +370,7 @@ public class Turn : MonoBehaviour
     public void AutoWin()
     {
         Debug.Log("Auto WIN");
-        SceneManager.LoadScene("Level 2");
+        returnToMap();
     }
 
     public GameObject getRandomPlayer()

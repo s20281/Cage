@@ -19,7 +19,9 @@ public class Inventory2 : MonoBehaviour
                 break;
             }
         }
+        int index = items.IndexOf(itemToRemove);
         items.Remove(itemToRemove);
+        PlayerPrefs.SetString("inventory." + index, "");
         inv.removeItem(itemToRemove);
     }
 }

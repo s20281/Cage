@@ -38,6 +38,7 @@ public class Team : MonoBehaviour
                 heroes[i] = hero;
                 hero.health = hero.maxHealth;
                 heroesCount++;
+                PlayerPrefs.SetInt(hero.name, 1);
 
                 break;
             }
@@ -52,6 +53,7 @@ public class Team : MonoBehaviour
             {
                 heroes[i] = null;
                 heroesCount--;
+                PlayerPrefs.SetInt(hero.name, 0);
                 break;
             }
         }

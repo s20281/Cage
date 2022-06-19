@@ -41,15 +41,19 @@ public class PickableItem : MonoBehaviour
         GameObject gm = GameObject.FindGameObjectWithTag("GM");
         if (gameObject.CompareTag("Item"))
         {
-            
-            gm.gameObject.GetComponent<Inventory2>().inv.addItem(item); //testowe
-            gm.gameObject.GetComponent<Inventory2>().items.Add(item);
+            Inventory2 inv2 = gm.gameObject.GetComponent<Inventory2>();
+            inv2.inv.addItem(item); //testowe
+            inv2.items.Add(item);
+            int index = inv2.items.IndexOf(item);
+            PlayerPrefs.SetString("inventory." + index, item.name);
+
+            PlayerPrefs.SetInt(item.name, 1);
         }
         else if (gameObject.CompareTag("Hero"))
         {
             gm.gameObject.GetComponent<Team>().addHero(hero);
 
-            foreach(ScriptableItem item in startingItems)
+            foreach (ScriptableItem item in startingItems)
             {
                 gm.gameObject.GetComponent<Inventory2>().items.Add(item);
                 inventory.AddItem(item.name);
@@ -57,6 +61,7 @@ public class PickableItem : MonoBehaviour
         }
         //}
         gameObject.SetActive(false);
+        gameObject.GetComponent<ObjectsManager>().setOff();
 
         //this.GetComponent<ObjectsManager>().setOff();
     }

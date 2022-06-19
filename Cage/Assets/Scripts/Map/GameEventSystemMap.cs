@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEventSystemMap : MonoBehaviour
 {
@@ -26,12 +27,16 @@ public class GameEventSystemMap : MonoBehaviour
         else
             Destroy(gameObject);
 
+        if(PlayerPrefs.GetInt("loadGame") == 1)
+        {
+            SaveSystem.control.loadGame();
+            PlayerPrefs.SetInt("loadGame", 0);
+        }
 
         if (StaticClass.loadScene)
         {
             Debug.Log("load scene");
         }
-        //GameEventSystemMap.Instance.LoadData();
 
         else
         {
@@ -54,10 +59,7 @@ public class GameEventSystemMap : MonoBehaviour
                 UIItem.control.RemoveSelectedItem();
                 Inventory.control.RemoveAndSpawnItem(item.name);
             }
-
         }
-
-        
     }
 
     public void SetHeroSelect(Hero hero)
@@ -65,34 +67,8 @@ public class GameEventSystemMap : MonoBehaviour
         OnHeroSelect.Invoke(hero);
     }
 
-    //[SerializeField]
-    //private GameData data;
-
-    //public event Action<GameData> OnSaveData;
-    //public event Action<GameData> OnLoadData;
-
-    //public void LoadData()
-    //{
-    //    XmlSerializer serializer = new XmlSerializer(typeof(GameData));
-    //    FileStream stream = new FileStream(Application.dataPath + "/../save.xml", FileMode.Open);
-    //    GameData tmp = serializer.Deserialize(stream) as GameData;
-
-    //    if (tmp != null)
-    //    {
-    //        data = tmp;
-    //    }
-
-    //    stream.Close();
-    //    OnLoadData?.Invoke(data);
-    //}
-    //public void SaveData()
-    //{
-    //    OnSaveData?.Invoke(data);
-
-    //    XmlSerializer serializer = new XmlSerializer(typeof(GameData));
-    //    FileStream stream = new FileStream(Application.dataPath + "/../save.xml", FileMode.Create);
-    //    serializer.Serialize(stream, data);
-    //    stream.Close();
-    //}
-
+    private void Start()
+    {
+        PlayerPrefs.SetString("level", SceneManager.GetActiveScene().name);
+    }
 }
