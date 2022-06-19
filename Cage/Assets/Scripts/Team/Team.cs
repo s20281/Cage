@@ -18,7 +18,7 @@ public class Team : MonoBehaviour
     public Dictionary<string, Hero> heroMapping = new Dictionary<string, Hero>();
 
     private void Awake()
-    {
+    {       
         heroes = new Hero[8];
         heroesCount = 0;
         addHero(main);
