@@ -56,6 +56,8 @@ public class PickableItem : MonoBehaviour
             foreach (ScriptableItem item in startingItems)
             {
                 gm.gameObject.GetComponent<Inventory2>().items.Add(item);
+                int index = gm.gameObject.GetComponent<Inventory2>().items.IndexOf(item);
+                PlayerPrefs.SetString("inventory." + index, item.name);
                 inventory.AddItem(item.name);
             }
         }

@@ -76,13 +76,13 @@ public class GameEventSystemMap : MonoBehaviour
     {
         PlayerPrefs.SetString("level", SceneManager.GetActiveScene().name);
 
-        GameObject GM = GameObject.FindGameObjectWithTag("GM");
+        //GameObject GM = GameObject.FindGameObjectWithTag("GM");
 
-        List<ScriptableItem> items = GM.GetComponent<Inventory2>().items;
+        //List<ScriptableItem> items = GM.GetComponent<Inventory2>().items;
 
-        foreach (ScriptableItem i in items)
-        {
-            uIInventory.AddNewItem(new Item(i));
-        }
+        //foreach (ScriptableItem i in items)
+        //{
+        //    uIInventory.AddNewItem(new Item(i));
+        //}
     }
 }

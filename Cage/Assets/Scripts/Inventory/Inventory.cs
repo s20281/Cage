@@ -44,7 +44,8 @@ public class Inventory : MonoBehaviour
 
         }
 
-        foreach (ScriptableItem item in GM.GetComponent<Inventory2>().items)
+        
+        foreach (ScriptableItem item in GM.GetComponent<Inventory2>().items)   // to siê wykonuje 2 razy z jakiegoœ powodu
         {
             AddItem(item.name);
         }
