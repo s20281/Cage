@@ -308,6 +308,8 @@ public class Turn : MonoBehaviour
                 o.GetComponent<InventoryForCombat>().ReloadItems();
             }
 
+            // Buffy
+
             int buffsCount = objectStats.buffsList.Count;
 
             for (int i = 0; i < buffsCount ; i++) // tu jest jakiœ problem !
@@ -317,7 +319,11 @@ public class Turn : MonoBehaviour
                 buff.turns--;
 
                 if (buff.turns <= 0)
+                {
                     buff.remove(objectStats);
+                    buffsCount--;
+                }
+                    
             }
             Destroy(objectStats.queueIcon);
         }   

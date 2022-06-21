@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class EnemySkill
 {
-    public enum EnemyType { SHADOW, ROCK, SPIDER, ZOMBIE, CLOWN, WITCH, RAT, TORNADO, NONE }
+    public enum EnemyType { SHADOW, ROCK, SPIDER, ZOMBIE, CLOWN, CLOWN_CLONE, WITCH, RAT, TORNADO, NONE }
 
 
     public static Dictionary<EnemyType, List<Action>> skillMaping;
@@ -94,7 +94,8 @@ public static class EnemySkill
                     return zombieBasic;
 
             case EnemyType.CLOWN:
-                return clownBasic;
+            case EnemyType.CLOWN_CLONE:
+                return caster.gameObject.GetComponent<Clown>().AI();
 
             case EnemyType.WITCH:
 
@@ -124,6 +125,8 @@ public static class EnemySkill
         int dodge = target.dodge;
         int diff = aim - dodge;
 
+        //Debug.Log("Diff: " + diff);
+
         int score = UnityEngine.Random.Range(-10, 30) + diff;
 
         if (score < 0)
@@ -133,6 +136,7 @@ public static class EnemySkill
             target.gameObject.transform.GetChild(1).transform.GetChild(0).GetComponent<Effects>().displayEffect("DODGE", Color.green);
             return false;
         }
+        //Debug.Log("Hit chance: " + score);
         return true;
     }
 
@@ -202,27 +206,6 @@ public static class EnemySkill
     {
         if (!hit()) return;
         dealDmg(4);
-    }
-
-    private static void witchBasic()
-    {
-        if (!hit()) return;
-        dealDmg(4);
-    }
-
-    private static void witchHeal()
-    {
-        List<Stats> aliveEnemies = Turn.control.getAliveEnemies();
-
-        foreach(Stats s in aliveEnemies)
-        {
-            s.healthChange(3);
-        }
-    }
-
-    private static void witchSummon()
-    {
-        LoadCharacters.control.summon(EnemyType.TORNADO, 1);
     }
 
     private static void ratBasic()

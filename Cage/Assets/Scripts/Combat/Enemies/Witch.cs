@@ -20,9 +20,10 @@ public class Witch : MonoBehaviour
     bool healNextTurn = false;
     bool mustHeal = false;
 
+
     public Action AI()
     {
-        if(!usedSpecialPower && Turn.control.turnNumber > 1)
+        if (!usedSpecialPower && Turn.control.turnNumber > 1 && Turn.control.aliveEnemiesCount < 4)
         {
             usedSpecialPower = true;
             return witchSummon;

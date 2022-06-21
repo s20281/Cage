@@ -40,7 +40,10 @@ public class UIUpdate : MonoBehaviour
         {
             EnemyType et = stats.gameObject.GetComponent<EnemyProperties>().enemyType;
 
-            healthText.text = stats.health.ToString();
+            if(et == EnemyType.CLOWN || et == EnemyType.CLOWN_CLONE)
+                healthText.text = "?";
+            else
+                healthText.text = stats.health.ToString();
 
             speedText.text = stats.speed.ToString();
 

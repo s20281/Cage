@@ -20,6 +20,8 @@ public class GameEventSystemMap : MonoBehaviour
         }
     }
 
+    public UIInventory uIInventory;
+
     private void Awake()
     {
         if (instance == null)
@@ -31,6 +33,9 @@ public class GameEventSystemMap : MonoBehaviour
         {
             SaveSystem.control.loadGame();
             PlayerPrefs.SetInt("loadGame", 0);
+
+            
+
         }
 
         if (StaticClass.loadScene)
@@ -70,5 +75,14 @@ public class GameEventSystemMap : MonoBehaviour
     private void Start()
     {
         PlayerPrefs.SetString("level", SceneManager.GetActiveScene().name);
+
+        GameObject GM = GameObject.FindGameObjectWithTag("GM");
+
+        List<ScriptableItem> items = GM.GetComponent<Inventory2>().items;
+
+        foreach (ScriptableItem i in items)
+        {
+            uIInventory.AddNewItem(new Item(i));
+        }
     }
 }

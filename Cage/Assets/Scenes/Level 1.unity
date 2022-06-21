@@ -801,6 +801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!61 &98335701
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1698,6 +1699,7 @@ Transform:
   - {fileID: 2063326873}
   - {fileID: 1266762860}
   - {fileID: 1505718226}
+  - {fileID: 631440466}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2234,6 +2236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &166920595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,6 +3841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &360664621
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,6 +4796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &469268438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5200,6 +5205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!61 &509088955
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5896,6 +5902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &557702491
 GameObject:
   m_ObjectHideFlags: 0
@@ -6185,6 +6192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &577898134
 GameObject:
   m_ObjectHideFlags: 0
@@ -6458,6 +6466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!61 &591010793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7317,6 +7326,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630933630}
   m_CullTransparentMesh: 1
+--- !u!4 &631440466 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+  m_PrefabInstance: {fileID: 1341694713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &636757364
 GameObject:
   m_ObjectHideFlags: 0
@@ -7453,6 +7467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &657001793
 GameObject:
   m_ObjectHideFlags: 0
@@ -8272,6 +8287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &718741852
 GameObject:
   m_ObjectHideFlags: 0
@@ -8551,6 +8567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &740346289
 GameObject:
   m_ObjectHideFlags: 0
@@ -8710,6 +8727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!61 &750013170
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9130,11 +9148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[2]
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[3]
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad2.Array.data[0]
@@ -10018,6 +10036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &869020117
 GameObject:
   m_ObjectHideFlags: 0
@@ -10361,6 +10380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!4 &899503216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3999242606818546706, guid: 2ab477e807aeaef49b41e415affd4369, type: 3}
@@ -12478,6 +12498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &1072572687
 GameObject:
   m_ObjectHideFlags: 0
@@ -12637,6 +12658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!61 &1077088676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13092,6 +13114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &1091809870
 GameObject:
   m_ObjectHideFlags: 0
@@ -13823,6 +13846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &1144848923
 GameObject:
   m_ObjectHideFlags: 0
@@ -14402,6 +14426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!61 &1207796557
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15464,6 +15489,115 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333520622}
   m_CullTransparentMesh: 1
+--- !u!1001 &1341694713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 147218942}
+    m_Modifications:
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.23691697
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.28587177
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.968759
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 975175224749789934, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925930255630898241, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 01e071376c063224090a1dc9b16f6da2, type: 3}
+    - target: {fileID: 3043875795886584632, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_Name
+      value: EnemyOnMap (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043875795886584632, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929792665115701326, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 9.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929792665115701326, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 9.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad.Array.data[1]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad.Array.data[2]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad.Array.data[3]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad2.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad2.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
+      propertyPath: enemiesToLoad2.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
 --- !u!1 &1343582058
 GameObject:
   m_ObjectHideFlags: 0
@@ -18873,6 +19007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b058537b62fd64b92c4f5dc7a3c2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uIInventory: {fileID: 967970943}
 --- !u!4 &1881634497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7132448285819053784, guid: d10c579f10208a3439cb41dabad9cd1c, type: 3}
@@ -19041,6 +19176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!114 &1886352438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20636,6 +20772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &2041852989
 GameObject:
   m_ObjectHideFlags: 0
@@ -21152,6 +21289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!61 &2071998725
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21594,6 +21732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &2107844789
 GameObject:
   m_ObjectHideFlags: 0
@@ -22023,6 +22162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  saved: 0
 --- !u!1 &2124787494 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1184216293067100117, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
@@ -22395,7 +22535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad.Array.data[3]
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6151252626201773583, guid: 6760c03262fc05a46a343777673b6d21, type: 3}
       propertyPath: enemiesToLoad2.Array.data[0]

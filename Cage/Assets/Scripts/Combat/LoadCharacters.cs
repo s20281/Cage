@@ -29,6 +29,7 @@ public class LoadCharacters : MonoBehaviour
     public GameObject spider;
     public GameObject zombie;
     public GameObject clown;
+    public GameObject clown_clone;
     public GameObject witch;
     public GameObject rat;
     public GameObject tornado;
@@ -89,6 +90,7 @@ public class LoadCharacters : MonoBehaviour
         enemyPrefabs.Add(EnemyType.SPIDER, spider);
         enemyPrefabs.Add(EnemyType.ZOMBIE, zombie);
         enemyPrefabs.Add(EnemyType.CLOWN, clown);
+        enemyPrefabs.Add(EnemyType.CLOWN_CLONE, clown_clone);
         enemyPrefabs.Add(EnemyType.WITCH, witch);
         enemyPrefabs.Add(EnemyType.RAT, rat);
         enemyPrefabs.Add(EnemyType.TORNADO, tornado);

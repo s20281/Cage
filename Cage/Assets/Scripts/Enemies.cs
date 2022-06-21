@@ -70,8 +70,17 @@ public class Enemies
 
     static Dictionary<string, int> clownStats = new Dictionary<string, int>
     {
-        {"maxHealth", 8 },
-        {"speed", 6 },
+        {"maxHealth", 20 },
+        {"speed", 10 },
+        {"strength", 3},
+        {"dodge", 6 },
+        {"aim", 4 }
+    };
+
+    static Dictionary<string, int> clownCloneStats = new Dictionary<string, int>
+    {
+        {"maxHealth", 1 },
+        {"speed", 10 },
         {"strength", 3},
         {"dodge", 6 },
         {"aim", 4 }
@@ -88,6 +97,7 @@ public class Enemies
         {EnemyType.SPIDER, spiderStats},
         {EnemyType.WITCH, witchStats},
         {EnemyType.ZOMBIE, zombieStats},
-        {EnemyType.RAT, ratStats }
+        {EnemyType.RAT, ratStats },
+        {EnemyType.CLOWN_CLONE, clownCloneStats}
     };
 }
