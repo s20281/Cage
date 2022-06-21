@@ -19,14 +19,17 @@ public class Inventory : MonoBehaviour
     public GameObject itemsList;
 
 
-    void Awake()
+    void Start()
     {
         control = this;
 
+
         GM = GameObject.FindGameObjectWithTag("GM");
+        Debug.Log(teamContainer.getUIItemSize());
 
         for (var i = 0; i < teamContainer.getUIItemSize(); i++)
         {
+            Debug.Log("Tutki "+i);
             //charactersInInventory.Add(teamDatabase.GetCharacter(0));
             if (GM.GetComponent<Team>().heroes[i] != null)
             {
@@ -62,7 +65,8 @@ public class Inventory : MonoBehaviour
     }
 
 
-    public void AddItem(int id)
+
+        public void AddItem(int id)
     {
         Item itemToAdd = itemDatabase.GetItem(id);
         Character characterToAdd = teamDatabase.GetCharacter(id);
@@ -102,6 +106,7 @@ public class Inventory : MonoBehaviour
         Item itemToAdd = itemDatabase.GetItem(name);
         Character characterToAdd = teamDatabase.GetCharacter(name);
 
+
         if (itemToAdd != null)
         {
             inventoryUI.AddNewItem(itemToAdd);
@@ -114,13 +119,15 @@ public class Inventory : MonoBehaviour
 
             foreach (var a in GetAllCharacters())
             {
+                Debug.Log(a.name);
                 if (a.name == "blank")
                 {
                     AssignmentAction(charactersInInventory[index], characterToAdd);
                     break;
-                }
+                }             
                 index++;
             }
+            Debug.Log(index);
 
 
             teamContainer.AddNewCharacter(characterToAdd);

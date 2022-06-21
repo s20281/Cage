@@ -1701,7 +1701,7 @@ Transform:
   - {fileID: 1505718226}
   - {fileID: 631440466}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &150795405
 GameObject:
@@ -2318,7 +2318,7 @@ Transform:
   m_LocalScale: {x: 173.74207, y: 49.100796, z: 4.7701}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &166920598
 MonoBehaviour:
@@ -2427,7 +2427,7 @@ RectTransform:
   m_Children:
   - {fileID: 769993061}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3985,7 +3985,7 @@ Transform:
   - {fileID: 392834950}
   - {fileID: 1144848924}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &364130920
 GameObject:
@@ -6041,7 +6041,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &572620283
 MonoBehaviour:
@@ -6052,9 +6052,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 572620280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df29a667fe6cd664da47b4410fe041fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b920f5f0a5aead4d9289a8a8be1da2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDatabase: {fileID: 869020118}
+  teamDatabase: {fileID: 1323661176}
+  inventoryUI: {fileID: 967970943}
+  teamContainer: {fileID: 925067471}
+  inventory: {fileID: 11400000, guid: bd3f74e27c1e3b643993f0ec6eadeb98, type: 2}
+  itemsList: {fileID: 0}
 --- !u!1 &576186066
 GameObject:
   m_ObjectHideFlags: 0
@@ -6414,7 +6420,7 @@ Transform:
   - {fileID: 867635158}
   - {fileID: 335865549}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &591010790
 GameObject:
@@ -10858,6 +10864,7 @@ MonoBehaviour:
   slotPrefab: {fileID: 5879349468074249698, guid: ba0601ae84b63bb4e9c276b198b1f34d, type: 3}
   slotPanel: {fileID: 501915162}
   numberOfslots: 8
+  inventory: {fileID: 572620280}
 --- !u!114 &925067472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14815,7 +14822,7 @@ Transform:
   - {fileID: 39301814}
   - {fileID: 850385691}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1258846394
 PrefabInstance:
@@ -17454,7 +17461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1184216293067100126, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1184216293067100126, guid: 76ca248c052f0ee4dbf3e777b2a50152, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20207,7 +20214,7 @@ Transform:
   - {fileID: 1497993707}
   - {fileID: 934260317}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1968992850
 GameObject:

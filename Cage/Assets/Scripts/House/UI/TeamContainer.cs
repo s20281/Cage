@@ -10,13 +10,12 @@ public class TeamContainer : MonoBehaviour
     public int numberOfslots;
     private List<Character> charactersInInventory;
     public static TeamContainer control;
-    GameObject inventoryCanvas;
 
     private void Awake()
     {
         control = this;
 
-        
+        Debug.Log("Do it");
         for (int i = 0; i < numberOfslots; i++)
         {
             GameObject instance = Instantiate(slotPrefab);
@@ -24,6 +23,7 @@ public class TeamContainer : MonoBehaviour
             uIItems.Add(instance.GetComponentInChildren<UIItem>());
         }
 
+        getUIItemSize();
 
 
     }
@@ -52,6 +52,7 @@ public class TeamContainer : MonoBehaviour
 
     public int getUIItemSize()
     {
+        Debug.Log("containerSize: " +uIItems.Count);
         return uIItems.Count;
     }
 }
