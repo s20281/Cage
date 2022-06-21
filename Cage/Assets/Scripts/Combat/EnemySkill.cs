@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class EnemySkill
 {
-    public enum EnemyType { SHADOW, ROCK, SPIDER, ZOMBIE, CLOWN, CLOWN_CLONE, WITCH, RAT, TORNADO, NONE }
+    public enum EnemyType { SHADOW, ROCK, SPIDER, ZOMBIE, CLOWN, WITCH, RAT, TORNADO, NONE, CLOWN_CLONE }
 
 
     public static Dictionary<EnemyType, List<Action>> skillMaping;
