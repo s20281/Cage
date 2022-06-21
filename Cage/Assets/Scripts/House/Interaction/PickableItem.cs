@@ -60,6 +60,7 @@ public class PickableItem : MonoBehaviour
             }
         }
         //}
+        Debug.Log("aaa "+gameObject);
         gameObject.SetActive(false);
         gameObject.GetComponent<ObjectsManager>().setOff();
 
