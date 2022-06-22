@@ -23,7 +23,7 @@ MonoBehaviour:
   dodge: 5
   accuracy: 5
   strength: 5
-  mentalHealth: 120
+  mentalHealth: 130
   combatPrefab: {fileID: 1062518002907480377, guid: 837fd11e665d0f0488f2ea5608c57507, type: 3}
   exp: 0
   level: 1

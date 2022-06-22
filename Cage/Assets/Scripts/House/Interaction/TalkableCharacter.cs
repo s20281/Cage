@@ -42,6 +42,7 @@ public class TalkableCharacter : MonoBehaviour
                     countCharactersInInventory++;
                 }
             }
+            Debug.Log(character.whatWantInTeammates);
 
             //jak bêdzie enum i bêdziemy wybieraæ po ang to na podstawie tego mo¿e zrobienie strength itp., podawaæ w argumencie jak¹
             //wielkosc statystyk8i chce dany bohater, albo ile razy wiêksza od swojwj 

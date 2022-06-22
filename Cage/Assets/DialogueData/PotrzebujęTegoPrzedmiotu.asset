@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Potrzebuj\u0119TegoPrzedmiotu"
   m_EditorClassIdentifier: 
   dialogue:
-  - "Ten miecz jest mi niezwykle potrzebny, podziel si\u0119 nim ze mn\u0105 "
+  - "Ten klucz jest mi niezwykle potrzebny, podziel si\u0119 nim ze mn\u0105 "
   responses:
   - responseText: Jasne trzymaj
     dialogueObject: {fileID: 11400000, guid: 533d8056f3ab9cb48a6d750535404a7e, type: 2}

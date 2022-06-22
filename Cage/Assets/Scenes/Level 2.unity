@@ -34223,7 +34223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b90b41bedfae69428ee5131db8325f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToUnlockDoor: {fileID: 0}
+  itemToUnlockDoor: {fileID: 684714282}
 --- !u!114 &512686589
 MonoBehaviour:
   m_ObjectHideFlags: 0
