@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   name: shield
-  character: Main
+  character: Hulk
   description: 
   icon: {fileID: 21300000, guid: 9683c5a855e87654e8c7cc9cf48c2dbb, type: 3}
   skill: 11
