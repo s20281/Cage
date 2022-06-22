@@ -15,7 +15,6 @@ public class TeamContainer : MonoBehaviour
     {
         control = this;
 
-        Debug.Log("Do it");
         for (int i = 0; i < numberOfslots; i++)
         {
             GameObject instance = Instantiate(slotPrefab);
@@ -52,7 +51,6 @@ public class TeamContainer : MonoBehaviour
 
     public int getUIItemSize()
     {
-        Debug.Log("containerSize: " +uIItems.Count);
         return uIItems.Count;
     }
 }

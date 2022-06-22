@@ -5,7 +5,6 @@ public class FollowMouse : MonoBehaviour
     public Canvas myCanvas;
     void Update()
     {
-
         foreach (var canv in FindObjectsOfType<Canvas>())
         {
             if (canv.name == "Canvas")

@@ -25,11 +25,9 @@ public class Inventory : MonoBehaviour
 
 
         GM = GameObject.FindGameObjectWithTag("GM");
-        Debug.Log(teamContainer.getUIItemSize());
 
         for (var i = 0; i < teamContainer.getUIItemSize(); i++)
         {
-            Debug.Log("Tutki "+i);
             //charactersInInventory.Add(teamDatabase.GetCharacter(0));
             if (GM.GetComponent<Team>().heroes[i] != null)
             {
@@ -44,7 +42,7 @@ public class Inventory : MonoBehaviour
 
         }
 
-        
+
         foreach (ScriptableItem item in GM.GetComponent<Inventory2>().items)   // to siê wykonuje 2 razy z jakiegoœ powodu
         {
             AddItem(item.name);
@@ -67,7 +65,7 @@ public class Inventory : MonoBehaviour
 
 
 
-        public void AddItem(int id)
+    public void AddItem(int id)
     {
         Item itemToAdd = itemDatabase.GetItem(id);
         Character characterToAdd = teamDatabase.GetCharacter(id);
@@ -125,10 +123,9 @@ public class Inventory : MonoBehaviour
                 {
                     AssignmentAction(charactersInInventory[index], characterToAdd);
                     break;
-                }             
+                }
                 index++;
             }
-            Debug.Log(index);
 
 
             teamContainer.AddNewCharacter(characterToAdd);

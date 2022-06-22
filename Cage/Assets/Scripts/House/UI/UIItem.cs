@@ -31,7 +31,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
     public void UpdateItem(Item item, Character character)
     {
         this.item = item;
-        this.character = character;
+        this.character = character;      
 
         if (this.item != null)
         {
@@ -144,7 +144,6 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
                     GameEventSystem.Instance.SetItemSelect(new Item(0, "", "", "", new Dictionary<string, int>(), Skill.NONE, TargetType.ENEMY));
                 }
             }
-
 
             UpdateItem(selectedItem.item, null);
             selectedItem.UpdateItem(null, null);
