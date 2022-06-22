@@ -9952,8 +9952,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogUI: {fileID: 520988959}
-  dialogue1: {fileID: 11400000, guid: c4877cb174e151440b84df98ab399d57, type: 2}
-  dialogue2: {fileID: 0}
+  dialogue1: {fileID: 11400000, guid: cea2b14d954947645890b669574be030, type: 2}
+  dialogue2: {fileID: 11400000, guid: a8c3fbac3bb256442b9c64bdf1a1890f, type: 2}
   objectToDrop: {fileID: 0}
   objectWanted: {fileID: 0}
   answerToGiveObject: 
@@ -9961,10 +9961,10 @@ MonoBehaviour:
   canBeRecruited: 1
   haveToGiveObject: 0
   shouldOpenTheDoor: 0
-  ifHaveImpactOnMind: 0
-  pointsToImpactTheMind: 0
-  prefabToFindStats: {fileID: 0}
-  prefabWhichWantToCompareStats: {fileID: 0}
+  ifHaveImpactOnMind: 1
+  pointsToImpactTheMind: 100
+  prefabToFindStats: {fileID: 11400000, guid: 0f9a0e64d19276445a50b1bb2e707265, type: 2}
+  prefabWhichWantToCompareStats: {fileID: 11400000, guid: e207fe8aaf7c7a54998ca4bd724f3c95, type: 2}
   doorToOpen: {fileID: 0}
 --- !u!114 &867635156
 MonoBehaviour:
@@ -10271,20 +10271,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogUI: {fileID: 520988959}
-  dialogue1: {fileID: 11400000, guid: 0b4c1d66cb68e844b81009f8d6de8567, type: 2}
-  dialogue2: {fileID: 0}
-  objectToDrop: {fileID: 1758744980}
-  objectWanted: {fileID: 0}
-  answerToGiveObject: 
+  dialogue1: {fileID: 11400000, guid: 6ddcbc478cd0224438e1be5b7abdb7e5, type: 2}
+  dialogue2: {fileID: 11400000, guid: 6ddcbc478cd0224438e1be5b7abdb7e5, type: 2}
+  objectToDrop: {fileID: 0}
+  objectWanted: {fileID: 1758744980}
+  answerToGiveObject: DlaCiebie
   goodAnswer: Tak
   canBeRecruited: 0
-  haveToGiveObject: 0
-  shouldOpenTheDoor: 0
+  haveToGiveObject: 1
+  shouldOpenTheDoor: 1
   ifHaveImpactOnMind: 0
   pointsToImpactTheMind: 0
   prefabToFindStats: {fileID: 0}
   prefabWhichWantToCompareStats: {fileID: 0}
-  doorToOpen: {fileID: 0}
+  doorToOpen: {fileID: 165201143}
 --- !u!114 &893098441
 MonoBehaviour:
   m_ObjectHideFlags: 0
