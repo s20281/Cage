@@ -118,7 +118,7 @@ public class UseSkill : MonoBehaviour
     private bool simpleAtack(int baseDmg, bool dealsDamage = true)
     {
         float modificator = skillUser.aim - target.dodge;
-        float roll = UnityEngine.Random.Range(-5, 5);
+        float roll = UnityEngine.Random.Range(-10, 20);
         GameObject enemy = target.gameObject;
         GameObject player = skillUser.gameObject;
 

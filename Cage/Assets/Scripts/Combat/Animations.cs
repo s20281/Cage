@@ -6,11 +6,13 @@ public class Animations : MonoBehaviour
 {
     public void attack()
     {
-        this.gameObject.GetComponent<Animator>().SetTrigger("attack");
+        if (gameObject.name == "Main")
+            this.gameObject.GetComponent<Animator>().SetTrigger("attack");
     }
 
     public void hit()
     {
-        this.gameObject.GetComponent<Animator>().SetTrigger("hit");
+        if(gameObject.name == "Main")
+            this.gameObject.GetComponent<Animator>().SetTrigger("hit");
     }
 }

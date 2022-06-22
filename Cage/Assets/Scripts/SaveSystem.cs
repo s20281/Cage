@@ -30,7 +30,7 @@ public class SaveSystem : MonoBehaviour
         main.levelUpPoints = 0;
         main.maxHealth = 20;
         main.health = 20;
-        main.accuracy = 5;
+        main.accuracy = 7;
         main.dodge = 5;
         main.speed = 5;
         main.strength = 5;
@@ -51,7 +51,7 @@ public class SaveSystem : MonoBehaviour
         astro.levelUpPoints = 0;
         astro.maxHealth = 20;
         astro.health = 20;
-        astro.accuracy = 6;
+        astro.accuracy = 7;
         astro.dodge = 4;
         astro.speed = 3;
         astro.strength = 3;
@@ -62,7 +62,7 @@ public class SaveSystem : MonoBehaviour
         hulk.levelUpPoints = 0;
         hulk.maxHealth = 30;
         hulk.health = 30;
-        hulk.accuracy = 3;
+        hulk.accuracy = 5;
         hulk.dodge = 3;
         hulk.speed = 3;
         hulk.strength = 6;
